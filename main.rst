@@ -141,12 +141,12 @@ These are the topics for the Container camp workshop at CyVerse, University of A
 
 This would be the introductory session for concept of Docker. In this session 
 we will demonstrate how to containerize your software/applications using Docker, 
-push them to Dockerhub and other  and other registries and finally deploy them on cloud. 
+push them to Dockerhub and other registries and finally deploy them on cloud. 
 
 **Docker basics/Introduction (Upendra and Kapeel)**
 
 - Prerequisites
-- Installing Docker on laptop (Mac/Windows/Linux) and on cloud
+- Installing Docker on laptop (`Mac <https://docs.docker.com/docker-for-mac/install/>`_/`Windows <https://docs.docker.com/docker-for-windows/install/>`_/`Linux <https://docs.docker.com/install/linux/docker-ce/ubuntu/>`_)
 - Running Docker containers from prebuilt image
 - Building Docker images 
   
@@ -167,7 +167,7 @@ push them to Dockerhub and other  and other registries and finally deploy them o
 
 **Advanced docker (Paul and Ian)**
 
-- Docker registries (Docker cloud, Docker hub, quay.io and local registries)
+- Docker registries (`Docker cloud <https://cloud.docker.com/>`_, `Docker hub <https://hub.docker.com/>`_, `quay.io <https://quay.io/>`_ and local registries)
 
   - Finding images
   - Pushing images 
@@ -197,10 +197,7 @@ Singularityhub and deploy them on cloud and HPC.
 **Singularity basics/Introduction (Tyson Swetnam)**
 
 - Prerequisites/Requirements
-- Installing Singularity
-
-  - Installing Singularity on Laptop using Vagrant
-  - Installing Singularity on cloud 
+- Installing Singularity on laptop (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <http://singularity.lbl.gov/install-windows>`_, `Linux <http://singularity.lbl.gov/install-linux>`_
 - Loading Singularity module on HPC/XSEDE
 - Docker vs Singularity
 - Running Singularity container from pre-built image
@@ -212,7 +209,7 @@ Singularityhub and deploy them on cloud and HPC.
 
 **Advanced Singularity (John Fonner)**
 
-- Singularityhub introduction
+- `Singularityhub <https://singularity-hub.org/>`_ introduction
 
   - Finding images
   - Pushing images 
@@ -234,7 +231,7 @@ we will show you how to containerize your bioinformatic software/applications
 (with special focus in Proteomics, Genomics, Transcriptomics and Metabolomics), push 
 them to Dockerhub and other registries and finally deploy them on cloud.
 
-- Introduction to Biocontainers
+- Introduction to `Biocontainers <https://biocontainers.pro/>`_
 
   - Docker based Biocontainers
   - Bioconda based BioContainers
@@ -265,8 +262,8 @@ This would be the final session of the workshop where we will show you how
 to scale your analyses (simple apps and complex workflow) from Laptop to Cloud to 
 HPC and also show how using several compute clusters can scale your analysis significantly.
 
-- Docker swarm for distributed computing using Play-With-Docker (PWD)
-- Google Kubernetes
+- `Docker swarm <https://docs.docker.com/engine/swarm/>`_ for distributed computing using Play-With-Docker (PWD)
+- `Google Kubernetes <https://kubernetes.io/>`_
 - Workflows Management Systems using containers (Docker and Singularity)
 
   - `Pegasus <https://pegasus.isi.edu/>`_
