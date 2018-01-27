@@ -6,4 +6,16 @@ Table of Contents
 
    main
 
+   dockerintro
+
+   dockeradvanced
+
+   singularityintro
+
+   singularityadvanced
+
+   containerscaling
+
+   biocontainers
+
    instructors
