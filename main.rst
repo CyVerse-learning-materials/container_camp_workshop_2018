@@ -146,127 +146,102 @@ Twitter hash tag: #cc2018
     * - Day
       - Time
       - Topic/Activity
-      - Slides
       - Notes/Links
     * - 03/07/18 (Wednesday)
       - 8:30-8:45
       - General introduction to CyVerse (Parker Antin)
-      - 
       -
     * - 03/07/18 (Wednesday)
       - 8:45-9:00
       - Welcome to Container camp (Upendra Devisetty)
       - 
-      - 
     * - 03/07/18 (Wednesday)
       - 9:00-10:00
       - General overview of Container Technology (Nirav)
       -
-      -
     * - 03/07/18 (Wednesday)
       - 10:00-10:30
-      - Coffee break and networking
-      -
+      - Coffee break with networking
       -
     * - 03/07/18 (Wednesday)
       - 10:30-12.00
-      - Docker basics (Upendra/Kapeel)
-      -
-      -
+      - Introduction to Docker (Upendra/Kapeel)
+      - `Docker basics/Introduction <dockerintro.html>`_
     * - 03/07/18 (Wednesday)
       - 12:00-01:00
       - Lunch break with networking
-      -
       -
     * - 03/07/18 (Wednesday)
       - 01:00-2:30
       - Advanced Docker (Paul/Ian)
-      - 
-      -
+      - `Advanced docker <dockeradvanced.html>`_
     * - 03/07/18 (Wednesday)
       - 2:30-3:00
       - Coffee break with networking
       -
-      -
     * - 03/07/18 (Wednesday)
       - 03:00-06:00
       - BYOD
-      -
       -
     * - 03/08/18 (Thursday)
       - 8:30-9:00
       - TBD
-      - 
       -
     * - 03/08/18 (Thursday)
       - 9:00-10:00
       - General overview of Singularity (John Fonner)
-      -
-      -
+      - 
     * - 03/08/18 (Thursday)
       - 10:00-10:30
       - Coffee break and networking
-      -
       -
     * - 03/08/18 (Thursday)
       - 10:30-12.00
       - Singularity basics (John Fonner/Tyson Swetnam)
-      -
-      -
+      - `Singularity Introduction <singularityintro.html>`_
     * - 03/08/18 (Thursday)
       - 12:00-01:00
       - Lunch break with networking
       -
-      -
     * - 03/08/18 (Thursday)
       - 01:00-2:30
       - Advanced Singularity (John Fonner)
-      - 
-      -
+      - `Advanced Singularity <singularityadvanced.html>`_
     * - 03/08/18 (Thursday)
       - 2:30-3:00
       - Coffee break with networking
-      -
       -
     * - 03/08/18 (Thursday)
       - 03:00-06:00
       - BYOD
       -
-      -
     * - 03/09/18 (Friday)
       - 8:30-10:00
       - Dockerized Pegasus WMS (Mats Rynge)
-      - 
       -
     * - 03/09/18 (Friday)
       - 10:00-10:30
       - Coffee break and networking
       -
-      -
     * - 03/09/18 (Friday)
       - 10:30-12.00
       - Scaling up and out (distributed computing with containers) (Tyson Swetnam) 
-      -
-      -
+      - `Introduction to Container scaling <containerscaling.html>`_
     * - 03/09/18 (Friday)
       - 12:00-01:00
       - Lunch break with networking
       -
-      -
     * - 03/09/18 (Friday)
       - 01:00-2:30
       - Bocontainers (Upendra Devisetty)
-      - 
-      -
+      - `Introduction to Biocontainers <biocontainers.html>`_
     * - 03/09/18 (Friday)
       - 2:30-3:00
       - Coffee break with networking
       -
-      -
     * - 03/09/18 (Friday)
       - 03:00-06:00
       - BYOD
-      -
       -
 
 **About CyVerse**
@@ -307,11 +282,6 @@ policy <http://www.cyverse.org/acknowledge-cite-cyverse>`__
 .. |CyVerse logo| image:: ./img/cyverse_rgb.png
   :width: 500
   :height: 100
-
-.. |platform_stack| image:: ./img/cyverse_platform_stack.png
-  :width: 750
-  :height: 700
-
 
 -----
 
@@ -367,4 +337,4 @@ we will show you how to containerize your bioinformatic software/applications
 (with special focus in Proteomics, Genomics, Transcriptomics and Metabolomics), push 
 them to Dockerhub and other registries and finally deploy them on cloud.
 
-- `Introduction to Biocontainers <biocontainers.html>`_
+- `Introduction to Biocontainers (Upendra Devisetty) <biocontainers.html>`_
