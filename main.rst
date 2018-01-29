@@ -165,7 +165,7 @@ Twitter hash tag: #cc2018
       -
     * - 03/07/18 (Wednesday)
       - 10:30-12.00
-      - Introduction to Docker (Upendra/Kapeel)
+      - Introduction to Docker (Kapeel)
       - `Docker basics/Introduction <dockerintro.html>`_
     * - 03/07/18 (Wednesday)
       - 12:00-01:00
@@ -173,7 +173,7 @@ Twitter hash tag: #cc2018
       -
     * - 03/07/18 (Wednesday)
       - 01:00-2:30
-      - Advanced Docker (Paul/Ian)
+      - Advanced Docker (Upendra)
       - `Advanced docker <dockeradvanced.html>`_
     * - 03/07/18 (Wednesday)
       - 2:30-3:00
@@ -293,13 +293,13 @@ These are the topics for the Container camp workshop at CyVerse, University of A
 **Training session in Docker**
 ===============================
 
-**Trainers (Upendra Devisetty, Kapeel Chougule, Paul Sarando and Ian McIwen)**    
+**Trainers (Upendra Devisetty and Kapeel Chougule)**    
 
 This would be the introductory session for concept of Docker. In this session we explain the various aspects of the Docker Containers. Starting with the basics of Docker which focuses on the installation and configuration of Docker, it gradually moves on to advanced topics such as managing data using volumes and Registries. Overall this session cover the development aspects of Docker and how you can get up and running on the development environments using Docker Containers
 
-- `Docker basics/Introduction (Upendra and Kapeel) <dockerintro.html>`_
+- `Docker basics/Introduction (Kapeel) <dockerintro.html>`_
 
-- `Advanced docker (Paul and Ian) <dockeradvanced.html>`_
+- `Advanced docker (Upendra) <dockeradvanced.html>`_
 
 
 **Training session in Singularity**
