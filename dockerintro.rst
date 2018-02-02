@@ -22,13 +22,14 @@ The getting started guide on Docker has detailed instructions for setting up Doc
 Testing Docker installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once you are done installing Docker, test your Docker installation by running the following:
+Once you are done installing Docker, test your Docker installation by running the following to make sure you are using version 1.13 or higher:
 
 .. code-block:: bash
 
-	$ docker
+	$ docker --version
+	Docker version 17.09.0-ce, build afdb6d4
 
-You should see a whole bunch of lines showing the different options available with `docker`. Alternatively you can test by running the following:
+If you run with `--version` you should see a whole bunch of lines showing the different options available with `docker`. Alternatively you can test your installation by running the following:
 
 .. code-block:: bash
 
@@ -72,7 +73,17 @@ Now that we know what a container and image is, let's run the following in our t
 .. Note::
 
 	Depending on how you've installed docker on your system, you might see a `permission denied` error after running the above command. If you're on Linux, you may need to prefix your docker commands with sudo. Alternatively to run docker command without sudo, you need to add your user (who has root privileges) to docker group. 
-	For this run `sudo usermod -aG docker $USER` command. Once you have done that, you have to just logout and login again. 
+	For this run: 
+
+	# Create the docker group.
+
+	$ sudo groupadd docker
+	
+	# Add your user to the docker group.
+
+	$ sudo usermod -aG docker $USER
+
+	Log out and log back in so that your group membership is re-evaluated
 
 The `pull` command fetches the alpine image from the Docker registry and saves it in our system. You will see more about it later. You can use the `docker images` command to see a list of all images on your system
 
