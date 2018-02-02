@@ -224,9 +224,13 @@ Twitter hash tag: #cc2018
       - BYOD
       -
     * - 03/09/18 (Friday)
-      - 8:30-10:00
-      - Dockerized Pegasus WMS (Mats Rynge)
+      - 8:30-9:15
+      - 500,000 containers a day? OSG Singularity Infrastructure (Mats Rynge)
       -
+    * - 03/09/18 (Friday)
+      - 9.15-10.00
+      - Pegasus Workflows with Application Containers (Mats Rynge)
+      - 
     * - 03/09/18 (Friday)
       - 10:00-10:30
       - Coffee break and networking
