@@ -18,4 +18,8 @@ Table of Contents
 
    biocontainers
 
+   usefulresources
+
    instructors
+
+   problems

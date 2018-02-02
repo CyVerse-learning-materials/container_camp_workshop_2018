@@ -15,6 +15,13 @@ This Code of Conduct taken from
 http://confcodeofconduct.com/. See http://www.ashedryden.com/blog/codes-of-conduct-101-faq
 for more information on codes of conduct.
 
+**FAIR principles**
+===================
+
+Container camp supports FAIR data principles by providing services that help make data 
+Findable, Accessible, Interoperable, and Reusable. Participants will get an introduction 
+to containers and learn how to create and manage containers.
+
 **Learning objectives**
 =======================
 
@@ -46,7 +53,7 @@ into Cloud and HPC.
 **Need Help?**
 ==============
 
-You can reach the lead instructor, Upendra Devisetty, at upendra@cyverse.org. 
+You can reach the lead instructor, Upendra Devisetty, at upendra @ cyverse dot org. 
 You can also talk to any of the instructors or TAs if you need immediate help, 
 or (in an emergency) call 911.
 
@@ -54,7 +61,8 @@ or (in an emergency) call 911.
 **Pre-Workshop Setup**
 ======================
 
-These are the minimum Setup Instructions for the Container camp workshop at CyVerse, University of Arizona, which will run from March 7th to March 9th, 2017.
+These are the minimum Setup Instructions for the Container camp workshop at CyVerse, 
+University of Arizona, which will run from March 7th to March 9th, 2017.
 
 
 .. list-table::

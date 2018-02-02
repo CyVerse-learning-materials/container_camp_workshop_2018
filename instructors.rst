@@ -57,14 +57,12 @@ Briefly,
 **Formatting, guidelines, etc.**
 
 Everything can/should be in
-`Markdown <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet!>`_
-If you're not super familiar with Markdown, you can use
-`hackmd <https://hackmd.io/>`_ to write your tutorials (use `+ New guest
-note`) - it will show you a live preview of your Markdown code. If you create a file named `mytut.md` it will automatically be compiled into
-`mytut.html`. 
+`Restructured text <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet!>`_
+If you're not super familiar with Restructured text, you can use
+`online restructured text editor </http://rst.ninjs.org/>`_ to write your tutorials. 
 
 (Note that you can go visit the github repo and it will helpfully render
-`.md` files for you if you click on them! They just won't have the full
+`.rst` files for you if you click on them! They just won't have the full
 site template.)
 
 Files and images that don't need to be "compiled" and should just be
@@ -75,16 +73,16 @@ directory; their URL will then be
     
 **Images**
 
-Image formatting in Markdown is kinda tricky and there's no good way to
-have just a single image that lets you click on it to expand, AFAWCT.
+Image formatting in Restructured text is pretty straightforward. Here is an example
 
-So instead what we do is put an inline thumbnail in, with a link to
-the full sized image so that you can click to zoom.  See
-`the jetstream boot tutorial <https://github.com/ngs-docs/angus/blob/2017/jetstream/boot.md>`_
-for an example.
+|static_site_docker|
 
-The relevant Markdown syntax is:
+.. |static_site_docker| image:: ./img/static_site_docker.png
+  :width: 750
+  :height: 700
 
-``[![login](images/login-1.thumb.png)](../_images/login-1.png)``
+`.. |static_site_docker| image:: ./img/static_site_docker.png`
 
-Note, on Mac OS X you can resize the thumbnails with `sips -Z 640 thumb.png`.
+|  :width: 750
+
+|  :height: 700
