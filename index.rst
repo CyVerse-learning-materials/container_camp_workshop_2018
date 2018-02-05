@@ -2,24 +2,59 @@ Table of Contents
 -----------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :caption: Container Camp Workshop
 
-   main
+   getting_started/main
+   getting_started/installation
+   getting_started/agenda
+   getting_started/about_cyverse
 
-   dockerintro
+.. toctree::
+   :maxdepth: 1
+   :caption: Workshop Topics
 
-   dockeradvanced
+   topics/train_docker
+   topics/train_singularity
+   topics/train_containerscaling
+   topics/train_biocontainers
 
-   singularityintro
+.. toctree::
+   :maxdepth: 1
+   :caption: Docker
 
-   singularityadvanced
+   docker/dockerintro
+   docker/dockeradvanced
 
-   containerscaling
+.. toctree::
+   :maxdepth: 1
+   :caption: Singularity
+
+   singularity/singularityintro
+   singularity/singularityadvanced
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Container Scaling
+
+   container_scaling/containerscaling
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Biocontainers
 
    biocontainers
 
-   usefulresources
+.. toctree::
+   :maxdepth: 1
+   :caption: Useful Resources
 
-   instructors
+   useful_resources/usefulresources_docker.rst
 
-   problems
+.. toctree::
+   :maxdepth: 1
+   :caption: Instructions and Reporting
+
+   instructions_reporting/instructors
+   instructions_reporting/problems
+
