@@ -3,8 +3,11 @@
 
 **Trainer (Tyson Swetnam)**  
 
-This would be the final session of the workshop where we will show you how 
-to scale your analyses (simple apps and complex workflow) from Laptop to Cloud to 
-HPC and also show how using several compute clusters can scale your analysis significantly.
+In this exciting session of the workshop we will show you how to scale your analyses (simple apps and complex workflow) using `Docker swarm <https://docs.docker.com/engine/swarm/>`_, `Google Kubernetes <https://kubernetes.io/>`_ and Workflows Management Systems such as `Pegasus <https://pegasus.isi.edu/>`_, `Work-Queue <https://ccl.cse.nd.edu/software/workqueue/>`_ and `Makeflow <https://ccl.cse.nd.edu/software/makeflow/>`_ from Laptop to Cloud to 
+HPC resources such as Stampede2 and OSG and also show how using several compute clusters can scale your analysis significantly and efficiently. So of the topics include
 
-- `Introduction to Container scaling (Mats Rynge/Tyson Swetnam) <../container_scaling/containerscaling.html>`_
+- `OSG (Open Science Grid) Singularity Infrastructure <../container_scaling/containerscaling_osg.html>`_ (Mats Rynge)
+
+- `Pegasus Workflows with Application Containers <../container_scaling/containerscaling_pegasus.html>`_ (Mats Rynge)
+
+- `Distributed computing with containers <../container_scaling/containerscaling_dc.html>`_ (Tyson Swetnam)

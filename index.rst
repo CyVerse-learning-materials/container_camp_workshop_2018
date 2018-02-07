@@ -43,7 +43,9 @@ Table of Contents
    :maxdepth: 1
    :caption: Container Scaling
 
-   container_scaling/containerscaling
+   container_scaling/containerscaling_osg
+   container_scaling/containerscaling_pegasus
+   container_scaling/containerscaling_dc
 
 .. toctree::
    :maxdepth: 1

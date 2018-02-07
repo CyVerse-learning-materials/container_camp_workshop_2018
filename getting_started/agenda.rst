@@ -3,7 +3,7 @@ Agenda
 
 These are the schedule and classroom materials for the Container camp workshop at University of Arizona, which will run from March 7th to March 9th, 2018.
 
-This workshop runs under a `Code of Conduct <https://cyverse-container-camp-workshop-2018.readthedocs-hosted.com>`_. Please respect it and be excellent to each other!
+This workshop runs under a `Code of Conduct <../getting_started/main.html>`_. Please respect it and be excellent to each other!
 
 Twitter hash tag: #cc2018
 
