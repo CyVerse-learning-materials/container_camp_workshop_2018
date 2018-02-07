@@ -7,4 +7,4 @@ This would be the final session of the workshop where we will show you how
 to scale your analyses (simple apps and complex workflow) from Laptop to Cloud to 
 HPC and also show how using several compute clusters can scale your analysis significantly.
 
-- `Introduction to Container scaling (Mats Rynge/Tyson Swetnam) <containerscaling.html>`_
+- `Introduction to Container scaling (Mats Rynge/Tyson Swetnam) <../container_scaling/containerscaling.html>`_

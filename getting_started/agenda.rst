@@ -33,7 +33,7 @@ Twitter hash tag: #cc2018
     * - 03/07/18 (Wednesday)
       - 10:30-12.00
       - Introduction to Docker (Kapeel)
-      - `Docker basics/Introduction <dockerintro.html>`_
+      - `Docker basics/Introduction <../docker/dockerintro.html>`_
     * - 03/07/18 (Wednesday)
       - 12:00-01:00
       - Lunch break with networking
@@ -41,7 +41,7 @@ Twitter hash tag: #cc2018
     * - 03/07/18 (Wednesday)
       - 01:00-2:30
       - Advanced Docker (Upendra)
-      - `Advanced docker <dockeradvanced.html>`_
+      - `Advanced docker <../docker/dockeradvanced.html>`_
     * - 03/07/18 (Wednesday)
       - 2:30-3:00
       - Coffee break with networking
@@ -65,7 +65,7 @@ Twitter hash tag: #cc2018
     * - 03/08/18 (Thursday)
       - 10:30-12.00
       - Singularity basics (John Fonner/Tyson Swetnam)
-      - `Singularity Introduction <singularityintro.html>`_
+      - `Singularity Introduction <../singularity/singularityintro.html>`_
     * - 03/08/18 (Thursday)
       - 12:00-01:00
       - Lunch break with networking
@@ -73,7 +73,7 @@ Twitter hash tag: #cc2018
     * - 03/08/18 (Thursday)
       - 01:00-2:30
       - Advanced Singularity (John Fonner)
-      - `Advanced Singularity <singularityadvanced.html>`_
+      - `Advanced Singularity <../singularity/singularityadvanced.html>`_
     * - 03/08/18 (Thursday)
       - 2:30-3:00
       - Coffee break with networking
@@ -97,7 +97,7 @@ Twitter hash tag: #cc2018
     * - 03/09/18 (Friday)
       - 10:30-12.00
       - Scaling up and out (distributed computing with containers) (Tyson Swetnam) 
-      - `Introduction to Container scaling <containerscaling.html>`_
+      - `Introduction to Container scaling <../container_scaling/containerscaling.html>`_
     * - 03/09/18 (Friday)
       - 12:00-01:00
       - Lunch break with networking
@@ -105,7 +105,7 @@ Twitter hash tag: #cc2018
     * - 03/09/18 (Friday)
       - 01:00-2:30
       - Bocontainers (Upendra Devisetty)
-      - `Introduction to Biocontainers <biocontainers.html>`_
+      - `Introduction to Biocontainers <../biocontainers.html>`_
     * - 03/09/18 (Friday)
       - 2:30-3:00
       - Coffee break with networking
