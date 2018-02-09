@@ -31,12 +31,16 @@ Singularity is more likely to be used in a remote system, e.g. HPC or cloud. Yet
 Exercise 1 (~10 mins)
 ~~~~~~~~~~~~~~~~~~~~~
 
-- Install Singularity on your laptop or desktop PC: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <http://singularity.lbl.gov/install-windows>`_, `Linux <http://singularity.lbl.gov/install-linux>`_)
+2.1 Laptop or Desktop
+~~~~~~~~~~~~~~~~~~~~~
 
-  * running VM is required on Mac OS X 
-    - Singularityware `VagrantBox <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`_
+To Install Singularity on your laptop or desktop PC: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <http://singularity.lbl.gov/install-windows>`_, `Linux <http://singularity.lbl.gov/install-linux>`_)
+
+  * running VM is required on Mac OS X, Singularityware `VagrantBox <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`_
   
-- Load Singularity module on HPC/XSEDE
+2.2 HPC
+~~~~~~~
+Load Singularity module on HPC/XSEDE
 
 If you are working on HPC, you may need to contact your systems administrator and request they install `Singularity  <http://singularity.lbl.gov/install-request>`_. 
 
@@ -51,8 +55,9 @@ If Singularity is installed:
 .. code-block:: bash
 
 	$ module load singularity
-  
-- Install Singularity on Atmosphere/Jetstream
+
+2.3 XSEDE Jetstream / CyVerse Atmosphere Clouds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CyVerse staff have deployed an Ansible playbook with an EZ installation option for `Singularity <https://cyverse-ez-quickstart.readthedocs-hosted.com/en/latest/#>`_ that only requires you to type a short line of code:
 
@@ -67,7 +72,10 @@ CyVerse staff have deployed an Ansible playbook with an EZ installation option f
     Unpacking objects: 100% (11/11), done.
     Checking connectivity... done.
 
-- Singularity should now be installed on your laptop or VM, or loaded on the HPC, you can check the installation with:
+2.4 Check Installation
+~~~~~~~~~~~~~~~~~~~~~~
+
+Singularity should now be installed on your laptop or VM, or loaded on the HPC, you can check the installation with:
 
 .. code-block:: bash
 
