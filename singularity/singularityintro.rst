@@ -28,7 +28,7 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 Singularity is more likely to be used in a remote system, e.g. HPC or cloud. Yet you may want to develop containers first on a local machine.
 
-Exercise 1 (~10 mins)
+Exercise 1 (15-20 mins)
 ~~~~~~~~~~~~~~~~~~~~~
 
 2.1 Laptop or Desktop
