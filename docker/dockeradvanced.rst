@@ -1,4 +1,4 @@
-Advanced docker
+Advanced Docker
 ---------------
 
 Now that we are relatively comfortable with Docker basics, lets look at some of the advanced Docker topics such as porting the Docker image to repositories (public and private), managing data in containers and finally deploy containers into cloud and other infrastructures etc.,
@@ -10,7 +10,7 @@ To demonstrate the portability of what we just created, let’s upload our built
 
 .. important::
 
-	So what exact is a registry?
+	So what exactly is a registry?
 
 	A registry is a collection of repositories, and a repository is a collection of images—sort of like a GitHub repository, except the code is already built. An account on a registry can create many repositories. The docker CLI uses Docker’s public registry by default. You can even set up your own private registry using Docker Trusted Registry
 
