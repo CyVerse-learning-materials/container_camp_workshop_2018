@@ -10,13 +10,13 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 .. Note:: 
       
-      *Important*: Docker and Singularity are `*friends* <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences.
+      *Important*: Docker and Singularity are `**friends** <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences.
       
-      Docker:
+      **Docker**:
       
       * Docker can escalate privileges, effectively making you root on the host system (This is usually not supported by administrators from High Performance Computing (HPC) centers)
       
-      Singularity:
+      **Singularity**:
      
       * Works on HPC resources
       * Same user inside and outside the container
