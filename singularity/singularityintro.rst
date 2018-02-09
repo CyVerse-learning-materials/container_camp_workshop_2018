@@ -10,7 +10,7 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 .. Note:: 
       
-      *Important*: `Docker and Singularity are *friends* <http://singularity.lbl.gov/docs-docker>` but they have distinct differences.
+      *Important*: Docker and Singularity are `*friends* <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences.
       
       Docker:
       
@@ -34,11 +34,11 @@ Exercise 1 (~10 mins)
 - Install Singularity on your laptop or desktop PC: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <http://singularity.lbl.gov/install-windows>`_, `Linux <http://singularity.lbl.gov/install-linux>`_)
 
   * running VM is required on Mac OS X 
-    - Singularityware `VagrantBox <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`
+    - Singularityware `VagrantBox <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`_
   
 - Load Singularity module on HPC/XSEDE
 
-If you are working on HPC, you may need to contact your systems administrator and request they install `Singularity  <http://singularity.lbl.gov/install-request>`. 
+If you are working on HPC, you may need to contact your systems administrator and request they install `Singularity  <http://singularity.lbl.gov/install-request>`_. 
 
 Most HPC systems are running Environment Modules with the simple command `module`. You can check to see what is available:
 
@@ -54,7 +54,7 @@ If Singularity is installed:
   
 - Install Singularity on Atmosphere/Jetstream
 
-CyVerse staff have deployed an Ansible playbook with an EZ installation option for `Singularity <https://cyverse-ez-quickstart.readthedocs-hosted.com/en/latest/#>` that only requires you to type a short line of code:
+CyVerse staff have deployed an Ansible playbook with an EZ installation option for `Singularity <https://cyverse-ez-quickstart.readthedocs-hosted.com/en/latest/#>`_ that only requires you to type a short line of code:
 
 .. code-block:: bash
 
@@ -83,7 +83,7 @@ CyVerse staff have deployed an Ansible playbook with an EZ installation option f
 Exercise 2 (~10 mins)
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can use the `pull` command to download pre-built images from the `Singularity-Hub <https://www.singularity-hub.org>` or `Docker Hub<https://hub.docker.com/>`.
+You can use the `pull` command to download pre-built images from the `Singularity-Hub <https://www.singularity-hub.org>` or `Docker Hub<https://hub.docker.com/>`_.
 
 This example pulls a container from Docker Hub:
 
@@ -171,7 +171,7 @@ In the above command:
 Exercise 3: Writing a Singularity file (30 minutes)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Recipes <http://singularity.lbl.gov/docs-recipes>` for Singularity can use any number of container registries for bootstrapping a container. 
+`Recipes <http://singularity.lbl.gov/docs-recipes>`_ for Singularity can use any number of container registries for bootstrapping a container. 
 
 (Advanced) the `Singularity` file can be hosted on Github and will be auto-detected by Singularity-Hub when you set up your Container Collection.
 
