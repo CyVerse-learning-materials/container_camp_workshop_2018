@@ -10,7 +10,7 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 .. Note:: 
       
-      *Important*: Docker and Singularity are `**friends** <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences.
+      *Important*: Docker and Singularity are **`friends <http://singularity.lbl.gov/docs-docker>`_** but they have distinct differences.
       
       **Docker**:
       
@@ -91,7 +91,7 @@ Singularity should now be installed on your laptop or VM, or loaded on the HPC, 
 Exercise 2 (~10 mins)
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can use the `pull` command to download pre-built images from the `Singularity-Hub <https://www.singularity-hub.org>` or `Docker Hub<https://hub.docker.com/>`_.
+You can use the `pull` command to download pre-built images from the `Singularity-Hub <https://www.singularity-hub.org>`_ or `DockerHub <https://hub.docker.com/>`_.
 
 This example pulls a container from Docker Hub:
 
