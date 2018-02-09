@@ -10,12 +10,11 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 .. Note:: 
       
-      *Important*: `Docker and Singularity are *_friends_* <http://singularity.lbl.gov/docs-docker>` but they have distinct differences.
+      *Important*: `Docker and Singularity are *friends* <http://singularity.lbl.gov/docs-docker>` but they have distinct differences.
       
       Docker:
       
-      * Docker can escalate privileges, effectively making you root on the host system
-        * This is usually not supported by administrators from High Performance Computing (HPC) centers
+      * Docker can escalate privileges, effectively making you root on the host system (This is usually not supported by administrators from High Performance Computing (HPC) centers)
       
       Singularity:
      
@@ -27,18 +26,19 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 2. Singularity Installation
 ===========================
 
-Singularity is more likely to be used in a remote system - e.g. HPC or cloud. Yet you may want to develop containers first on a local machine.
+Singularity is more likely to be used in a remote system, e.g. HPC or cloud. Yet you may want to develop containers first on a local machine.
 
 Exercise 1 (~10 mins)
 ~~~~~~~~~~~~~~~~~~~~~
 
 - Install Singularity on your laptop or desktop PC: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <http://singularity.lbl.gov/install-windows>`_, `Linux <http://singularity.lbl.gov/install-linux>`_)
+
   * running VM is required on Mac OS X 
-    - Singularityware Vagrant Box `singularityware/singularity-2.4 <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`
+    - Singularityware `VagrantBox <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`
   
 - Load Singularity module on HPC/XSEDE
 
-If you are working on HPC, you may need to contact your systems administrator and `request they install Singularity <http://singularity.lbl.gov/install-request>`. 
+If you are working on HPC, you may need to contact your systems administrator and request they install `Singularity  <http://singularity.lbl.gov/install-request>`. 
 
 Most HPC systems are running Environment Modules with the simple command `module`. You can check to see what is available:
 
@@ -54,7 +54,7 @@ If Singularity is installed:
   
 - Install Singularity on Atmosphere/Jetstream
 
-CyVerse staff have deployed an Ansible playbook with an `EZ installation option for Singularity <https://cyverse-ez-quickstart.readthedocs-hosted.com/en/latest/#>` that only requires you to type a short line of code:
+CyVerse staff have deployed an Ansible playbook with an EZ installation option for `Singularity <https://cyverse-ez-quickstart.readthedocs-hosted.com/en/latest/#>` that only requires you to type a short line of code:
 
 .. code-block:: bash
 
@@ -83,19 +83,19 @@ CyVerse staff have deployed an Ansible playbook with an `EZ installation option 
 Exercise 2 (~10 mins)
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can use the `pull` command to download pre-built images from the `Singularity-Hub<https://www.singularity-hub.org>` or `Docker Hub<https://hub.docker.com/>`.
+You can use the `pull` command to download pre-built images from the `Singularity-Hub <https://www.singularity-hub.org>` or `Docker Hub<https://hub.docker.com/>`.
 
 This example pulls a container from Docker Hub:
 
 .. code-block:: bash
 
-    $ singularity pull docker://ubuntu
+    $ singularity pull shub://singularityhub/ubuntu
   
-You can rename the container on your local machine:
+You can also rename the container by using the `--name` flag:
   
 .. code-block:: bash
 
-    $ singularity pull --name ubuntu_docker_test.simg docker://ubuntu
+    $ singularity pull --name ubuntu_test.simg shub://singularityhub/ubuntu
 
 - Running a Singularity container from pre-built image
 
@@ -103,9 +103,9 @@ After your image has finished downloading it should be in the present working di
 
 .. code-block:: bash
 
-    $ singularity run ubuntu_docker_test.simg
+    $ singularity run ubuntu_test.simg
     
-    Singularity ubuntu_docker_test.simg:~> cat /etc/*release
+    Singularity ubuntu_test.simg:~> cat /etc/*release
     
     DISTRIB_ID=Ubuntu
     DISTRIB_RELEASE=16.04
@@ -127,11 +127,11 @@ Downloading images from DockerHub
 
 .. code-block:: bash
 
+	$ singularity pull docker://ubuntu
 
+Keeping track of downloaded images may be necessary if space is a concern. 
 
-- Keeping track of downloaded images may be necessary if space is a concern. 
-
-By default, Singularity uses a temporary cache to hold docker tarballs
+By default, Singularity uses a temporary cache to hold Docker tarballs:
 
 .. code-block:: bash
 
@@ -161,11 +161,6 @@ In the above command:
 
 -	`--name` will create a container named  `ubuntu.simg`
 
-
-5. Building Singularity containers on Singularity-Hub using Github
-==================================================================
-
-
 .. Note::
 
     Bootstrapping `bootstrap` command is deprecated (v2.4), use `build` instead.
@@ -183,11 +178,12 @@ Exercise 3: Writing a Singularity file (30 minutes)
 - The Header  
 
 Container Registries: 
+
 * shub - images hosted on Singularity Hub
 * docker - images hosted on Docker Hub
 * localimage - images saved on your machine
 * yum - yum based systems such as CentOS and Scientific Linux
-* debootstrap (- apt based systems such as Debian and Ubuntu
+* debootstrap - apt based systems such as Debian and Ubuntu
 * arch - Arch Linux
 * busybox - BusyBox
 * zypper - zypper based systems such as Suse and OpenSuse
@@ -241,7 +237,7 @@ Run the container:
 
 If you build a `squashfs` container, it is immutable (you cannot `--writable` edit it)
 
-6. Running Singularity Containers
+5. Running Singularity Containers
 =================================
 
 Commands:
@@ -256,7 +252,7 @@ Commands:
 
 `--writable` - creates a writable container that you can edit interactively and save on exit.
 
-6.1 Using the `exec` command
+5.1 Using the `exec` command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
@@ -264,7 +260,7 @@ Commands:
     $ singularity exec shub://singularityhub/ubuntu cat /etc/os-release
 
 
-6.2 Using the `shell` command
+5.2 Using the `shell` command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
@@ -272,7 +268,7 @@ Commands:
     $ singularity shell shub://singularityhub/ubuntu
 
 
-6.3 Using the `run` command
+5.3 Using the `run` command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
@@ -280,7 +276,7 @@ Commands:
     $ singularity run shub://singularityhub/ubuntu
     
 
-6.4 Using the `inspect` command
+5.4 Using the `inspect` command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
@@ -302,7 +298,7 @@ Commands:
         "org.label-schema.build-size": "333MB"
     }
 
-6.4 Using the `--sandbox` and `--writable` commands
+5.4 Using the `--sandbox` and `--writable` commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As of Singularity v2.4 by default `build` produces immutable images in the 'squashfs' file format. This ensures reproducible and verifiable images.
