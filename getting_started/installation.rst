@@ -28,7 +28,7 @@ University of Arizona, which will run from March 7th to March 9th, 2017.
       - Register for your Github account at `https://github.com/ <https://github.com/>`_.
     * - Dockerhub Account
       - Please ensure that you have a Dockerhub account if you don't have one already
-      - Register for your Dockerhub account at `https://dockerhub.com/ <https://dockerhub.com/>`_.
+      - Register for your Dockerhub account at `https://hub.docker.com/ <https://hub.docker.com/>`_.
     * - Qauy.io Account
       - This is completely optional but recommended and can use github to log-in to quay.io account
       - Register for your Quay.io account at `https://quay.io/ <https://quay.io/>`_.    
