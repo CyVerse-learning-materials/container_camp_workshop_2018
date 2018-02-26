@@ -114,7 +114,7 @@ After your image has finished downloading it should be in the present working di
 
 	$ singularity pull --name ubuntu_test.simg shub://singularityhub/ubuntu
 	Progress |===================================| 100.0% 
-	Done. Container is at: /home/tyson_swetnam/ubuntu_test.simg
+	Done. Container is at: /home/***/ubuntu_test.simg
 	$ singularity run ubuntu_test.simg 
 	This is what happens when you run the container...
 	$ singularity shell ubuntu_test.simg 
@@ -373,7 +373,7 @@ Commands:
 
     $ singularity pull  shub://vsoch/hello-world
     Progress |===================================| 100.0% 
-    Done. Container is at: /home/tyson_swetnam/vsoch-hello-world-master-latest.simg
+    Done. Container is at: /home/***/vsoch-hello-world-master-latest.simg
     
     $ singularity inspect vsoch-hello-world-master-latest.simg 
     {
