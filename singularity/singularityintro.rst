@@ -111,37 +111,113 @@ After your image has finished downloading it should be in the present working di
 
 .. code-block:: bash
 
-    $ singularity run ubuntu_test.simg
-    
-    Singularity ubuntu_test.simg:~> cat /etc/*release
-    
-    DISTRIB_ID=Ubuntu
-    DISTRIB_RELEASE=16.04
-    DISTRIB_CODENAME=xenial
-    DISTRIB_DESCRIPTION="Ubuntu 16.04.3 LTS"
-    NAME="Ubuntu"
-    VERSION="16.04.3 LTS (Xenial Xerus)"
-    ID=ubuntu
-    ID_LIKE=debian
-    PRETTY_NAME="Ubuntu 16.04.3 LTS"
-    VERSION_ID="16.04"
-    HOME_URL="http://www.ubuntu.com/"
-    SUPPORT_URL="http://help.ubuntu.com/"
-    BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
-    VERSION_CODENAME=xenial
-    UBUNTU_CODENAME=xenial
+
+	$ singularity pull --name ubuntu_test.simg shub://singularityhub/ubuntu
+	Progress |===================================| 100.0% 
+	Done. Container is at: /home/tyson_swetnam/ubuntu_test.simg
+	$ singularity run ubuntu_test.simg 
+	This is what happens when you run the container...
+	$ singularity shell ubuntu_test.simg 
+	Singularity: Invoking an interactive shell within container...
+
+	Singularity ubuntu_test.simg:~> cat /etc/*release
+	DISTRIB_ID=Ubuntu
+	DISTRIB_RELEASE=14.04
+	DISTRIB_CODENAME=trusty
+	DISTRIB_DESCRIPTION="Ubuntu 14.04 LTS"
+	NAME="Ubuntu"
+	VERSION="14.04, Trusty Tahr"
+	ID=ubuntu
+	ID_LIKE=debian
+	PRETTY_NAME="Ubuntu 14.04 LTS"
+	VERSION_ID="14.04"
+	HOME_URL="http://www.ubuntu.com/"
+	SUPPORT_URL="http://help.ubuntu.com/"
+	BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+	Singularity ubuntu_test.simg:~> 
 
 This example pulls a container from DockerHub
 
 .. code-block:: bash
 
 	$ singularity pull --name ubuntu_docker.simg docker://ubuntu
+   	Importing: /home/***/.singularity/docker/sha256:c71a6f8e13782fed125f2247931c3eb20cc0e6428a5d79edb546f1f1405f0e49.tar.gz
+	Importing: /home/***/.singularity/docker/sha256:4be3072e5a37392e32f632bb234c0b461ff5675ab7e362afad6359fbd36884af.tar.gz
+	Importing: /home/***/.singularity/docker/sha256:06c6d2f5970057aef3aef6da60f0fde280db1c077f0cd88ca33ec1a70a9c7b58.tar.gz
+	Importing: /home/***/.singularity/metadata/sha256:c6a9ef4b9995d615851d7786fbc2fe72f72321bee1a87d66919b881a0336525a.tar.gz
+	WARNING: Building container as an unprivileged user. If you run this container as root
+	WARNING: it may be missing some functionality.
+	Building Singularity image...
+	Singularity container built: ./ubuntu_docker.simg
+	Cleaning up...
+	Done. Container is at: ./ubuntu_docker.simg
+	
+	$ singularity run ubuntu_docker.simg 
+	$ cat /etc/*release
+	DISTRIB_ID=Ubuntu
+	DISTRIB_RELEASE=16.04
+	DISTRIB_CODENAME=xenial
+	DISTRIB_DESCRIPTION="Ubuntu 16.04.3 LTS"
+	NAME="Ubuntu"
+	VERSION="16.04.3 LTS (Xenial Xerus)"
+	ID=ubuntu
+	ID_LIKE=debian
+	PRETTY_NAME="Ubuntu 16.04.3 LTS"
+	VERSION_ID="16.04"
+	HOME_URL="http://www.ubuntu.com/"
+	SUPPORT_URL="http://help.ubuntu.com/"
+	BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+	VERSION_CODENAME=xenial
+	UBUNTU_CODENAME=xenial
+
+Whoa, we're inside the container!?!
+
+This is the OS on the VM I tested this on:
+
+.. code-block:: bash 
+	$ exit
+	exit
+	$ cat /etc/*release
+	DISTRIB_ID=Ubuntu
+	DISTRIB_RELEASE=16.04
+	DISTRIB_CODENAME=xenial
+	DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
+	NAME="Ubuntu"
+	VERSION="16.04.1 LTS (Xenial Xerus)"
+	ID=ubuntu
+	ID_LIKE=debian
+	PRETTY_NAME="Ubuntu 16.04.1 LTS"
+	VERSION_ID="16.04"
+	HOME_URL="http://www.ubuntu.com/"
+	SUPPORT_URL="http://help.ubuntu.com/"
+	BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+	VERSION_CODENAME=xenial
+	UBUNTU_CODENAME=xenial
+
+Here we are back in the container:
 
 .. code-block:: bash
 
-    $ singularity run ubuntu_docker.simg
-    
-    Singularity ubuntu_docker.simg:~> cat /etc/*release
+	$ singularity shell ubuntu_docker.simg 
+	Singularity: Invoking an interactive shell within container...
+
+	Singularity ubuntu_docker.simg:~> cat /etc/*release
+	DISTRIB_ID=Ubuntu
+	DISTRIB_RELEASE=16.04
+	DISTRIB_CODENAME=xenial
+	DISTRIB_DESCRIPTION="Ubuntu 16.04.3 LTS"
+	NAME="Ubuntu"
+	VERSION="16.04.3 LTS (Xenial Xerus)"
+	ID=ubuntu
+	ID_LIKE=debian
+	PRETTY_NAME="Ubuntu 16.04.3 LTS"
+	VERSION_ID="16.04"
+	HOME_URL="http://www.ubuntu.com/"
+	SUPPORT_URL="http://help.ubuntu.com/"
+	BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+	VERSION_CODENAME=xenial
+	UBUNTU_CODENAME=xenial
+	Singularity ubuntu_docker.simg:~> 
 
 Keeping track of downloaded images may be necessary if space is a concern. 
 
