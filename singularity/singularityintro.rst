@@ -93,7 +93,7 @@ Exercise 2 (~10 mins)
 
 You can use the `pull` command to download pre-built images from the `Singularity-Hub <https://www.singularity-hub.org>`_ or `DockerHub <https://hub.docker.com/>`_.
 
-This example pulls a container from Docker Hub:
+This example pulls a container from Singularity-Hub:
 
 .. code-block:: bash
 
@@ -131,11 +131,17 @@ After your image has finished downloading it should be in the present working di
     VERSION_CODENAME=xenial
     UBUNTU_CODENAME=xenial
 
-Downloading images from DockerHub
+This example pulls a container from DockerHub
 
 .. code-block:: bash
 
-	$ singularity pull docker://ubuntu
+	$ singularity pull --name ubuntu_docker.simg docker://ubuntu
+
+.. code-block:: bash
+
+    $ singularity run ubuntu_docker.simg
+    
+    Singularity ubuntu_docker.simg:~> cat /etc/*release
 
 Keeping track of downloaded images may be necessary if space is a concern. 
 
