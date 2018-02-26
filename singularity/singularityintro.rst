@@ -175,6 +175,7 @@ Whoa, we're inside the container!?!
 This is the OS on the VM I tested this on:
 
 .. code-block:: bash 
+
 	$ exit
 	exit
 	$ cat /etc/*release
