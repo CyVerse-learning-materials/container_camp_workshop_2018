@@ -91,7 +91,18 @@ Singularity should now be installed on your laptop or VM, or loaded on the HPC, 
 Exercise 2 (~10 mins)
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can use the `pull` command to download pre-built images from the `Singularity-Hub <https://www.singularity-hub.org>`_ or `DockerHub <https://hub.docker.com/>`_.
+You can use the `pull` command to download pre-built images from a number of Container Registries, here we'll be focusing on the `Singularity-Hub <https://www.singularity-hub.org>`_ or `DockerHub <https://hub.docker.com/>`_.
+
+Container Registries: 
+
+* shub - images hosted on Singularity Hub
+* docker - images hosted on Docker Hub
+* localimage - images saved on your machine
+* yum - yum based systems such as CentOS and Scientific Linux
+* debootstrap - apt based systems such as Debian and Ubuntu
+* arch - Arch Linux
+* busybox - BusyBox
+* zypper - zypper based systems such as Suse and OpenSuse
 
 This example pulls a container from Singularity-Hub:
 
@@ -276,16 +287,7 @@ Exercise 3: Writing a Singularity file (30 minutes)
 
 - The Header  
 
-Container Registries: 
-
-* shub - images hosted on Singularity Hub
-* docker - images hosted on Docker Hub
-* localimage - images saved on your machine
-* yum - yum based systems such as CentOS and Scientific Linux
-* debootstrap - apt based systems such as Debian and Ubuntu
-* arch - Arch Linux
-* busybox - BusyBox
-* zypper - zypper based systems such as Suse and OpenSuse
+The container registries
 
 - Sections
 
