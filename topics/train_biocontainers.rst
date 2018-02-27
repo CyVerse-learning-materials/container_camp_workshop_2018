@@ -1,7 +1,7 @@
 Training session in Biocontainers
 ---------------------------------
 
-**Trainer (Upendra Devisetty)**
+**Trainers (Upendra Devisetty and John Fonner)**
 
 This would be the introductory session for concept of Biocontainers. In this session 
 we will show you how to containerize your bioinformatic software/applications 
