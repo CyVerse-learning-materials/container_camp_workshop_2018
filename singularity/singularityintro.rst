@@ -237,6 +237,14 @@ You can change these by specifying the location of the cache and temporary direc
   
   $ SINGULARITY_TMPDIR=$PWD/scratch SINGULARITY_CACHEDIR=$PWD/tmp singularity --debug pull --name ubuntu-tmpdir.simg docker://ubuntu
 
+We can also run a docker container in Singularity that launches a program, for example RStudio `tidyverse` from `Rocker <https://hub.docker.com/r/rocker/rstudio/>`_ 
+
+.. code-block:: bash
+
+	$ singularity exec docker://rocker/tidyverse:latest R
+
+`"An Introduction to Rocker: Docker Containers for R by Carl Boettiger, Dirk Eddelbuettel" https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf>`_ 
+
 4. Building Singularity containers locally
 ==========================================
 
