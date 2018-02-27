@@ -243,7 +243,7 @@ We can also run a docker container in Singularity that launches a program, for e
 
 	$ singularity exec docker://rocker/tidyverse:latest R
 
-`"An Introduction to Rocker: Docker Containers for R by Carl Boettiger, Dirk Eddelbuettel" https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf>`_ 
+`"An Introduction to Rocker: Docker Containers for R by Carl Boettiger, Dirk Eddelbuettel" <https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf>`_ 
 
 4. Building Singularity containers locally
 ==========================================
