@@ -1,7 +1,7 @@
 Agenda
 ------
 
-These are the schedule and classroom materials for the Container camp workshop at University of Arizona, which will run from March 7th to March 9th, 2018.
+These are the schedule and classroom materials for the Container camp workshop at The University of Arizona, which will run from March 7th to 9th, 2018.
 
 This workshop runs under a `Code of Conduct <../getting_started/main.html>`_. Please respect it and be excellent to each other!
 
@@ -64,7 +64,7 @@ Twitter hash tag: #cc2018
       -
     * - 03/08/18 (Thursday)
       - 10:30-12.00
-      - Singularity basics (John Fonner/Tyson Swetnam)
+      - Singularity basics (Tyson Swetnam)
       - `Singularity Introduction <../singularity/singularityintro.html>`_
     * - 03/08/18 (Thursday)
       - 12:00-01:00
@@ -96,7 +96,7 @@ Twitter hash tag: #cc2018
       -
     * - 03/09/18 (Friday)
       - 10:30-12.00
-      - Scaling up and out (distributed computing with containers) (Tyson Swetnam) 
+      - Distributed computing with containers (Nick Hazekamp & Kyle Sweeney **remotely**) 
       - `Introduction to Container scaling <../container_scaling/containerscaling.html>`_
     * - 03/09/18 (Friday)
       - 12:00-01:00
