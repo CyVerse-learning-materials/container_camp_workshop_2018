@@ -3,7 +3,7 @@ Training session in Docker
 
 **Trainers (Kapeel Chougule and Upendra Devisetty)**    
 
-In this session we will explain the various aspects of the Docker Containers. Starting with the basics of Docker which focus on the installation and configuration of Docker, it gradually moves on to advanced topics such as managing data using volumes and pushing and pull containers from registries. Overall this session covers the development aspects of Docker and how you can get up and running on the development environments using Docker Containers.
+In this session we will explain the various aspects of the Docker containers. Starting with the basics of Docker which focus on the installation and configuration of Docker, it gradually moves on to advanced topics such as managing data using volumes and pushing and pull containers from registries. Overall this session covers the development aspects of Docker and how you can get up and running on the development environments using Docker Containers.
 
 - `Docker basics/Introduction (Kapeel) <../docker/dockerintro.html>`_
 
