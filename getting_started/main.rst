@@ -4,17 +4,17 @@ Workshop Code of Conduct
 ------------------------
 
 All attendees, speakers, sponsors and volunteers at our workshop are required 
-to agree with the following code of conduct. Organisers will enforce this code 
-throughout the event. We are expecting cooperation from all participants to 
-help ensuring a safe environment for everybody. 
+to follow this code of conduct. Organisers will enforce this code 
+throughout the event. We expect cooperation from all participants to 
+help ensure a safe environment for everyone. 
 
-This Code of Conduct taken from 
+This Code of Conduct is taken from 
 http://confcodeofconduct.com/. See http://www.ashedryden.com/blog/codes-of-conduct-101-faq
 for more information on codes of conduct.
 
 **FAIR principles**
 
-Container camp supports FAIR data principles by providing services that help make data 
+Container Camp supports FAIR data principles by providing services that help make data 
 Findable, Accessible, Interoperable, and Reusable. Participants will get an introduction 
 to containers and learn how to create and manage containers.
 
@@ -22,36 +22,36 @@ to containers and learn how to create and manage containers.
 
 Participants will learn key containerization concepts for developing 
 reproducible analysis pipelines, with emphasis on container lifecycle 
-management from design, execution and scaling. 
+management from design to execution and scaling. 
 
-The workshop will cover key concepts containers such as defining the 
-architecture of Containers, building Docker images and pushing them to 
-public and private repositories as well as we will show how to scale your 
+The workshop will cover key concepts about containers such as defining the 
+architecture of containers, building Docker images and pushing them to 
+public and private repositories as well as how to scale your 
 analysis from laptop to cloud and to HPC systems using containers. 
 
-**Who Should Attend**
+**Who should attend?**
 
-Faculty, Postdocs, graduate students who use and analyze data of all
+Faculty, researchers, postdocs, and graduate students who use and analyze data of all
 types (genomics, image data, from animals, plants, etc.).
 
-**Workshop Level**
+**Workshop level**
 
-This workshop focused on beginning users with little to no previous container
+This workshop is focused on beginner-level users with little to no previous container
 experience.
 
-Intermeidate and advanced users attend to better understand container capabilities 
+Intermeidate and advanced users who attend will gain a better understanding of and ability with container capabilities 
 and resources, including deploying their own tools and extending these analyses 
 into Cloud and HPC.
 
-**Need Help?**
+**Need help?**
 
 Couldn't find what you were looking for?
 
-- You can reach the lead instructor, Upendra Devisetty, at upendra @ cyverse dot org. 
+- You can reach the lead instructor, Upendra Devisetty, at upendra at cyverse dot org. 
 
-- You can also talk to any of the instructors or TAs if you need immediate help, 
+- You can also talk to any of the instructors or TAs if you need immediate help. 
 
-- Chat with us and our community on Slack
+- Chat with us and our community on Slack.
 
 - Post an issue on the documentation `issue tracker <https://github.com/CyVerse-learning-materials/container_camp_workshop_2018/issues>`_ on GitHub
 
