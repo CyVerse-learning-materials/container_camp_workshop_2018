@@ -1,9 +1,7 @@
 **Pre-Workshop Setup**
 ======================
 
-These are the minimum Setup Instructions for the Container camp workshop at CyVerse, 
-University of Arizona, which will run from March 7th to March 9th, 2017.
-
+These are the minimum Setup Instructions for the Container Camp workshop at CyVerse, The University of Arizona, which will run from March 7th to 9th, 2017.
 
 .. list-table::
     :header-rows: 1
@@ -21,8 +19,7 @@ University of Arizona, which will run from March 7th to March 9th, 2017.
     * - CyVerse Account
       - Please ensure that you have a CyVerse account and have **verfied** your account
         by completing the verification steps in the email you got when you registered.
-        You can **test your account** by logging into `http://user.cyverse.org/ <http://user.cyverse.org/>`_.
-      - Register for your cyverse account at `http://user.cyverse.org/`_. 
+      - Register for your cyverse account at `http://user.cyverse.org/`_. You can **test your account** by logging into `http://user.cyverse.org/ <http://  user.cyverse.org/>`_.
     * - Github Account
       - Please ensure that you have a Github account if you don't have one already
       - Register for your Github account at `https://github.com/ <https://github.com/>`_.
@@ -47,13 +44,6 @@ University of Arizona, which will run from March 7th to March 9th, 2017.
     * - Slack for networking
       - We will be using Slack extensively for communication and networking purposes
       - Register for Slack at `https://slack.com/ <https://slack.com/>`_.
-    * - Cyberduck
-      - Cyberduck is a third-party tool for uploading/downloading data to CyVerse.
-        Currently, this tool is available for Windows/MacOS only. You will need
-        to download Cyberduck and the connection profile. We will go through
-        configuration and installation at the workshop.
-      - - `Download Cyberduck <https://cyberduck.io/>`_
-        - `Download CyVerse Cyberduck connection profile <https://wiki.cyverse.org/wiki/download/attachments/18188197/iPlant%20Data%20Store.cyberduckprofile?version=1&modificationDate=1436557522000&api=v2>`_
 
 **Optional Download Extras**
 
@@ -73,6 +63,13 @@ provide some options for functionalities we will cover.
         IT administrators, and anybody is looking to manage system remotely
       - - `Download PuTTY <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_
         - `Download mobaXterm <https://mobaxterm.mobatek.net>`_
+    * - Cyberduck
+      - Cyberduck is a third-party tool for uploading/downloading data to CyVerse.
+        Currently, this tool is available for Windows/MacOS only. You will need
+        to download Cyberduck and the connection profile. We will go through
+        configuration and installation at the workshop.
+      - - `Download Cyberduck <https://cyberduck.io/>`_
+        - `Download CyVerse Cyberduck connection profile <https://wiki.cyverse.org/wiki/download/attachments/18188197/iPlant%20Data%20Store.cyberduckprofile?version=1&modificationDate=1436557522000&api=v2>`_
     * - iCommands
       - iCommands are third-party software for command-line connection to the
         CyVerse Data Store.
