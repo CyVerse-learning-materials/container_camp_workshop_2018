@@ -600,13 +600,13 @@ The docker build command is quite simple - it takes an optional tag name with th
 
 .. code-block:: bash
 
-	$ docker build -t <YOUR_DOCKERHUB_USERNAME>/myfirstapp:1.0 .
+	$ docker build -t <YOUR_DOCKERHUB_USERNAME>/myfirstapp .
 
 For example
 
 .. code-block:: bash
 
-	$ docker build -t upendradevisetty/myfirstapp:1.0 .
+	$ docker build -t upendradevisetty/myfirstapp .
 	Sending build context to Docker daemon   7.68kB
 	Step 1/8 : FROM alpine:3.5
 	 ---> 88e169ea8f46
@@ -665,13 +665,13 @@ The next step in this section is to run the image and see if it actually works.
 
 .. code-block:: bash
 
-	$ docker run -d -p 8888:5000 --name myfirstapp <YOUR_DOCKERHUB_USERNAME>/myfirstapp:1.0
+	$ docker run -d -p 8888:5000 --name myfirstapp <YOUR_DOCKERHUB_USERNAME>/myfirstapp
 
 For example
 
 .. code-block:: bash
 
-	$ docker run -d -p 8888:5000 --name myfirstapp upendradevisetty/myfirstapp:1.0
+	$ docker run -d -p 8888:5000 --name myfirstapp upendradevisetty/myfirstapp
 
 Head over to http://localhost:8888 and your app should be live. 
 
@@ -773,6 +773,10 @@ You don't have to install anything to use PWD. Just open https://labs.play-with-
   :height: 700
 
 .. |static_site_docker| image:: ../img/static_site_docker.png
+  :width: 750
+  :height: 700
+
+.. |static_site_docker1| image:: ../img/static_site_docker.png
   :width: 750
   :height: 700
 
