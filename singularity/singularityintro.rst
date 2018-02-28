@@ -85,11 +85,11 @@ Singularity should now be installed on your laptop or VM, or loaded on the HPC, 
     $ singularity run vsoch-hello-world-master.simg
     RaawwWWWWWRRRR!!
 
-3. Running Singularity containers from prebuilt images
-======================================================
+3. Downloading Singularity containers
+=====================================
 
-Exercise 2 (~10 mins)
-~~~~~~~~~~~~~~~~~~~~~
+Exercise 2.1: Downloading from Singularity Hub (~10 mins)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can use the `pull` command to download pre-built images from a number of Container Registries, here we'll be focusing on the `Singularity-Hub <https://www.singularity-hub.org>`_ or `DockerHub <https://hub.docker.com/>`_.
 
@@ -146,6 +146,9 @@ After your image has finished downloading it should be in the present working di
 	SUPPORT_URL="http://help.ubuntu.com/"
 	BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
 	Singularity ubuntu_test.simg:~> 
+
+Exercise 2.2: Downloading from Docker Hub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example pulls a container from DockerHub
 
@@ -278,10 +281,10 @@ In the above command:
     To install Ubuntu from the ubuntu.com archive you need to use `debootstrap`
 
  
-Exercise 3: Writing a Singularity file (30 minutes)
+Exercise 3: Creating the Singularity file (30 minutes)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Recipes <http://singularity.lbl.gov/docs-recipes>`_ for Singularity can use any number of container registries for bootstrapping a container. 
+`Recipes <http://singularity.lbl.gov/docs-recipes>`_ can use any number of container registries for bootstrapping a container. 
 
 (Advanced) the `Singularity` file can be hosted on Github and will be auto-detected by Singularity-Hub when you set up your Container Collection.
 
@@ -291,22 +294,22 @@ The container registries
 
 - Sections
 
-Singularity files use sections to specify the environment and applications to build.
+The Singularity file uses sections to specify the dependencies, environmental settings, and runscripts when it build.
 
 *  %help - create text for a help menu associated with your container
 *  %setup - executed on the host system outside of the container, after the base OS has been installed.
 *  %files - copy files from your host system into the container
 *  %labels - 
-*  %environment - 
-*  %post - 
-*  %runscript - 
-*  %test - 
+*  %environment - exports environment settings to the container
+*  %post - use to install software and dependencies
+*  %runscript - executes a script when the container runs
+*  %test - runs a test on the build of the container
 
 - Setting up Singularity file system
 
 `$SINGULARITY_ROOTFS`
 
-Example Singularity file using a Docker image of Ubuntu 16.04:
+Example Singularity file using a `Docker hosted version <https://hub.docker.com/_/ubuntu/>`_ of Ubuntu (16.04 here):
 
 .. code-block:: bash
 
