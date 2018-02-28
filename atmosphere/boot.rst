@@ -5,15 +5,18 @@ What we're going to do here is walk through starting up an running
 computer (an "instance") on the Atmosphere service.
 
 Below, we've provided screenshots of the whole process. You can click
-on them to zoom in a bit.  The important areas to fill in are circled
-in red.
+on them to zoom in a bit. The important areas to fill in are highlighted.
 
 First, go to the `Atmosphere <https://atmo.cyverse.org/application/images>`_ application and then click `login`
 
+.. Note::
+
+  You should all have access to Atmosphere workshop cloud. If you are not able to log-in for some reason, please let us know and we will fix it immediately.
+
 1. Fill in the username and password and click "LOGIN"
 
-Fill in the username, which is 'tx160085' for the Container Camp workshop,
-and then enter the password (which we will tell you in class).
+Fill in the username, which is your CyVerse username,
+and then enter the password (which is your CyVerse password).
 
 |atmo-1|
            
@@ -21,13 +24,13 @@ and then enter the password (which we will tell you in class).
 
 - Now, this is something you only need to once.
 
-- We'll do this with Projects, which give you a bit of a workspace in which
-to keep things that belong to "you".
+- We'll do this with Projects, which give you a bit of a workspace in which to keep things that belong to "you".
 
-- Click on "Projects" up along the top and name the project for yourself, click "create"
+- Click on "Projects" tab along the top and then click "CREATE NEW PROJECT"
 
-- Enter your name into the Project Name, and something simple like "CCW2018"
-into the description. Then click 'create'.
+|atmo_cp0|
+
+- Enter the name "CCW2018" into the Project Name, and something simple like "Container Camp Workshop 2018" into the description. Then click 'create'.
 
 |atmo_cp|
 
@@ -39,12 +42,15 @@ into the description. Then click 'create'.
 
 - Now, select 'New' and then "Instance" from the dropdown menu to start up a new machine.
 
+|atmo_launch0|
+
 - Find the "Ubuntu 16.04" image, click on it
 
-- Name it something simple and select 'm1.medium'
+|atmo_launch1|
 
-Change the name after what we're doing - "workshop tutorial", for example,
-but it doesn't matter -- and leave rest of the fields as default.
+- Name it something simple such as "workshop tutorial" and select 'tiny1 (CPU: 1, Mem: 4GB, Disk: 30GB)'
+
+- Leave rest of the fields as default.
 
 |atmo_launch|
 
@@ -58,8 +64,7 @@ Just wait! Don't reload or anything.
 Click on your new instance to get more information!
 
 Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
-you can ssh in as user 'tx160085' on the IP address of the machine - see
-circled information below. 
+you can ssh in with your CyVerse username on the IP address of the machine 
 
 |atmo-7|
 
@@ -72,7 +77,7 @@ This will open up a dialogue window. Select the "Yes, delete this instance" butt
 
 |atmo-8|
 
-It may take Jetstream a few minutes to process your request. The instance should disappear from the project when it has been successfully deleted. 
+It may take Atmosphere a few minutes to process your request. The instance should disappear from the project when it has been successfully deleted. 
 
 |atmo-9|
 
@@ -80,7 +85,19 @@ It may take Jetstream a few minutes to process your request. The instance should
   :width: 750
   :height: 700
 
+.. |atmo_cp0| image:: ../img/atmo_cp0.png
+  :width: 750
+  :height: 700
+
 .. |atmo_cp| image:: ../img/atmo_cp.png
+  :width: 750
+  :height: 700
+
+.. |atmo_launch0| image:: ../img/atmo_launch0.png
+  :width: 750
+  :height: 700
+
+.. |atmo_launch1| image:: ../img/atmo_launch1.png
   :width: 750
   :height: 700
 
