@@ -10,7 +10,7 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 .. Note:: 
       
-      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences.
+      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences. Gregory Kurtzer, creator of Singularity has provided two good talks online: `Introduction to Singularity (vs Docker) <(https://wilsonweb.fnal.gov/slides/hpc-containers-singularity-introductory.pdf>`_, and `Advanced Singularity <https://www.intel.com/content/dam/www/public/us/en/documents/presentation/hpc-containers-singularity-advanced.pdf>`_  
       
       **Docker**:
       
