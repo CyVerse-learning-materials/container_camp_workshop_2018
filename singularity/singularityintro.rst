@@ -10,7 +10,7 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 .. Note:: 
       
-      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences. Gregory Kurtzer, creator of Singularity has provided two good talks online: `Introduction to Singularity <(https://wilsonweb.fnal.gov/slides/hpc-containers-singularity-introductory.pdf>`_, and `Advanced Singularity <https://www.intel.com/content/dam/www/public/us/en/documents/presentation/hpc-containers-singularity-advanced.pdf>`_  
+      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences. Gregory Kurtzer, creator of Singularity has provided two good talks online: `Introduction to Singularity <https://wilsonweb.fnal.gov/slides/hpc-containers-singularity-introductory.pdf>`_, and `Advanced Singularity <https://www.intel.com/content/dam/www/public/us/en/documents/presentation/hpc-containers-singularity-advanced.pdf>`_  
       
       **Docker**:
       
@@ -31,18 +31,19 @@ Singularity is more likely to be used in a remote system, e.g. HPC or cloud. Yet
 Exercise 1 (15-20 mins)
 ~~~~~~~~~~~~~~~~~~~~~
 
-2.1 Laptop or Desktop
+2.1 Setting up Laptop
 ~~~~~~~~~~~~~~~~~~~~~
 
-To Install Singularity on your laptop or desktop PC: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <http://singularity.lbl.gov/install-windows>`_, `Linux <http://singularity.lbl.gov/install-linux>`_)
+To Install Singularity on your laptop or desktop PC follow the instructions from Singularity: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <http://singularity.lbl.gov/install-windows>`_, `Linux <http://singularity.lbl.gov/install-linux>`_)
 
-  * running VM is required on Mac OS X, Singularityware `VagrantBox <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`_
+  * running a VM is required on Mac OS X, Singularityware `VagrantBox <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`_
   
 2.2 HPC
 ~~~~~~~
-Load Singularity module on HPC/XSEDE
 
-If you are working on HPC, you may need to contact your systems administrator and request they install `Singularity  <http://singularity.lbl.gov/install-request>`_. 
+Load a Singularity module on a HPC
+
+If you are interested in working on HPC, you may need to contact your systems administrator and request they install `Singularity  <http://singularity.lbl.gov/install-request>`_. 
 
 Most HPC systems are running Environment Modules with the simple command `module`. You can check to see what is available:
 
@@ -59,7 +60,7 @@ If Singularity is installed:
 2.3 XSEDE Jetstream / CyVerse Atmosphere Clouds
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-CyVerse staff have deployed an Ansible playbook with an EZ installation option for `Singularity <https://cyverse-ez-quickstart.readthedocs-hosted.com/en/latest/#>`_ that only requires you to type a short line of code:
+CyVerse staff have deployed an Ansible playbooks called `ez` installation which includes `Singularity <https://cyverse-ez-quickstart.readthedocs-hosted.com/en/latest/#>`_ that only requires you to type a short line of code:
 
 .. code-block:: bash
 
