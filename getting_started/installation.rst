@@ -1,7 +1,7 @@
 **Pre-Workshop Setup**
 ======================
 
-These are the minimum Setup Instructions for the Container Camp workshop at CyVerse, The University of Arizona, which will run from March 7th to 9th, 2017.
+Please complete the minimum Setup Instructions to prepare for the Container Camp workshop at CyVerse, The University of Arizona, which will run from March 7th to 9th, 2018.
 
 .. list-table::
     :header-rows: 1
@@ -47,7 +47,7 @@ These are the minimum Setup Instructions for the Container Camp workshop at CyVe
 
 **Optional Download Extras**
 
-These are some extra downloads that aren't required for the workshop, but which
+Listed below are some extra downloads that aren't required for the workshop, but which
 provide some options for functionalities we will cover.
 
 .. list-table::
