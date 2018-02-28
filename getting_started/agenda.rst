@@ -1,7 +1,7 @@
 Agenda
 ------
 
-These are the schedule and classroom materials for the Container camp workshop at The University of Arizona, which will run from March 7th to 9th, 2018. The workshop will take place in Drachman A116. Click this link to the building - https://goo.gl/7Yv4PA 
+Below are the schedule and classroom materials for Container Camp at The University of Arizona, which will run from March 7th to 9th, 2018. The workshop will take place in Drachman A116. Click this link to the building - https://goo.gl/7Yv4PA 
 
 This workshop runs under a `Code of Conduct <../getting_started/main.html>`_. Please respect it and be excellent to each other!
 
@@ -20,23 +20,23 @@ Twitter hash tag: #cc2018
       -
     * - 03/07/18 (Wednesday)
       - 8:45-9:00
-      - Welcome to Container camp (Upendra Devisetty)
+      - Welcome to Container Camp (Upendra Devisetty)
       - 
     * - 03/07/18 (Wednesday)
       - 9:00-10:00
-      - General overview of Container Technology (Nirav)
+      - General overview of container technology (Nirav Merchant)
       -
     * - 03/07/18 (Wednesday)
       - 10:00-10:30
-      - Coffee break with networking
+      - Coffee + snack break with networking
       -
     * - 03/07/18 (Wednesday)
       - 10:30-12.00
-      - Introduction to Docker (Kapeel)
+      - Introduction to Docker (Kapeel Chougule)
       - `Docker basics/Introduction <../docker/dockerintro.html>`_
     * - 03/07/18 (Wednesday)
       - 12:00-01:00
-      - Lunch break with networking
+      - Lunch break on your own
       -
     * - 03/07/18 (Wednesday)
       - 01:00-2:30
@@ -44,7 +44,7 @@ Twitter hash tag: #cc2018
       - `Advanced docker <../docker/dockeradvanced.html>`_
     * - 03/07/18 (Wednesday)
       - 2:30-3:00
-      - Coffee break with networking
+      - Coffee + snack break with networking
       -
     * - 03/07/18 (Wednesday)
       - 03:00-06:00
@@ -60,7 +60,7 @@ Twitter hash tag: #cc2018
       - 
     * - 03/08/18 (Thursday)
       - 10:00-10:30
-      - Coffee break and networking
+      - Coffee + snack break and networking
       -
     * - 03/08/18 (Thursday)
       - 10:30-12.00
@@ -68,7 +68,7 @@ Twitter hash tag: #cc2018
       - `Singularity Introduction <../singularity/singularityintro.html>`_
     * - 03/08/18 (Thursday)
       - 12:00-01:00
-      - Lunch break with networking
+      - Lunch break on your own with networking
       -
     * - 03/08/18 (Thursday)
       - 01:00-2:30
@@ -76,7 +76,7 @@ Twitter hash tag: #cc2018
       - `Advanced Singularity <../singularity/singularityadvanced.html>`_
     * - 03/08/18 (Thursday)
       - 2:30-3:00
-      - Coffee break with networking
+      - Coffee + snack break with networking
       -
     * - 03/08/18 (Thursday)
       - 03:00-06:00
@@ -92,7 +92,7 @@ Twitter hash tag: #cc2018
       - `Introduction to Pegasus <../container_scaling/containerscaling_pegasus.html>`_
     * - 03/09/18 (Friday)
       - 10:00-10:30
-      - Coffee break and networking
+      - Coffee + snack break and networking
       -
     * - 03/09/18 (Friday)
       - 10:30-12.00
@@ -100,7 +100,7 @@ Twitter hash tag: #cc2018
       - `Introduction to Container scaling <../container_scaling/containerscaling_dc.html>`_
     * - 03/09/18 (Friday)
       - 12:00-01:00
-      - Lunch break with networking
+      - Lunch break on your own with networking
       -
     * - 03/09/18 (Friday)
       - 01:00-2:30
@@ -108,7 +108,7 @@ Twitter hash tag: #cc2018
       - `Introduction to Biocontainers <../biocontainers.html>`_
     * - 03/09/18 (Friday)
       - 2:30-3:00
-      - Coffee break with networking
+      - Coffee + snack break with networking
       -
     * - 03/09/18 (Friday)
       - 03:00-06:00
