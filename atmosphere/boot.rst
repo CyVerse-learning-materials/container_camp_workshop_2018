@@ -1,7 +1,7 @@
-Booting a Atmosphere Computer Instance for your use!
+Booting an Atmosphere computer instance for your use!
 ----------------------------------------------------
 
-What we're going to do here is walk through starting up an running
+What we're going to do here is walk through how to start up a running
 computer (an "instance") on the Atmosphere service.
 
 Below, we've provided screenshots of the whole process. You can click
@@ -11,7 +11,7 @@ First, go to the `Atmosphere <https://atmo.cyverse.org/application/images>`_ app
 
 .. Note::
 
-  You should all have access to Atmosphere workshop cloud. If you are not able to log-in for some reason, please let us know and we will fix it immediately.
+  You will need to have access to the Atmosphere workshop cloud. If you are not able to log-in for some reason, please let us know and we will fix it immediately.
 
 1. Fill in the username and password and click "LOGIN"
 
@@ -22,11 +22,11 @@ and then enter the password (which is your CyVerse password).
            
 2. Select Projects and "Create New Project"
 
-- Now, this is something you only need to once.
+- Now, this is something you only need to do once.
 
-- We'll do this with Projects, which give you a bit of a workspace in which to keep things that belong to "you".
+- We'll do this with Projects, which gives you a bit of a workspace in which to keep things that belong to "you".
 
-- Click on "Projects" tab along the top and then click "CREATE NEW PROJECT"
+- Click on. the "Projects" tab along the top and then click "CREATE NEW PROJECT"
 
 |atmo_cp0|
 
