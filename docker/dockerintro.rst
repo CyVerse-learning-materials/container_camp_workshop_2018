@@ -58,13 +58,13 @@ If you run with `--version` you should see a whole bunch of lines showing the di
 3. Running Docker containers from prebuilt images
 =================================================
 
-Now that you have everything setup, it's time to get our hands dirty. In this section, you are going to run an `Alpine Linux <http://www.alpinelinux.org/>`_ container (a lightweight linux distribution) on your system and get a taste of the docker run command.
+Now that you have everything setup, it's time to get our hands dirty. In this section, you are going to run an `Alpine Linux <http://www.alpinelinux.org/>`_ (a lightweight linux distribution) container on your system and get a taste of the `docker run` command.
 
 But wait, what exactly is a container and image?
 
-*Containers* - Running instances of Docker images — containers run the actual applications. A container includes an application and all of its dependencies. It shares the kernel with other containers, and runs as an isolated process in user space on the host OS. You created a container using docker run which you did using the alpine image that you downloaded. A list of running containers can be seen using the docker ps command
+*Containers* - Running instances of Docker images — containers run the actual applications. A container includes an application and all of its dependencies. It shares the kernel with other containers, and runs as an isolated process in user space on the host OS. 
 
-*Images* - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run `docker inspect alpine`. In the demo above, you used the `docker pull` command to download the alpine image. When you executed the command docker run hello-world, it also did a `docker pull` behind the scenes to download the hello-world image
+*Images* - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run `docker inspect hello-world`. In the demo above, you could have used the `docker pull` command to download the hello-world image. However when you executed the command `docker run hello-world`, it also did a `docker pull` behind the scenes to download the `hello-world` image with `latest` tag (we will learn more about tags little later).
 
 Now that we know what a container and image is, let's run the following in our terminal:
 
@@ -269,6 +269,10 @@ If you are running Docker for Mac, Docker for Windows, or Docker on Linux, you c
 
 |static_site_docker|
 
+If you are running Docker on Atmosphere/Jetstream or on any other cloud, you can open `ipaddress:[YOUR_PORT_FOR 80/tcp]`. For our example this is `http://128.196.142.26:32771/`
+
+|static_site_docker1|
+
 .. Note::
 
 	`-P` will publish all the exposed container ports to random ports on the Docker host. However if you want to assign a fixed port then you can use `-p` option
@@ -279,6 +283,8 @@ If you are running Docker for Mac, Docker for Windows, or Docker on Linux, you c
 	8ed06daa0d8d8e0b0367bc3c035d2d729e6523c2a41818ebe92589c027d68c9e
 
 If you are running Docker for Mac, Docker for Windows, or Docker on Linux, you can open `http://localhost:[YOUR_PORT_FOR 80/tcp]`. For our example this is `http://localhost:8088`.
+
+If you are running Docker on Atmosphere/Jetstream or on any other cloud, you can open `ipaddress:[YOUR_PORT_FOR 80/tcp]`. For our example this is `http://128.196.142.26:8088/`
 
 Let's stop and remove the containers since you won't be using them anymore.
 
@@ -326,7 +332,7 @@ Docker images are the basis of containers. In the previous example, you pulled t
 	hello-world             	latest              690ed74de00f        5 months ago       960 B
 	.........
 
-Above is a list of images that I've pulled from the registry and those I've created myself (we'll shortly see how). You will have a different list of images on your machine. The TAG refers to a particular snapshot of the image and the ID is the corresponding unique identifier for that image.
+Above is a list of images that I've pulled from the registry and those I've created myself (we'll shortly see how). You will have a different list of images on your machine. The **TAG** refers to a particular snapshot of the image and the ID is the corresponding unique identifier for that image.
 
 For simplicity, you can think of an image akin to a git repository - images can be committed with changes and have multiple versions. When you do not provide a specific version number, the client defaults to latest.
 
@@ -349,7 +355,32 @@ To get a new Docker image you can either get it from a registry (such as the Doc
 .. code-block:: bash
 
 	$ docker search ubuntu
-
+	  NAME                                                   DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+	  ubuntu                                                 Ubuntu is a Debian-based Linux operating sys…   7310                [OK]                
+	  dorowu/ubuntu-desktop-lxde-vnc                         Ubuntu with openssh-server and NoVNC            163                                     [OK]
+	  rastasheep/ubuntu-sshd                                 Dockerized SSH service, built on top of offi…   131                                     [OK]
+	  ansible/ubuntu14.04-ansible                            Ubuntu 14.04 LTS with ansible                   90                                      [OK]
+	  ubuntu-upstart                                         Upstart is an event-based replacement for th…   81                  [OK]                
+	  neurodebian                                            NeuroDebian provides neuroscience research s…   43                  [OK]                
+	  ubuntu-debootstrap                                     debootstrap --variant=minbase --components=m…   35                  [OK]                
+	  1and1internet/ubuntu-16-nginx-php-phpmyadmin-mysql-5   ubuntu-16-nginx-php-phpmyadmin-mysql-5          26                                      [OK]
+	  nuagebec/ubuntu                                        Simple always updated Ubuntu docker images w…   22                                      [OK]
+	  tutum/ubuntu                                           Simple Ubuntu docker images with SSH access     18                                      
+	  ppc64le/ubuntu                                         Ubuntu is a Debian-based Linux operating sys…   11                                      
+	  i386/ubuntu                                            Ubuntu is a Debian-based Linux operating sys…   9                                       
+	  1and1internet/ubuntu-16-apache-php-7.0                 ubuntu-16-apache-php-7.0                        7                                       [OK]
+	  eclipse/ubuntu_jdk8                                    Ubuntu, JDK8, Maven 3, git, curl, nmap, mc, …   5                                       [OK]
+	  darksheer/ubuntu                                       Base Ubuntu Image -- Updated hourly             3                                       [OK]
+	  codenvy/ubuntu_jdk8                                    Ubuntu, JDK8, Maven 3, git, curl, nmap, mc, …   3                                       [OK]
+	  1and1internet/ubuntu-16-nginx-php-5.6-wordpress-4      ubuntu-16-nginx-php-5.6-wordpress-4             2                                       [OK]
+	  1and1internet/ubuntu-16-nginx                          ubuntu-16-nginx                                 2                                       [OK]
+	  pivotaldata/ubuntu                                     A quick freshening-up of the base Ubuntu doc…   1                                       
+	  smartentry/ubuntu                                      ubuntu with smartentry                          0                                       [OK]
+	  pivotaldata/ubuntu-gpdb-dev                            Ubuntu images for GPDB development              0                                       
+	  1and1internet/ubuntu-16-healthcheck                    ubuntu-16-healthcheck                           0                                       [OK]
+	  thatsamguy/ubuntu-build-image                          Docker webapp build images based on Ubuntu      0                                       
+	  ossobv/ubuntu                                          Custom ubuntu image from scratch (based on o…   0                                       
+	  1and1internet/ubuntu-16-sshd                           ubuntu-16-sshd                                  0                                       [OK]
 
 An important distinction with regard to images is between base images and child images and official images and user images (Both of which can be base images or child images.).
 
@@ -483,7 +514,11 @@ We want to create a Docker image with this web app. As mentioned above, all user
 
 A **Dockerfile** is a text file that contains a list of commands that the Docker daemon calls while creating an image. The Dockerfile contains all the information that Docker needs to know to run the app — a base Docker image to run from, location of your project code, any dependencies it has, and what commands to run at start-up. It is a simple way to automate the image creation process. The best part is that the commands you write in a Dockerfile are almost identical to their equivalent Linux commands. This means you don't really have to learn new syntax to create your own Dockerfiles.
 
-1.4.1 Create a file called Dockerfile, and add content to it as described below.
+1.4.1 Create a file called Dockerfile in the flask directory, and add content to it as described below.
+
+.. code-block:: bash
+
+	cd ..
 
 We'll start by specifying our base image, using the FROM keyword:
 
@@ -557,15 +592,21 @@ Our Dockerfile is now ready. This is how it looks:
 
 Now that you have your Dockerfile, you can build your image. The docker build command does the heavy-lifting of creating a docker image from a Dockerfile.
 
+The docker build command is quite simple - it takes an optional tag name with the `-t` flag, and the location of the directory containing the Dockerfile - the `.` indicates the current directory:
+
 .. Note::
 
 	When you run the docker build command given below, make sure to replace `<YOUR_USERNAME>` with your username. This username should be the same one you created when registering on Docker hub. If you haven't done that yet, please go ahead and create an account.
 
-The docker build command is quite simple - it takes an optional tag name with the `-t` flag, and the location of the directory containing the Dockerfile - the `.` indicates the current directory:
+.. code-block:: bash
+
+	$ docker build -t <YOUR_DOCKERHUB_USERNAME>/myfirstapp:1.0 .
+
+For example
 
 .. code-block:: bash
 
-	$ docker build -t <YOUR_DOCKERHUB_USERNAME>/myfirstapp .
+	$ docker build -t upendradevisetty/myfirstapp:1.0 .
 	Sending build context to Docker daemon   7.68kB
 	Step 1/8 : FROM alpine:3.5
 	 ---> 88e169ea8f46
@@ -614,7 +655,7 @@ The docker build command is quite simple - it takes an optional tag name with th
 	Successfully built 40a121fff878
 	Successfully tagged upendradevisetty/myfirstapp:latest
 
-If you don't have the alpine:3.5 image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run docker images and see if your image (<YOUR_USERNAME>/myfirstapp) shows.
+If you don't have the alpine:3.5 image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run docker images and see if your image (<YOUR_USERNAME>/myfirstapp:1.0) shows.
 
 .. _Run your image:
 
@@ -624,7 +665,13 @@ The next step in this section is to run the image and see if it actually works.
 
 .. code-block:: bash
 
-	$ docker run -d -p 8888:5000 --name myfirstapp <YOUR_DOCKERHUB_USERNAME>/myfirstapp
+	$ docker run -d -p 8888:5000 --name myfirstapp <YOUR_DOCKERHUB_USERNAME>/myfirstapp:1.0
+
+For example
+
+.. code-block:: bash
+
+	$ docker run -d -p 8888:5000 --name myfirstapp upendradevisetty/myfirstapp:1.0
 
 Head over to http://localhost:8888 and your app should be live. 
 
