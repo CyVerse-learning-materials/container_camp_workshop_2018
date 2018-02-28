@@ -596,11 +596,21 @@ The docker build command is quite simple - it takes an optional tag name with th
 
 .. Note::
 
-	When you run the docker build command given below, make sure to replace `<YOUR_USERNAME>` with your username. This username should be the same one you created when registering on Docker hub. If you haven't done that yet, please go ahead and create an account.
+	When you run the `docker build` command given below, make sure to replace `<YOUR_DOCKERHUB_USERNAME>` with your username. This username should be the same one you created when registering on Docker hub. If you haven't done that yet, please go ahead and create an account.
 
 .. code-block:: bash
 
-	$ docker build -t <YOUR_DOCKERHUB_USERNAME>/myfirstapp .
+	YOUR_DOCKERHUB_USERNAME=<YOUR_DOCKERHUB_USERNAME>
+
+For example this is how i assign my dockerhub username
+
+.. code-block:: bash
+
+	YOUR_DOCKERHUB_USERNAME=upendradevisetty
+
+.. code-block:: bash
+
+	$ docker build -t $YOUR_DOCKERHUB_USERNAME/myfirstapp .
 
 For example
 
@@ -665,7 +675,7 @@ The next step in this section is to run the image and see if it actually works.
 
 .. code-block:: bash
 
-	$ docker run -d -p 8888:5000 --name myfirstapp <YOUR_DOCKERHUB_USERNAME>/myfirstapp
+	$ docker run -d -p 8888:5000 --name myfirstapp $YOUR_DOCKERHUB_USERNAME/myfirstapp
 
 For example
 
@@ -744,7 +754,10 @@ Use the following Docker commands to deploy Portainer. Now the second line of co
 
 	$ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
-You'll just need to access the port 9000 of the Docker engine where portainer is running using your browser using username `admin` and password `tryportainer`
+- If you are on mac, you'll just need to access the port 9000 (http://localhost:9000
+) of the Docker engine where portainer is running using your browser using username `admin` and password `tryportainer`
+
+- If you are running Docker on Atmosphere/Jetstream or on any other cloud, you can open `ipaddress:9000`. For our example this is `http://128.196.142.26:9000`
 
 .. Note:: 
 	

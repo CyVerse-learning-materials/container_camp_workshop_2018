@@ -59,7 +59,13 @@ Now, put it all together to tag the image. Run docker tag image with your userna
 
 .. code-block:: bash
 
-	$ docker tag <YOUR_DOCKERHUB_USERNAME>/myfirstapp <YOUR_DOCKERHUB_USERNAME>/myfirstapp:1.0
+	$ docker tag $YOUR_DOCKERHUB_USERNAME/myfirstapp $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0
+
+For example
+
+.. code-block:: bash
+
+	$ docker tag upendradevisetty/myfirstapp upendradevisetty/myfirstapp:1.0
 
 1.1.3 Publish the image
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,7 +74,7 @@ Upload your tagged image to the Docker repository
 
 .. code-block:: bash
 
-	docker push <YOUR_DOCKERHUB_USERNAME>/myfirstapp:1.0	
+	$ docker push $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0	
 
 Once complete, the results of this upload are publicly available. If you log in to Docker Hub, you will see the new image there, with its pull command.
 
@@ -77,9 +83,9 @@ Once complete, the results of this upload are publicly available. If you log in 
 1.1.4 Pull and run the image from the remote repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's try to run the image from the remote repository on cloud by logging into CyVerse Atmosphere, `launching an instance <>`_
+Let's try to run the image from the remote repository on cloud by logging into CyVerse Atmosphere, `launching an instance <../atmosphere/boot.rst>`_
 
-First install Docker on Atmosphere using from here https://docs.docker.com/install/linux/docker-ce/ubuntu or alternatively you can use `ez` command which is a short cut command for installing Docker on Atmosphere
+First install Docker on Atmosphere using from here https://docs.docker.com/install/linux/docker-ce/ubuntu or alternatively you can use `ez` command which is a short-cut command for installing Docker on Atmosphere
 
 .. code-block:: bash
 
@@ -89,7 +95,7 @@ Now run the following command to pull the docker image from Dockerhub
 
 .. code-block:: bash
 
-	$ sudo docker run -d -p 8888:5000 --name myfirstapp <YOUR_DOCKERHUB_USERNAME>/myfirstapp:1.0
+	$ sudo docker run -d -p 8888:5000 --name myfirstapp $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0
 
 .. Note::
 
@@ -100,7 +106,7 @@ Head over to http://<ipaddress>:8888 and your app should be live.
 1.2 Private repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-In an earlier part, we had looked at the Docker Hub, which is a public registry that is hosted by Docker. While the Docker Hub plays an important role in giving public visibility to your Docker images and for you to utilize quality Docker images put up by others, there is a clear need to setup your own private registry too for your team/organization
+In an earlier part, we had looked at the Docker Hub, which is a public registry that is hosted by Docker. While the Docker Hub plays an important role in giving public visibility to your Docker images and for you to utilize quality Docker images put up by others, there is a clear need to setup your own private registry too for your team/organization. For example, CyVerse has it own private registry which will be used to push the Docker images.
 
 1.2.1 Pull down the Registry Image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -133,7 +139,8 @@ Next step is to tag your image under the registry namespace and push it there
 .. code-block:: bash
 
 	$ REGISTRY=localhost:5000
-	$ docker tag myfirstapp $REGISTRY/$(whoami)/myfirstapp:1.0
+
+	$ docker tag $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0 $REGISTRY/$(whoami)/myfirstapp:1.0
 
 1.2.2 Publish the image into the local registry
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -159,7 +166,7 @@ You can also pull the image from the local repository similar to how you pull it
 
 .. code-block:: bash
 
-	docker run -d -P --name=myfirstapplocal $REGISTRY/$(whoami)/myfirstapp:1.0
+	$ docker run -d -P --name=myfirstapplocal $REGISTRY/$(whoami)/myfirstapp:1.0
 
 2. Automated Docker image building from github
 ==============================================
@@ -242,9 +249,13 @@ Let's create an automatic build for our `flask-app` using the instructions below
 	 create mode 100644 requirements.txt
 	 create mode 100644 templates/index.html
 
-2. Create a repository on github 
+2. Create a new repository on github by navigating to this url - https://github.com/new
 
-3. Push the repoisotry to github
+|create_repo|
+
+3. Push the repository to github
+
+|create_repo2|
 
 .. code-block:: bash
 
@@ -604,7 +615,7 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 
 	$ mkdir compose_flask && cd compose_flask
 
-2. Add the following to requirements.txt inside `compose_flask` directory:
+2. Add the following to `requirements.txt` inside `compose_flask` directory:
 
 .. code-block:: bash
 
@@ -615,7 +626,6 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 
 .. code-block:: bash
 
-	# compose_flask/app.py
 	from flask import Flask
 	from redis import Redis
 
@@ -630,7 +640,18 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 	if __name__ == "__main__":
 	    app.run(host="0.0.0.0", debug=True)
 
-4. Add the following code to a new file, docker-compose.yml, in your project directory:
+
+4. Create a Dockerfile with the following code inside `compose_flask` directory:
+
+.. code-block:: bash
+
+	FROM python:2.7
+	ADD . /code
+	WORKDIR /code
+	RUN pip install -r requirements.txt
+	CMD python app.py
+
+5. Add the following code to a new file, docker-compose.yml, in your project directory:
 
 .. code-block:: bash
 
@@ -658,6 +679,16 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 	- Mounts the project directory on the host to /code inside the container (allowing you to modify the code without having to rebuild the image).
 	- And links the web service to the Redis service.
 	- The redis service uses the latest Redis image from Docker Hub.
+
+.. Note::
+
+	Docker for Mac and Docker Toolbox already include Compose along with other Docker apps, so Mac users do not need to install Compose separately.
+	Docker for Windows and Docker Toolbox already include Compose along with other Docker apps, so most Windows users do not need to install Compose separately
+	For Linux users 
+	.. code-block:: bash
+
+		sudo curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+		sudo chmod +x /usr/local/bin/docker-compose
 
 5. Build and Run with `docker-compose up -d` command
 
@@ -719,7 +750,7 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 	Successfully built e911b8e8979f
 	Successfully tagged composeflask_web:latest
 
-And that’s it! You should be able to see the Flask application running on http://localhost:8888
+And that’s it! You should be able to see the Flask application running on http://localhost:8888 or <ipaddress>:8888 if you are running on Atmosphere/Jetstream cloud
 
 |docker-compose|
 
@@ -776,7 +807,11 @@ Motivation: Say you want to play around with some cool data science libraries in
 
 Docker allows us to run a ‘ready to go’ Jupyter data science stack in what’s known as a container:
 
-1.1 Create a docker-compose file
+1.1 Create a `docker-compose.yml` file
+
+.. code-block:: bash
+
+	$ mkdir jn && cd jn
 
 .. code-block:: bash
 	
@@ -854,7 +889,7 @@ Next, we will see a Docker image from Rocker which will allow us to run RStudio 
 
 .. code-block:: bash
 
-	docker run --rm -d -p 8787:8787 rocker/rstudio:3.4.3
+	$ docker run --rm -d -p 8787:8787 rocker/rstudio:3.4.3
 
 .. Note:: 
 	
@@ -1009,6 +1044,14 @@ Exercise
   :height: 700 
 
 .. |private_registry| image:: ../img/private_registry.png
+  :width: 750
+  :height: 700 
+
+.. |create_repo| image:: ../img/create_repo.png
+  :width: 750
+  :height: 700 
+
+.. |create_repo| image:: ../img/create_repo2.png
   :width: 750
   :height: 700 
 
