@@ -30,7 +30,9 @@ Singularity uses a 'flow' whereby you can (1) create and modify images on your d
 2. Singularity Installation
 ===========================
 
-Singularity is more likely to be used in a remote system, e.g. HPC or cloud. Yet you may want to develop containers first on a local machine.
+Singularity homepage: `http://singularity.lbl.gov/ <http://singularity.lbl.gov/>`_
+
+While Singularity is more likely to be used on a remote system, e.g. HPC or cloud, you may want to develop your own containers first on a local machine or dev system. 
 
 Exercise 1 (15-20 mins)
 ~~~~~~~~~~~~~~~~~~~~~
@@ -91,27 +93,28 @@ Singularity should now be installed on your laptop or VM, or loaded on the HPC, 
     $ singularity pull shub://vsoch/hello-world
     Progress |===================================| 100.0%
     Done. Container is at: /tmp/vsoch-hello-world-master.simg
+   
     $ singularity run vsoch-hello-world-master.simg
     RaawwWWWWWRRRR!!
 
 3. Downloading Singularity containers
 =====================================
 
-Exercise 2.1: Downloading from Singularity Hub (~10 mins)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Exercise 2.1: Pulling from Singularity Hub (~10 mins)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can use the `pull` command to download pre-built images from a number of Container Registries, here we'll be focusing on the `Singularity-Hub <https://www.singularity-hub.org>`_ or `DockerHub <https://hub.docker.com/>`_.
 
 Container Registries: 
 
-* shub - images hosted on Singularity Hub
-* docker - images hosted on Docker Hub
-* localimage - images saved on your machine
-* yum - yum based systems such as CentOS and Scientific Linux
-* debootstrap - apt based systems such as Debian and Ubuntu
-* arch - Arch Linux
-* busybox - BusyBox
-* zypper - zypper based systems such as Suse and OpenSuse
+* `shub` - images hosted on Singularity Hub
+* `docker` - images hosted on Docker Hub
+* `localimage` - images saved on your machine
+* `yum` - yum based systems such as CentOS and Scientific Linux
+* `debootstrap` - apt based systems such as Debian and Ubuntu
+* `arch` - Arch Linux
+* `busybox` - BusyBox
+* `zypper` - zypper based systems such as Suse and OpenSuse
 
 This example pulls a container from Singularity-Hub:
 
@@ -119,14 +122,12 @@ This example pulls a container from Singularity-Hub:
 
     $ singularity pull shub://singularityhub/ubuntu
   
-You can also rename the container by using the `--name` flag:
+You can rename the container using the `--name` flag:
   
 .. code-block:: bash
 
     $ singularity pull --name ubuntu_test.simg shub://singularityhub/ubuntu
-
-- Running a Singularity container from pre-built image
-
+    
 After your image has finished downloading it should be in the present working directory, unless you specified to download it somewhere else.
 
 .. code-block:: bash
@@ -156,8 +157,8 @@ After your image has finished downloading it should be in the present working di
 	BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
 	Singularity ubuntu_test.simg:~> 
 
-Exercise 2.2: Downloading from Docker Hub
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Exercise 2.2: Pulling container from Docker Hub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example pulls a container from DockerHub
 
@@ -251,7 +252,7 @@ By default, Singularity uses a temporary cache to hold Docker tarballs:
 
   $ ls ~/.singularity
   
-You can change these by specifying the location of the cache and temporary directory:
+You can change these by specifying the location of the cache and temporary directory on your localhost:
 
 .. code-block:: bash
 
@@ -260,7 +261,7 @@ You can change these by specifying the location of the cache and temporary direc
   
   $ SINGULARITY_TMPDIR=$PWD/scratch SINGULARITY_CACHEDIR=$PWD/tmp singularity --debug pull --name ubuntu-tmpdir.simg docker://ubuntu
 
-We can also run a docker container in Singularity that launches a program, for example RStudio `tidyverse` from `Rocker <https://hub.docker.com/r/rocker/rstudio/>`_ 
+As an example, using Singularity we can run a UI program that was built from Docker, here I show the IDE RStudio `tidyverse` from `Rocker <https://hub.docker.com/r/rocker/rstudio/>`_ 
 
 .. code-block:: bash
 
@@ -358,6 +359,35 @@ Exercise 3: Creating the Singularity file (30 minutes)
 
 - The Header  
 
+The top of the file, selects the base OS for the container. `Bootstrap:` references the repository (e.g. `docker`, `debootstrap`, `sub`). `From:` selects the name of the owner/container.
+
+.. code-block:: bash
+	Bootstrap: shub
+	From: vsoch/hello-world
+
+Using `debootstrap` with a build that uses a mirror:
+
+.. code-block:: bash
+	BootStrap: debootstrap
+	OSVersion: xenial
+	MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+
+Using a `localimage` to build:
+
+.. code-block:: bash
+	Bootstrap: localimage
+	From: /path/to/container/file/or/directory
+
+Using CentOS-like container:
+
+.. code-block:: bash
+	Bootstrap: yum
+	OSVersion: 7
+	MirrorURL: http://mirror.centos.org/centos-7/7/os/x86_64/
+	Include:yum
+
+Note: to use `yum` to build a container you should be operating on a RHEL system, or an Ubuntu system with `yum` installed. 
+
 The container registries
 
 - Sections
@@ -367,7 +397,7 @@ The Singularity file uses sections to specify the dependencies, environmental se
 *  %help - create text for a help menu associated with your container
 *  %setup - executed on the host system outside of the container, after the base OS has been installed.
 *  %files - copy files from your host system into the container
-*  %labels - 
+*  %labels - store metadata in the container
 *  %environment - exports environment settings to the container
 *  %post - use to install software and dependencies
 *  %runscript - executes a script when the container runs
