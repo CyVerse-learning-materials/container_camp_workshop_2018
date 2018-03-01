@@ -1,5 +1,5 @@
-Booting an Atmosphere computer instance for your use!
-----------------------------------------------------
+**Booting an Atmosphere computer instance for your use!**
+=========================================================
 
 What we're going to do here is walk through how to start up a running
 computer (an "instance") on the Atmosphere service.
@@ -68,8 +68,7 @@ you can ssh in with your CyVerse username on the IP address of the machine
 
 |atmo-7|
 
-Deleting your instance
-======================
+**Deleting your instance**
 
 To completely remove your instance, you can select the "delete" buttom from the instance details page. 
 
