@@ -1,5 +1,5 @@
-Advanced Docker
----------------
+**Advanced Docker**
+-------------------
 
 Now that we are relatively comfortable with Docker basics, lets look at some of the advanced Docker topics such as porting the Docker image to repositories (public and private), managing data in containers and finally deploy containers into cloud and other infrastructures etc.,
 
@@ -895,7 +895,7 @@ Next, we will see a Docker image from Rocker which will allow us to run RStudio 
 	
 	 `–rm` ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. 
 
-The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter http://localhost:8787, or  http://<ipaddress>:8787 on cloud 
+The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter http://localhost:8787, or <ipaddress>:8787 on cloud 
 
 |rstudio_login2|
 
