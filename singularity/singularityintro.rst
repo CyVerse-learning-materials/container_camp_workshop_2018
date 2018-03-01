@@ -1,5 +1,5 @@
-**Introduction to Singularity**
--------------------------------
+Introduction to Singularity
+---------------------------
 
 |singularity|
 
@@ -404,16 +404,89 @@ The Singularity file uses sections to specify the dependencies, environmental se
 *  %setup - executed on the host system outside of the container, after the base OS has been installed.
 *  %files - copy files from your host system into the container
 *  %labels - store metadata in the container
-*  %environment - exports environment settings to the container
-*  %post - use to install software and dependencies
+*  %environment - loads environment variables at the time the container is run (not built)
+*  %post - set environment variables during the build
 *  %runscript - executes a script when the container runs
 *  %test - runs a test on the build of the container
 
+- Apps
+
+In Singularity 2.4+ we can build a container which does multiple things, e.g. each app has its own runscripts. These use the prefix `%app` before the sections mentioned above. The `%app` architecture can exist in addition to the regular `%post` and `%runscript` sections.
+
+.. code-block:: bash
+
+	Bootstrap: docker
+	From: ubuntu
+	
+	% environment
+	
+	%labels
+	
+	##############################
+	# foo
+	##############################
+
+	%apprun foo
+    	    exec echo "RUNNING FOO"
+
+	%applabels foo
+   	    BESTAPP=FOO
+   	    export BESTAPP
+
+	%appinstall foo
+ 	    touch foo.exec
+
+	%appenv foo
+    	    SOFTWARE=foo
+   	    export SOFTWARE
+
+	%apphelp foo
+   	    This is the help for foo.
+
+	%appfiles foo
+	    avocados.txt
+
+
+	##############################
+	# bar
+	##############################
+
+	%apphelp bar
+    	    This is the help for bar.
+
+	%applabels bar
+   	    BESTAPP=BAR
+   	    export BESTAPP
+
+	%appinstall bar
+    	    touch bar.exec
+
+	%appenv bar
+    	    SOFTWARE=bar
+    	    export SOFTWARE
+
 - Setting up Singularity file system
 
-`$SINGULARITY_ROOTFS`
+`%help` section can be as verbose as you want
 
-Example Singularity file using a `Docker hosted version <https://hub.docker.com/_/ubuntu/>`_ of Ubuntu (16.04 here):
+.. code-block:: bash
+	Bootstrap: docker
+	From: ubuntu
+	
+	%help
+	This is the container help section.
+	
+`%setup` commands are executed on the localhost system outside of the container - these files could include necessary build dependencies. We can copy files to the `$SINGULARITY_ROOTFS` file system can be done during `%setup`
+
+`%files` include any files that you want to copy from your localhost into the container.
+
+`%post` includes all of the environment variables and dependencies that you want to see installed into the container at build time.
+
+`%environment` includes the environment variables which we want to be run when we start the container
+
+`%runscript` does what it says, it executes a set of commands when the container is run.
+
+Example Singularity file bootstrapping a `Docker <https://hub.docker.com/_/ubuntu/>`_ Ubuntu (16.04) image. 
 
 .. code-block:: bash
 
@@ -429,7 +502,11 @@ Example Singularity file using a `Docker hosted version <https://hub.docker.com/
         export PATH=/usr/games:$PATH
 
     %runscript
-        fortune | cowsay | lolcat
+        fortune | cowsay | lolcat 
+    
+    %labels
+    	Maintainer Tyson Swetnam
+	Version v0.1
     
 Build the container:
 
@@ -459,6 +536,8 @@ Commands:
 `inspect` - inspects the container.
 
 `--writable` - creates a writable container that you can edit interactively and save on exit.
+
+`--sandbox` - copies the guts of the container into a directory structure. 
 
 5.1 Using the `exec` command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
