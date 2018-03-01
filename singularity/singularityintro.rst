@@ -307,6 +307,8 @@ Note, `image.create` uses an ext3 file system
 
 Build to your container by pulling an image from Docker:
 
+.. code-block:: bash
+
 	$ singularity pull docker://ubuntu:16.04
 	WARNING: pull for Docker Hub is not guaranteed to produce the
 	WARNING: same image on repeated pull. Use Singularity Registry
@@ -362,12 +364,14 @@ Exercise 3: Creating the Singularity file (30 minutes)
 The top of the file, selects the base OS for the container. `Bootstrap:` references the repository (e.g. `docker`, `debootstrap`, `sub`). `From:` selects the name of the owner/container.
 
 .. code-block:: bash
+
 	Bootstrap: shub
 	From: vsoch/hello-world
 
 Using `debootstrap` with a build that uses a mirror:
 
 .. code-block:: bash
+
 	BootStrap: debootstrap
 	OSVersion: xenial
 	MirrorURL: http://us.archive.ubuntu.com/ubuntu/
@@ -375,12 +379,14 @@ Using `debootstrap` with a build that uses a mirror:
 Using a `localimage` to build:
 
 .. code-block:: bash
+
 	Bootstrap: localimage
 	From: /path/to/container/file/or/directory
 
 Using CentOS-like container:
 
 .. code-block:: bash
+
 	Bootstrap: yum
 	OSVersion: 7
 	MirrorURL: http://mirror.centos.org/centos-7/7/os/x86_64/
