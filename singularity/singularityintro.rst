@@ -23,6 +23,10 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
       * User has root privileges
       * can run (and modify!) existing Docker containers
 
+Singularity uses a 'flow' whereby you can (1) create and modify images on your dev system, (2) build containers using recipes or pulling from repositories, and (3) execute containers on production systems. 
+
+|singularityflow|
+
 2. Singularity Installation
 ===========================
 
@@ -509,5 +513,7 @@ When you use the `--sandbox` the container is written into a directory structure
 	bin  boot  dev  environment  etc  home  lib  lib64  media  mnt  opt  proc  run  sbin  singularity  srv  sys  tmp  usr  var
 
 .. |singularity| image:: ../img/singularity.png
+
+.. |singularityflow| image:: http://singularity.lbl.gov/assets/img/diagram/singularity-2.4-flow.png
   :width: 300
   :height: 300
