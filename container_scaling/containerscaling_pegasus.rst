@@ -1,5 +1,5 @@
-Pegasus Workflows with Application Containers
----------------------------------------------
+**Pegasus Workflows with Application Containers**
+-------------------------------------------------
 
 1. Prerequisites
 ================

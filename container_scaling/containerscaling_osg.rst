@@ -1,5 +1,5 @@
-OSG (Open Science Grid) Singularity Infrastructure
---------------------------------------------------
+**OSG (Open Science Grid) Singularity Infrastructure**
+------------------------------------------------------
 
 1. Prerequisites
 ================
