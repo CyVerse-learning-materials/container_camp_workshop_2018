@@ -1,5 +1,5 @@
-Introduction to Singularity
----------------------------
+**Introduction to Singularity**
+-------------------------------
 
 |singularity|
 

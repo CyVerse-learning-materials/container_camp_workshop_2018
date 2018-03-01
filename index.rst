@@ -51,13 +51,16 @@ Table of Contents
    :maxdepth: 1
    :caption: Biocontainers
 
-   biocontainers
+   biocontainer/biocontainers
+   biocontainer/biocontainers_hpc
 
 .. toctree::
    :maxdepth: 1
    :caption: Useful Resources
 
-   useful_resources/usefulresources_docker.rst
+   useful_resources/usefulresources_docker
+   useful_resources/usefulresources_singularity
+   useful_resources/usefulresources_other
 
 .. toctree::
    :maxdepth: 1

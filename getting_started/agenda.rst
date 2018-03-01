@@ -1,5 +1,5 @@
-Agenda
-------
+**Agenda**
+==========
 
 Below are the schedule and classroom materials for Container Camp at The University of Arizona, which will run from March 7th to 9th, 2018. The workshop will take place in Drachman A116. Click this link to the building - https://goo.gl/7Yv4PA 
 
@@ -60,7 +60,7 @@ Twitter hash tag: #cc2018
       - 
     * - 03/08/18 (Thursday)
       - 10:00-10:30
-      - Coffee + snack break and networking
+      - Coffee + snack break with networking
       -
     * - 03/08/18 (Thursday)
       - 10:30-12.00
@@ -103,14 +103,18 @@ Twitter hash tag: #cc2018
       - Lunch break on your own with networking
       -
     * - 03/09/18 (Friday)
-      - 01:00-2:30
+      - 01:00-1:45
       - Bocontainers (Upendra Devisetty)
-      - `Introduction to Biocontainers <../biocontainers.html>`_
+      - `Introduction to Biocontainers <../biocontainer/biocontainers.html>`_
+    * - 03/09/18 (Friday)
+      - 01:45-2:30
+      - Bocontainers (John Fonner)
+      - `Biocontainers in HPC environment <../biocontainer/biocontainers_hpc.html>`_
     * - 03/09/18 (Friday)
       - 2:30-3:00
       - Coffee + snack break with networking
       -
     * - 03/09/18 (Friday)
       - 03:00-06:00
-      - BYOD
+      - BYOD and end of workshop
       -

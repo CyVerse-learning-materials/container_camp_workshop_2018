@@ -1,5 +1,5 @@
-Advanced Singularity
---------------------
+**Advanced Singularity**
+------------------------
 
 - `Singularityhub <https://singularity-hub.org/>`_ introduction
 

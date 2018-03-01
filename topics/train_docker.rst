@@ -1,5 +1,5 @@
-Training session in Docker
---------------------------
+**Training session in Docker**
+==============================
 
 **Trainers (Kapeel Chougule and Upendra Devisetty)**    
 

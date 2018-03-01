@@ -1,5 +1,5 @@
-About CyVerse
--------------
+**About CyVerse**
+=================
 
 **CyVerse Vision:** Transforming science through data-driven discovery.
 
@@ -24,7 +24,6 @@ educational agenda.
 **CyVerse Homepage:** `http://www.cyverse.org <http://www.cyverse.org>`_
 
 **Funding and Citations**
-=========================
 
 CyVerse is funded entirely by the National Science Foundation under
 Award Numbers DBI-0735191 and DBI-1265383.

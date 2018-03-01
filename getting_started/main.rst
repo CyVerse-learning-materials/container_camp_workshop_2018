@@ -1,7 +1,7 @@
 |CyVerse logo|
 
-Workshop Code of Conduct
-------------------------
+**Workshop Code of Conduct**
+============================
 
 All attendees, speakers, sponsors and volunteers at our workshop are required 
 to follow this code of conduct. Organisers will enforce this code 

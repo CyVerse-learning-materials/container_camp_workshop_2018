@@ -1,5 +1,5 @@
-For instructors!
-----------------
+**For instructors!**
+====================
 
 **Coordinating Web site work**
 

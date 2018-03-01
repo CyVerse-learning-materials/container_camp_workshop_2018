@@ -1,5 +1,5 @@
-Docker related resources
-------------------------
+**Docker related resources**
+============================
 
 `Awesome Docker <https://veggiemonk.github.io/awesome-docker/>`_
 
@@ -31,6 +31,6 @@ Interesting tutorials and blog posts:
 
 2. `A beginner friendly intro to VMs and Docker <https://medium.freecodecamp.com/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b#.3giab6wvo>`_
 
-3. `Intro to Docker from Neurohackweek <https://neurohackweek.github.io/docker-for-scientists/>_`
+3. `Intro to Docker from Neurohackweek <https://neurohackweek.github.io/docker-for-scientists/>`_
 
 4. `Understanding Images <https://code.tutsplus.com/tutorials/docker-from-the-ground-up-understanding-images--cms-28165>`_

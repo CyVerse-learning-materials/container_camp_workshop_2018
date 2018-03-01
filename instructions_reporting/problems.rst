@@ -1,5 +1,5 @@
-Problems? Bugs? Questions?
---------------------------
+**Problems? Bugs? Questions?**
+==============================
 
 - If there is a bug and you can fix it: submit a PR. Make sure that I know who you are so that I can thank you.
 
