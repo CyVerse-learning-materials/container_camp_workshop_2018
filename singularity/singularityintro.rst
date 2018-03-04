@@ -167,6 +167,33 @@ Exercise 2.2: Pulling container from Docker Hub
 
 This example pulls a container from DockerHub
 
+Build to your container by pulling an image from Docker:
+
+.. code-block:: bash
+
+	$ singularity pull docker://ubuntu:16.04
+	WARNING: pull for Docker Hub is not guaranteed to produce the
+	WARNING: same image on repeated pull. Use Singularity Registry
+	WARNING: (shub://) to pull exactly equivalent images.
+	Docker image path: index.docker.io/library/ubuntu:16.04
+	Cache folder set to /home/.../.singularity/docker
+	[5/5] |===================================| 100.0% 
+	Importing: base Singularity environment
+	Importing: /home/.../.singularity/docker/sha256:1be7f2b886e89a58e59c4e685fcc5905a26ddef3201f290b96f1eff7d778e122.tar.gz
+	Importing: /home/.../.singularity/docker/sha256:6fbc4a21b806838b63b774b338c6ad19d696a9e655f50b4e358cc4006c3baa79.tar.gz
+	Importing: /home/.../.singularity/docker/sha256:c71a6f8e13782fed125f2247931c3eb20cc0e6428a5d79edb546f1f1405f0e49.tar.gz
+	Importing: /home/.../.singularity/docker/sha256:4be3072e5a37392e32f632bb234c0b461ff5675ab7e362afad6359fbd36884af.tar.gz
+	Importing: /home/.../.singularity/docker/sha256:06c6d2f5970057aef3aef6da60f0fde280db1c077f0cd88ca33ec1a70a9c7b58.tar.gz
+	Importing: /home/.../.singularity/metadata/sha256:c6a9ef4b9995d615851d7786fbc2fe72f72321bee1a87d66919b881a0336525a.tar.gz
+	WARNING: Building container as an unprivileged user. If you run this container as root
+	WARNING: it may be missing some functionality.
+	Building Singularity image...
+	Singularity container built: ./ubuntu-16.04.simg
+	Cleaning up...
+	Done. Container is at: ./ubuntu-16.04.simg
+	
+This example does the same as above, but renames the image.	
+
 .. code-block:: bash
 
 	$ singularity pull --name ubuntu_docker.simg docker://ubuntu
@@ -310,31 +337,6 @@ Create Container and add content to it:
 
 Note, `image.create` uses an ext3 file system
 
-Build to your container by pulling an image from Docker:
-
-.. code-block:: bash
-
-	$ singularity pull docker://ubuntu:16.04
-	WARNING: pull for Docker Hub is not guaranteed to produce the
-	WARNING: same image on repeated pull. Use Singularity Registry
-	WARNING: (shub://) to pull exactly equivalent images.
-	Docker image path: index.docker.io/library/ubuntu:16.04
-	Cache folder set to /home/.../.singularity/docker
-	[5/5] |===================================| 100.0% 
-	Importing: base Singularity environment
-	Importing: /home/.../.singularity/docker/sha256:1be7f2b886e89a58e59c4e685fcc5905a26ddef3201f290b96f1eff7d778e122.tar.gz
-	Importing: /home/.../.singularity/docker/sha256:6fbc4a21b806838b63b774b338c6ad19d696a9e655f50b4e358cc4006c3baa79.tar.gz
-	Importing: /home/.../.singularity/docker/sha256:c71a6f8e13782fed125f2247931c3eb20cc0e6428a5d79edb546f1f1405f0e49.tar.gz
-	Importing: /home/.../.singularity/docker/sha256:4be3072e5a37392e32f632bb234c0b461ff5675ab7e362afad6359fbd36884af.tar.gz
-	Importing: /home/.../.singularity/docker/sha256:06c6d2f5970057aef3aef6da60f0fde280db1c077f0cd88ca33ec1a70a9c7b58.tar.gz
-	Importing: /home/.../.singularity/metadata/sha256:c6a9ef4b9995d615851d7786fbc2fe72f72321bee1a87d66919b881a0336525a.tar.gz
-	WARNING: Building container as an unprivileged user. If you run this container as root
-	WARNING: it may be missing some functionality.
-	Building Singularity image...
-	Singularity container built: ./ubuntu-16.04.simg
-	Cleaning up...
-	Done. Container is at: ./ubuntu-16.04.simg
-	
 Create a container using a custom Singularity file:
 
 .. code-block:: bash
