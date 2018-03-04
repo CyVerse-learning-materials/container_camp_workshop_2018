@@ -463,7 +463,7 @@ Using CentOS-like container:
 
 Note: to use `yum` to build a container you should be operating on a RHEL system, or an Ubuntu system with `yum` installed. 
 
-The container registries
+The container registries which Singularity uses are listed above in Section 3.1.
 
 - Sections
 
