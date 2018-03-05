@@ -13,25 +13,42 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 Getting all the tooling setup on your computer can be a daunting task, but not with Docker. Getting Docker up and running on your favorite OS (Mac/Windows/Linux) is very easy.
 
-The getting started guide on Docker has detailed instructions for setting up Docker on (`Mac <https://docs.docker.com/docker-for-mac/install/>`_/`Windows <https://docs.docker.com/docker-for-windows/install/>`_/`Linux <https://docs.docker.com/install/linux/docker-ce/ubuntu/>`_).
+The getting started guide on Docker has detailed instructions for setting up Docker on `Mac <https://docs.docker.com/docker-for-mac/install/>`_/`Windows <https://docs.docker.com/docker-for-windows/install/>`_/`Linux <https://docs.docker.com/install/linux/docker-ce/ubuntu/>`_.
 
 .. Note:: 
 
 	If you're using Docker for Windows make sure you have `shared your drive <https://docs.docker.com/docker-for-windows/#shared-drives>`_. 
+	
 	If you're using an older version of Windows or MacOS you may need to use `Docker Machine <https://docs.docker.com/machine/overview/>`_ instead. 
+	
 	All commands work in either bash or Powershell on Windows.
+
+.. Note::
+
+	Depending on how you've installed docker on your system, you might see a `permission denied` error after running the above command. If you're on Linux, you may need to prefix your docker commands with sudo. Alternatively to run docker command without sudo, you need to add your user (who has root privileges) to docker group. 
+	For this run: 
+
+	# Create the docker group.
+
+	$ sudo groupadd docker
+	
+	# Add your user to the docker group.
+
+	$ sudo usermod -aG docker $USER
+
+	Log out and log back in so that your group membership is re-evaluated
 
 2.1 Testing Docker installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once you are done installing Docker, test your Docker installation by running the following to make sure you are using version 1.13 or higher:
+Once you are done installing Docker, test your Docker installation by running the following command to make sure you are using version 1.13 or higher:
 
 .. code-block:: bash
 
 	$ docker --version
 	Docker version 17.09.0-ce, build afdb6d4
 
-If you run with `--version` you should see a whole bunch of lines showing the different options available with `docker`. Alternatively you can test your installation by running the following:
+When run without `--version` you should see a whole bunch of lines showing the different options available with `docker`. Alternatively you can test your installation by running the following:
 
 .. code-block:: bash
 
@@ -62,41 +79,11 @@ Now that you have everything setup, it's time to get our hands dirty. In this se
 
 But wait, what exactly is a container and image?
 
-*Containers* - Running instances of Docker images — containers run the actual applications. A container includes an application and all of its dependencies. It shares the kernel with other containers, and runs as an isolated process in user space on the host OS. 
+**Containers** - Running instances of Docker images — containers run the actual applications. A container includes an application and all of its dependencies. It shares the kernel with other containers, and runs as an isolated process in user space on the host OS. 
 
-*Images* - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run `docker inspect hello-world`. In the demo above, you could have used the `docker pull` command to download the hello-world image. However when you executed the command `docker run hello-world`, it also did a `docker pull` behind the scenes to download the `hello-world` image with `latest` tag (we will learn more about tags little later).
+**Images** - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run `docker inspect hello-world`. In the demo above, you could have used the `docker pull` command to download the hello-world image. However when you executed the command `docker run hello-world`, it also did a `docker pull` behind the scenes to download the `hello-world` image with `latest` tag (we will learn more about tags little later).
 
-Now that we know what a container and image is, let's run the following in our terminal:
-
-.. code-block:: bash
-
-	$ docker run alpine
-
-.. Note::
-
-	Depending on how you've installed docker on your system, you might see a `permission denied` error after running the above command. If you're on Linux, you may need to prefix your docker commands with sudo. Alternatively to run docker command without sudo, you need to add your user (who has root privileges) to docker group. 
-	For this run: 
-
-	# Create the docker group.
-
-	$ sudo groupadd docker
-	
-	# Add your user to the docker group.
-
-	$ sudo usermod -aG docker $USER
-
-	Log out and log back in so that your group membership is re-evaluated
-
-The `pull` command fetches the alpine image from the Docker registry and saves it in our system. You will see more about it later. You can use the `docker images` command to see a list of all images on your system
-
-.. code-block:: bash
-
-	$ docker images
-	REPOSITORY              TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
-	alpine                 	latest              c51f86c28340        4 weeks ago         1.109 MB
-	hello-world             latest              690ed74de00f        5 months ago        960 B
-
-Great! Let's now run a Docker **container** based on this image. To do that you are going to use the `docker run` command.
+Now that we know what a container and image is, let's run the following command in our terminal:
 
 .. code-block:: bash
 
@@ -110,7 +97,18 @@ Great! Let's now run a Docker **container** based on this image. To do that you 
 	drwxr-xr-x    5 root     root          4096 Dec 26  2016 media
 	........
 
+Similar to `docker run hello-world` command in the demo above, `docker run alpine ls -l` command fetches the `alpine:latest` image from the Docker registry first, saves it in our system and then runs a container from that saved image. 
+
 When you run `docker run alpine`, you provided a command `ls -l`, so Docker started the command specified and you saw the listing
+
+You can use the `docker images` command to see a list of all images on your system
+
+.. code-block:: bash
+
+	$ docker images
+	REPOSITORY              TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+	alpine                 	latest              c51f86c28340        4 weeks ago         1.109 MB
+	hello-world             latest              690ed74de00f        5 months ago        960 B
 
 Let's try something more exciting.
 
@@ -127,9 +125,9 @@ Try another command.
 
 	$ docker run alpine sh
 
-Wait, nothing happened! Is that a bug? Well, no. These interactive shells will exit after running any scripted commands, unless they are run in an interactive terminal - so for this example to not exit, you need to `docker run -it alpine sh`. You are now inside the container shell and you can try out a few commands like `ls -l`, `uname -a` and others. 
+Wait, nothing happened! Is that a bug? Well, no. These interactive shells will exit after running any scripted commands such as `sh`, unless they are run in an interactive terminal - so for this example to not exit, you need to `docker run -it alpine sh`. You are now inside the container shell and you can try out a few commands like `ls -l`, `uname -a` and others. 
 
-Ok, now it's time to see the `docker ps` command. The `docker ps` command shows you all containers that are currently running.
+Before doing that, now it's time to see the `docker ps` command. The `docker ps` command shows you all containers that are currently running.
 
 .. code-block:: bash
 
@@ -147,7 +145,9 @@ Since no containers are running, you see a blank line. Let's try a more useful v
 	ff0a5c3750b9        alpine             "ls -l"                   8 minutes ago       Exited (0) 8 minutes ago                        elated_ramanujan
 	c317d0a9e3d2        hello-world         "/hello"                 34 seconds ago      Exited (0) 12 minutes ago                       stupefied_mcclintock
 
-What you see above is a list of all containers that you ran. Notice that the STATUS column shows that these containers exited a few minutes ago. You're probably wondering if there is a way to run more than just one command in a container. Let's try that now:
+What you see above is a list of all containers that you ran. Notice that the STATUS column shows that these containers exited a few minutes ago. 
+
+If you want to run scripted commands such as `sh`, they should be run in an interactive terminal. In addition, interactive terminal allows you to run more than one command in a container. Let's try that now:
 
 .. code-block:: bash
 
@@ -157,9 +157,9 @@ What you see above is a list of all containers that you ran. Notice that the STA
 	/ # uname -a
 	Linux de4bbc3eeaec 4.9.49-moby #1 SMP Wed Sep 27 23:17:17 UTC 2017 x86_64 Linux
 
-Running the `run` command with the `-it` flags attaches us to an interactive tty in the container. Now you can run as many commands in the container as you want. Take some time to run your favorite commands.
+Running the `run` command with the `-it` flags attaches us to an interactive `tty` in the container. Now you can run as many commands in the container as you want. Take some time to run your favorite commands.
 
-Exit out of the container by giving the exit command.
+Exit out of the container by giving the `exit` command.
 
 .. code-block:: bash
 
@@ -171,19 +171,19 @@ Exit out of the container by giving the exit command.
 
 .. code-block:: bash
 
-	$ docker ps -a
+	$ docker ps -l
 	CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                          PORTS                    NAMES
 	de4bbc3eeaec        alpine                "/bin/sh"                3 minutes ago       Exited (0) About a minute ago                            pensive_leavitt
 
-If you want to keep the container active, then you can press keys `ctrl +p, q`. To make sure that it is not exited run the same `docker ps -a` command again
+If you want to keep the container active, then you can use keys `ctrl +p, q`. To make sure that it is not exited run the same `docker ps -a` command again
 
 .. code-block:: bash
 
-	$ docker ps -a
+	$ docker ps -l
 	CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                         PORTS                    NAMES
 	0db38ea51a48        alpine                "sh"                     3 minutes ago       Up 3 minutes                                            elastic_lewin
 
-Now if you want to get into that container, then you can type `docker attach <container id>`. This way you can save your container
+Now if you want to get back into that container, then you can type `docker attach <container id>`. This way you can save your container
 
 .. code-block:: bash
 
@@ -192,7 +192,7 @@ Now if you want to get into that container, then you can type `docker attach <co
 4. Deploying web applications with Docker 
 =========================================
 
-Great! So you have now looked at `docker run`, played with a Docker container and also got the hang of some terminology. Armed with all this knowledge, you are now ready to get to the real stuff — deploying web applications with Docker.
+Great! so you have now looked at `docker run`, played with a Docker containers and also got the hang of some terminology. Armed with all this knowledge, you are now ready to get to the real stuff — deploying web applications with Docker.
 
 4.1 Deploying static website
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -215,7 +215,7 @@ The image that you are going to use is a single-page website that was already cr
 
 So, what happens when you run this command?
 
-Since the image doesn't exist on your Docker host (laptop), the Docker daemon first fetches it from the registry and then runs it as a container.
+Since the image doesn't exist on your Docker host (laptop/computer), the Docker daemon first fetches it from the registry and then runs it as a container.
 
 Now that the server is running, do you see the website? What port is it running on? And more importantly, how do you access the container directly from our host machine?
 
@@ -265,17 +265,17 @@ Now you can see the ports by running the docker port command.
 	443/tcp -> 0.0.0.0:32770
 	80/tcp -> 0.0.0.0:32771
 
-If you are running Docker for Mac, Docker for Windows, or Docker on Linux, you can open `http://localhost:[YOUR_PORT_FOR 80/tcp]`. For our example this is `http://localhost:32771`.
+If you are running Docker for Mac, Docker for Windows, or Docker on Linux, you can open `http://localhost:[YOUR_PORT_FOR 80/tcp]`. On my system this is `http://localhost:32771`.
 
 |static_site_docker|
 
-If you are running Docker on Atmosphere/Jetstream or on any other cloud, you can open `ipaddress:[YOUR_PORT_FOR 80/tcp]`. For our example this is `http://128.196.142.26:32771/`
+If you are running the same set of commands on Atmosphere/Jetstream or on any other cloud, you can open `ipaddress:[YOUR_PORT_FOR 80/tcp]`. On my system this is `http://128.196.142.26:32769/`. We will see more about deploying Docker containers on Atmosphere/Jetstream Cloud in the Advanced Docker session.
 
 |static_site_docker1|
 
 .. Note::
 
-	`-P` will publish all the exposed container ports to random ports on the Docker host. However if you want to assign a fixed port then you can use `-p` option
+	`-P` will publish all the exposed container ports to random ports on the Docker host. However if you want to assign a fixed port then you can use `-p` option. The format is `-p <host port>:<container port>`. For example
 
 .. code-block:: bash
 
@@ -293,7 +293,7 @@ Let's stop and remove the containers since you won't be using them anymore.
 	$ docker stop static-site static-site2
 	$ docker rm static-site static-site2
 
-Let's use a shortcut to remove the both the containers:
+Let's use a shortcut to both stop and remove the container:
 
 .. code-block:: bash
 
@@ -309,14 +309,14 @@ Run docker ps to make sure the containers are gone.
 Exercise 1 (10 mins)
 ~~~~~~~~~~~~~~~~~~~~
 
-- Build a static website
+- Build a static website 
 - Run it on your machine
 - Share your (non-localhost) url on slack
 
 4.2 Deploying dynamic website
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this section, let's dive deeper into what Docker images are. Later on we will build your own image and use that image to run an application locally (deploy a dynamic website).
+In this section, let's dive deeper into what Docker images are. Later on we will build our own image and use that image to run an application locally (deploy a dynamic website).
 
 4.2.1 Docker images
 ^^^^^^^^^^^^^^^^^^^
@@ -332,7 +332,7 @@ Docker images are the basis of containers. In the previous example, you pulled t
 	hello-world             	latest              690ed74de00f        5 months ago       960 B
 	.........
 
-Above is a list of images that I've pulled from the registry and those I've created myself (we'll shortly see how). You will have a different list of images on your machine. The **TAG** refers to a particular snapshot of the image and the ID is the corresponding unique identifier for that image.
+Above is a list of images that I've pulled from the registry and those I've created myself (we'll shortly see how). You will have a different list of images on your machine. The **TAG** refers to a particular snapshot of the image and the **ID** is the corresponding unique identifier for that image.
 
 For simplicity, you can think of an image akin to a git repository - images can be committed with changes and have multiple versions. When you do not provide a specific version number, the client defaults to latest.
 
@@ -342,9 +342,9 @@ For example you could pull a specific version of ubuntu image as follows:
 
 	$ docker pull ubuntu:16.04
 
-If you do not specify the version number of the image then, as mentioned, the Docker client will default to a version named latest.
+If you do not specify the version number of the image, as mentioned, the Docker client will default to a version named `latest`.
 
-So for example, the docker pull command given below will pull an image named `ubuntu:latest:`
+So for example, the docker pull command given below will pull an image named `ubuntu:latest`
 
 .. code-block:: bash
 
@@ -510,66 +510,22 @@ Create a directory called `templates` and create an `index.html` file in that di
 
 1.4. **Dockerfile**
 
-We want to create a Docker image with this web app. As mentioned above, all user images are based on a base image. Since our application is written in Python, we will build our own Python image based on `Alpine`. We'll do that using a Dockerfile.
-
 A **Dockerfile** is a text file that contains a list of commands that the Docker daemon calls while creating an image. The Dockerfile contains all the information that Docker needs to know to run the app — a base Docker image to run from, location of your project code, any dependencies it has, and what commands to run at start-up. It is a simple way to automate the image creation process. The best part is that the commands you write in a Dockerfile are almost identical to their equivalent Linux commands. This means you don't really have to learn new syntax to create your own Dockerfiles.
 
-1.4.1 Create a file called Dockerfile in the flask directory, and add content to it as described below.
+We want to create a Docker image with this web app. As mentioned above, all user images are based on a base image. Since our application is written in Python, we will build our own Python image based on `Alpine`. We'll do that using a Dockerfile.
+
+Create a file called Dockerfile in the `flask` directory, and add content to it as described below. Since you are currently in `templates` directory, you need to go up one directory before you can create your Dockerfile 
 
 .. code-block:: bash
 
 	cd ..
-
-We'll start by specifying our base image, using the FROM keyword:
-
-.. code-block:: bash
-
-	FROM alpine:3.5
-
-1.4.2. The next step usually is to write the commands of copying the files and installing the dependencies. But first we will install the Python pip package to the alpine linux distribution. This will not just install the pip package but any other dependencies too, which includes the python interpreter. Add the following `RUN` command next:
-
-.. code-block:: bash
-
-	RUN apk add --update py2-pip
-
-1.4.3 Let's add the files that make up the Flask Application. Install all Python requirements for our app to run. This will be accomplished by adding the lines:
-
-.. code-block:: bash
-
-	COPY requirements.txt /usr/src/app/
-	RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
-
-Copy the files you have created earlier into our image by using `COPY` command.
-
-.. code-block:: bash
-
-	COPY app.py /usr/src/app/
-	COPY templates/index.html /usr/src/app/templates/
-
-1.4.4. Specify the port number which needs to be exposed. Since our flask app is running on 5000 that's what we'll expose.
-
-.. code-block:: bash
-
-	EXPOSE 5000
-
-1.4.5. The last step is the command for running the application which is simply - `python ./app.py`. Use the `CMD` command to do that:
-
-.. code-block:: bash
-
-	CMD ["python", "/usr/src/app/app.py"]
-
-The primary purpose of `CMD` is to tell the container which command it should run by default when it is started.
-
-1.4.6. Verify your Dockerfile.
-
-Our Dockerfile is now ready. This is how it looks:
 
 .. code-block:: bash
 
 	# our base image
 	FROM alpine:3.5
 
-	# Install python and pip
+	# install python and pip
 	RUN apk add --update py2-pip
 
 	# install Python modules needed by the Python app
@@ -586,37 +542,75 @@ Our Dockerfile is now ready. This is how it looks:
 	# run the application
 	CMD ["python", "/usr/src/app/app.py"]
 
+Now let's see what each of those lines mean..
+
+1.4.1 We'll start by specifying our base image, using the FROM keyword:
+
+.. code-block:: bash
+
+	FROM alpine:3.5
+
+1.4.2. The next step usually is to write the commands of copying the files and installing the dependencies. But first we will install the Python pip package to the alpine linux distribution. This will not just install the pip package but any other dependencies too, which includes the python interpreter. Add the following `RUN` command next:
+
+.. code-block:: bash
+
+	RUN apk add --update py2-pip
+
+1.4.3. Let's add the files that make up the Flask Application. Install all Python requirements for our app to run. This will be accomplished by adding the lines:
+
+.. code-block:: bash
+
+	COPY requirements.txt /usr/src/app/
+	RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
+
+1.4.4. Copy the files you have created earlier into our image by using `COPY` command.
+
+.. code-block:: bash
+
+	COPY app.py /usr/src/app/
+	COPY templates/index.html /usr/src/app/templates/
+
+1.4.5. Specify the port number which needs to be exposed. Since our flask app is running on 5000 that's what we'll expose.
+
+.. code-block:: bash
+
+	EXPOSE 5000
+
+1.4.6. The last step is the command for running the application which is simply - `python ./app.py`. Use the `CMD` command to do that:
+
+.. code-block:: bash
+
+	CMD ["python", "/usr/src/app/app.py"]
+
+The primary purpose of `CMD` is to tell the container which command it should run by default when it is started.
+
 .. _Build the image:
 
 2. Build the image
 
-Now that you have your Dockerfile, you can build your image. The docker build command does the heavy-lifting of creating a docker image from a Dockerfile.
+Now that you have your Dockerfile, you can build your image. The `docker build` command does the heavy-lifting of creating a docker image from a Dockerfile.
 
-The docker build command is quite simple - it takes an optional tag name with the `-t` flag, and the location of the directory containing the Dockerfile - the `.` indicates the current directory:
+The `docker build command` is quite simple - it takes an optional tag name with the `-t` flag, and the location of the directory containing the Dockerfile - the `.` indicates the current directory:
 
 .. Note::
 
-	When you run the `docker build` command given below, make sure to replace `<YOUR_DOCKERHUB_USERNAME>` with your username. This username should be the same one you created when registering on Docker hub. If you haven't done that yet, please go ahead and create an account.
+	When you run the `docker build` command given below, make sure to replace `<YOUR_DOCKERHUB_USERNAME>` with your username. This username should be the same one you created when registering on Docker hub. If you haven't done that yet, please go ahead and create an account in Dockerhub.
 
 .. code-block:: bash
 
 	YOUR_DOCKERHUB_USERNAME=<YOUR_DOCKERHUB_USERNAME>
 
-For example this is how i assign my dockerhub username
+For example this is how I assign my dockerhub username
 
 .. code-block:: bash
 
 	YOUR_DOCKERHUB_USERNAME=upendradevisetty
 
+Now build the image using the following command:
+
 .. code-block:: bash
 
 	$ docker build -t $YOUR_DOCKERHUB_USERNAME/myfirstapp .
-
-For example
-
-.. code-block:: bash
-
-	$ docker build -t upendradevisetty/myfirstapp .
 	Sending build context to Docker daemon   7.68kB
 	Step 1/8 : FROM alpine:3.5
 	 ---> 88e169ea8f46
@@ -665,7 +659,7 @@ For example
 	Successfully built 40a121fff878
 	Successfully tagged upendradevisetty/myfirstapp:latest
 
-If you don't have the alpine:3.5 image, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run docker images and see if your image (<YOUR_USERNAME>/myfirstapp:1.0) shows.
+If you don't have the `alpine:3.5 image`, the client will first pull the image and then create your image. Therefore, your output on running the command will look different from mine. If everything went well, your image should be ready! Run `docker images` and see if your image `$YOUR_DOCKERHUB_USERNAME/myfirstapp shows.
 
 .. _Run your image:
 
@@ -677,17 +671,7 @@ The next step in this section is to run the image and see if it actually works.
 
 	$ docker run -d -p 8888:5000 --name myfirstapp $YOUR_DOCKERHUB_USERNAME/myfirstapp
 
-For example
-
-.. code-block:: bash
-
-	$ docker run -d -p 8888:5000 --name myfirstapp upendradevisetty/myfirstapp
-
 Head over to http://localhost:8888 and your app should be live. 
-
-.. Note::
-	
-	If you are using Docker Machine, you may need to open up another terminal and determine the container ip address using `docker-machine ip default`.
 
 |catpic|
 
@@ -696,7 +680,7 @@ Hit the Refresh button in the web browser to see a few more cat images.
 Exercise 2 (10 mins)
 ~~~~~~~~~~~~~~~~~~~~
 
-- Build your website with Dockerfile
+- Build your own website with Dockerfile
 - Run an instance
 - Share your (non-localhost) url on Slack
 
@@ -746,7 +730,7 @@ Here's a quick summary of the few basic commands we used in our Dockerfile.
 6.1.1 Installation
 ^^^^^^^^^^^^^^^^^^
 
-Use the following Docker commands to deploy Portainer. Now the second line of command should be familiar to you by now. We will talk about first line of command in the advanced Docker session.
+Use the following Docker commands to deploy Portainer. Now the second line of command should be familiar to you by now. We will talk about first line of command in the Advanced Docker session.
 
 .. code-block:: bash
 
@@ -754,10 +738,9 @@ Use the following Docker commands to deploy Portainer. Now the second line of co
 
 	$ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
-- If you are on mac, you'll just need to access the port 9000 (http://localhost:9000
-) of the Docker engine where portainer is running using your browser using username `admin` and password `tryportainer`
+- If you are on mac, you'll just need to access the port 9000 (http://localhost:9000) of the Docker engine where portainer is running using username `admin` and password `tryportainer`
 
-- If you are running Docker on Atmosphere/Jetstream or on any other cloud, you can open `ipaddress:9000`. For our example this is `http://128.196.142.26:9000`
+- If you are running Docker on Atmosphere/Jetstream or on any other cloud, you can open `ipaddress:9000`. For my case this is `http://128.196.142.26:9000`
 
 .. Note:: 
 	
@@ -768,7 +751,7 @@ Use the following Docker commands to deploy Portainer. Now the second line of co
 6.2 Play-with-docker (PWD)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`PWD <http://www.play-with-docker.com/>`_ is a Docker playground which allows users to run Docker commands in a matter of seconds. It gives the experience of having a free Alpine Linux Virtual Machine in browser, where you can build and run Docker containers and even create clusters in `Docker Swarm Mode <https://docs.docker.com/engine/swarm/>`_. Under the hood Docker-in-Docker (DinD) is used to give the effect of multiple VMs/PCs. In addition to the playground, PWD also includes a training site composed of a large set of Docker labs and quizzes from beginner to advanced level available at `training.play-with-docker.com <http://training.play-with-docker.com/>`_.
+`PWD <http://www.play-with-docker.com/>`_ is a Docker playground which allows users to run Docker commands in a matter of seconds. It gives the experience of having a free Alpine Linux Virtual Machine in browser, where you can build and run Docker containers and even create clusters in `Docker Swarm Mode <https://docs.docker.com/engine/swarm/>`_. Under the hood, Docker-in-Docker (DinD) is used to give the effect of multiple VMs/PCs. In addition to the playground, PWD also includes a training site composed of a large set of Docker labs and quizzes from beginner to advanced level available at `training.play-with-docker.com <http://training.play-with-docker.com/>`_.
 
 6.2.1 Installation
 ^^^^^^^^^^^^^^^^^^
@@ -789,7 +772,7 @@ You don't have to install anything to use PWD. Just open https://labs.play-with-
   :width: 750
   :height: 700
 
-.. |static_site_docker1| image:: ../img/static_site_docker.png
+.. |static_site_docker1| image:: ../img/static_site_docker1.png
   :width: 750
   :height: 700
 
