@@ -72,8 +72,8 @@ Twitter hash tag: #cc2018
       - `Singularity Introduction <../singularity/singularityintro.html>`_
     * - 03/08/18 (Thursday)
       - 12:00-1:00
-      - Lunch break on your own with networking
-      -
+      - Lunch break on your own
+      - CyVerse hosted Food Truck 
     * - 03/08/18 (Thursday)
       - 1:00-2:30
       - Advanced Singularity (John Fonner)
