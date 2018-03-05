@@ -26,7 +26,7 @@ Please complete the minimum Setup Instructions to prepare for the Container Camp
     * - Dockerhub Account
       - Please ensure that you have a Dockerhub account if you don't have one already
       - Register for your Dockerhub account at `https://hub.docker.com/ <https://hub.docker.com/>`_.
-    * - Qauy.io Account
+    * - Quay.io Account
       - This is completely optional but recommended and can use github to log-in to quay.io account
       - Register for your Quay.io account at `https://quay.io/ <https://quay.io/>`_.    
     * - XSEDE Account
