@@ -15,25 +15,25 @@ Twitter hash tag: #cc2018
       - Topic/Activity
       - Notes/Links
     * - 03/07/18 (Wednesday)
-      - 8:30-8:45
-      - General introduction to CyVerse (Nirav Merchant)
+      - 8:30-9:00
+      - General introduction to CyVerse and Camp logistics (Nirav Merchant & Upendra Devisetty)
       -
     * - 03/07/18 (Wednesday)
-      - 8:45-9:00
-      - Welcome to Container Camp (Upendra Devisetty)
-      - 
-    * - 03/07/18 (Wednesday)
-      - 9:00-10:00
-      - General overview of container technology (Nirav Merchant)
+      - 9:00-9:30
+      - General overview of container technology landscape (Nirav Merchant)
       -
     * - 03/07/18 (Wednesday)
-      - 10:00-10:30
+      - 9:00-9:45
       - Coffee and snack break with networking
       -
     * - 03/07/18 (Wednesday)
-      - 10:30-12.00
+      - 9:45-11:00
       - Introduction to Docker (Kapeel Chougule)
       - `Docker basics/Introduction <../docker/dockerintro.html>`_
+    * - 03/07/18 (Wednesday)
+      - 11:00-12.00
+      - Singularity (Vanessa Sochat)
+      - Remote talk
     * - 03/07/18 (Wednesday)
       - 12:00-1:00
       - Lunch break on your own
@@ -44,22 +44,22 @@ Twitter hash tag: #cc2018
       - `Advanced docker <../docker/dockeradvanced.html>`_
     * - 03/07/18 (Wednesday)
       - 2:30-3:00
-      - Intro to Singularity (Vanessa Sochat)
-      - Informal talk about Singularity **remotely**
-    * - 03/07/18 (Wednesday)
-      - 3:00-3:30
-      - Coffee + snack break with networking
+      - Coffee break (15 min) and afternoon session planning
       -
     * - 03/07/18 (Wednesday)
-      - 3:30-6:00
-      - BYOD
+      - 3:30-5:00
+      - BYOD (Hands on Project)
       -
+    * - 03/07/18 (Wednesday)
+      - 5:00-6:00
+      - Catchup with instructors
+      -      
     * - 03/08/18 (Thursday)
       - 8:30-9:00
-      - TBD
+      - Recap and planning day 2
       -
     * - 03/08/18 (Thursday)
-      - 9:00-10:00
+      - 9:00-9:20
       - General overview of Singularity (John Fonner)
       - 
     * - 03/08/18 (Thursday)
