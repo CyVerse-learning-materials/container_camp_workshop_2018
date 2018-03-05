@@ -59,9 +59,13 @@ Twitter hash tag: #cc2018
       - Recap and planning day 2
       -
     * - 03/08/18 (Thursday)
-      - 9:00-9:20
+      - 9:00-9:30
       - General overview of Singularity (John Fonner)
-      - 
+      -
+    * - 03/08/18 (Thursday)
+      - 9:30-10.00
+      - Singularity setup (Tyson Swetnam)
+      - `Singularity Introduction <../singularity/singularityintro.html>`_
     * - 03/08/18 (Thursday)
       - 10:00-10:30
       - Coffee + snack break with networking
@@ -83,9 +87,13 @@ Twitter hash tag: #cc2018
       - Coffee + snack break with networking
       -
     * - 03/08/18 (Thursday)
-      - 3:00-6:00
-      - BYOD
+      - 3:00-5:00
+      - BYOD (Hands on Project)
       -
+    * - 03/08/18 (Thursday)
+      - 5:00-6:00
+      - Catchup with instructors
+      -      
     * - 03/09/18 (Friday)
       - 8:30-9:15
       - 500,000 containers a day? OSG Singularity Infrastructure (Mats Rynge)
@@ -119,6 +127,10 @@ Twitter hash tag: #cc2018
       - Coffee + snack break with networking
       -
     * - 03/09/18 (Friday)
-      - 3:00-6:00
-      - BYOD and end of workshop
+      - 3:00-5:00
+      - BYOD (Hands on Project) 
       -
+    * - 03/09/18 (Friday)
+      - 5:00-6:00
+      - Catchup with instructors and end of workshop
+      -    
