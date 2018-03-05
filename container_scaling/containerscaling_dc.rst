@@ -99,6 +99,7 @@ Let's begin by using Makeflow to run a handful of simulation codes.
 First, make and enter a clean directory to work in:
 
 .. code-block:: bash
+
     $ cd $HOME
     $ mkdir tutorial
     $ cd tutorial
@@ -106,11 +107,13 @@ First, make and enter a clean directory to work in:
 Download this program, which performs a highly sophisticated simulation of black holes colliding together:
 
 .. code-block:: bash
+
     $ wget http://ccl.cse.nd.edu/software/tutorials/ndtut16/simulation.py
 
 Try running it once, just to see what it does:
 
 .. code-block:: bash
+
     $ chmod 755 simulation.py
     $ ./simulation.py 5
 
@@ -119,6 +122,7 @@ Create a file called <tt>example.makeflow</tt> and paste the following
 text into it:
 
 .. code-block:: text
+
     input.txt:
     	LOCAL /bin/echo "Hello Makeflow!" > input.txt
 
@@ -137,22 +141,26 @@ text into it:
 To run it on your local machine, one job at a time:
 
 .. code-block:: bash
+
     $ makeflow example.makeflow -j 1
 
 Note that if you run it a second time, nothing will happen, because all of the files are built:
 
 .. code-block:: bash
+
     $ makeflow example.makeflow
     $ makeflow: nothing left to do
 
 Use the -c option to clean everything up before trying it again:
 
 .. code-block:: bash
+
     $ makeflow -c example.makeflow
 
 Here are some other options for built-in batch systems:
 
 .. code-block:: bash
+
     $ makeflow -T slurm example.makeflow
     $ makeflow -T torque example.makeflow
     $ makeflow -T sge example.makeflow
@@ -163,6 +171,7 @@ Here are some other options for built-in batch systems:
 You will notice that a workflow can run very slowly if you submit each job individually. To get around this limitation, we provide the Work Queue system. This allows Makeflow to function as a master process that quickly dispatches work to remote worker processes. 
 
 .. code-block:: bash
+
     $ makeflow -c example.makeflow
     $ makeflow -T wq example.makeflow -p 0
     listening for workers on port <font color=white>XXXX</font>.
@@ -171,6 +180,7 @@ You will notice that a workflow can run very slowly if you submit each job indiv
 Now open up another shell and run a single worker process:
 
 .. code-block:: bash
+
     $ work_queue_worker crcfe01.crc.nd.edu <font color=white>XXXX</font>
 
 Go back to your first shell and observe that the makeflow has finished.
@@ -178,6 +188,7 @@ Of course, remembering port numbers all the time gets old fast,
 so try the same thing again, but using a project name:
 
 .. code-block:: bash
+
     $ makeflow -c example.makeflow
     $ makeflow -T wq example.makeflow <font color=white>-N project-$USER</font>
     listening for workers on port XXXX
@@ -185,6 +196,7 @@ so try the same thing again, but using a project name:
 
 Now open up another shell and run your worker with a project name:
 .. code-block:: bash
+
     $ work_queue_worker <font color=white>-N project-$USER</font>
 
 4. Work Queue Exercise
