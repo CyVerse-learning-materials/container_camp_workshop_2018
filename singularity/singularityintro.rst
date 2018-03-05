@@ -97,6 +97,54 @@ Singularity should now be installed on your laptop or VM, or loaded on the HPC, 
     $ singularity run vsoch-hello-world-master.simg
     RaawwWWWWWRRRR!!
 
+View the Singularity help:
+
+.. code-block:: bash
+
+	$ singularity --help
+	
+	USAGE: singularity [global options...] <command> [command options...] ...
+
+	GLOBAL OPTIONS:
+	    -d|--debug    Print debugging information
+	    -h|--help     Display usage summary
+	    -s|--silent   Only print errors
+	    -q|--quiet    Suppress all normal output
+	       --version  Show application version
+	    -v|--verbose  Increase verbosity +1
+	    -x|--sh-debug Print shell wrapper debugging information
+
+	GENERAL COMMANDS:
+	    help       Show additional help for a command or container                  
+	    selftest   Run some self tests for singularity install                      
+
+	CONTAINER USAGE COMMANDS:
+	    exec       Execute a command within container                               
+	    run        Launch a runscript within container                              
+	    shell      Run a Bourne shell within container                              
+	    test       Launch a testscript within container                             
+
+	CONTAINER MANAGEMENT COMMANDS:
+	    apps       List available apps within a container                           
+	    bootstrap  *Deprecated* use build instead                                   
+	    build      Build a new Singularity container                                
+	    check      Perform container lint checks                                    
+	    inspect    Display container's metadata                                     
+	    mount      Mount a Singularity container image                              
+	    pull       Pull a Singularity/Docker container to $PWD                      
+
+	COMMAND GROUPS:
+	    image      Container image command group                                    
+	    instance   Persistent instance command group                                
+
+
+	CONTAINER USAGE OPTIONS:
+	    see singularity help <command>
+
+	For any additional help or support visit the Singularity
+	website: http://singularity.lbl.gov/
+
+
 3. Downloading Singularity containers
 =====================================
 
