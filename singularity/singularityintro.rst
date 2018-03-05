@@ -10,18 +10,18 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 .. Note:: 
       
-      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences. Gregory Kurtzer, creator of Singularity has provided two good talks online: `Introduction to Singularity <https://wilsonweb.fnal.gov/slides/hpc-containers-singularity-introductory.pdf>`_, and `Advanced Singularity <https://www.intel.com/content/dam/www/public/us/en/documents/presentation/hpc-containers-singularity-advanced.pdf>`_. Vanessa Sochat also has given a great talk on `Singularity <https://docs.google.com/presentation/d/14-iKKUpGJC_1qpVFVUyUaitc8xFSw9Rp3v_UE9IGgjM/pub?start=false&loop=false&delayms=3000&slide=id.g1c1cec989b_0_154>`_ which you can see online. 
+      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences. Gregory Kurtzer, creator of Singularity has provided two good talks online: `Introduction to Singularity <https://wilsonweb.fnal.gov/slides/hpc-containers-singularity-introductory.pdf>`_, and `Advanced Singularity <https://www.intel.com/content/dam/www/public/us/en/documents/presentation/hpc-containers-singularity-advanced.pdf>`_. Vanessa Sochat, lead developer of Singularity Hub, also has given a great talk on `Singularity <https://docs.google.com/presentation/d/14-iKKUpGJC_1qpVFVUyUaitc8xFSw9Rp3v_UE9IGgjM/pub?start=false&loop=false&delayms=3000&slide=id.g1c1cec989b_0_154>`_ which you can see online. 
       
       **Docker**:
       
-      * Docker can escalate privileges, effectively making you root on the host system (This is usually not supported by administrators from High Performance Computing (HPC) centers)
+      * Inside a Docker container the user has escalated privileges, effectively making them root on the host system. This is not supported by most administrators of High Performance Computing (HPC) centers.
       
       **Singularity**:
      
-      * Works on HPC resources
+      * Work on HPC
       * Same user inside and outside the container
-      * User has root privileges
-      * can run (and modify!) existing Docker containers
+      * User only has root privileges if elevated with `sudo`
+      * Run (and modify!) existing Docker containers
 
 Singularity uses a 'flow' whereby you can (1) create and modify images on your dev system, (2) build containers using recipes or pulling from repositories, and (3) execute containers on production systems. 
 
@@ -35,7 +35,7 @@ Singularity homepage: `http://singularity.lbl.gov/ <http://singularity.lbl.gov/>
 While Singularity is more likely to be used on a remote system, e.g. HPC or cloud, you may want to develop your own containers first on a local machine or dev system. 
 
 Exercise 1 (15-20 mins)
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 2.1 Setting up your Laptop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,8 +100,13 @@ Singularity should now be installed on your laptop or VM, or loaded on the HPC, 
 3. Downloading Singularity containers
 =====================================
 
-Exercise 2.1: Pulling from Singularity Hub (~10 mins)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The easiest way to use a Singularity container is to `pull` an existing container from one of the Container Registries maintained by the Singularity group.
+
+Exercise 2 (~10 mins)
+~~~~~~~~~~~~~~~~~~~~~
+
+3.1: Pulling a Container from Singularity Hub 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can use the `pull` command to download pre-built images from a number of Container Registries, here we'll be focusing on the `Singularity-Hub <https://www.singularity-hub.org>`_ or `DockerHub <https://hub.docker.com/>`_.
 
@@ -116,7 +121,7 @@ Container Registries:
 * `busybox` - BusyBox
 * `zypper` - zypper based systems such as Suse and OpenSuse
 
-This example pulls a container from Singularity-Hub:
+In this example I am pulling a base Ubuntu container from Singularity-Hub:
 
 .. code-block:: bash
 
@@ -161,6 +166,33 @@ Exercise 2.2: Pulling container from Docker Hub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example pulls a container from DockerHub
+
+Build to your container by pulling an image from Docker:
+
+.. code-block:: bash
+
+	$ singularity pull docker://ubuntu:16.04
+	WARNING: pull for Docker Hub is not guaranteed to produce the
+	WARNING: same image on repeated pull. Use Singularity Registry
+	WARNING: (shub://) to pull exactly equivalent images.
+	Docker image path: index.docker.io/library/ubuntu:16.04
+	Cache folder set to /home/.../.singularity/docker
+	[5/5] |===================================| 100.0% 
+	Importing: base Singularity environment
+	Importing: /home/.../.singularity/docker/sha256:1be7f2b886e89a58e59c4e685fcc5905a26ddef3201f290b96f1eff7d778e122.tar.gz
+	Importing: /home/.../.singularity/docker/sha256:6fbc4a21b806838b63b774b338c6ad19d696a9e655f50b4e358cc4006c3baa79.tar.gz
+	Importing: /home/.../.singularity/docker/sha256:c71a6f8e13782fed125f2247931c3eb20cc0e6428a5d79edb546f1f1405f0e49.tar.gz
+	Importing: /home/.../.singularity/docker/sha256:4be3072e5a37392e32f632bb234c0b461ff5675ab7e362afad6359fbd36884af.tar.gz
+	Importing: /home/.../.singularity/docker/sha256:06c6d2f5970057aef3aef6da60f0fde280db1c077f0cd88ca33ec1a70a9c7b58.tar.gz
+	Importing: /home/.../.singularity/metadata/sha256:c6a9ef4b9995d615851d7786fbc2fe72f72321bee1a87d66919b881a0336525a.tar.gz
+	WARNING: Building container as an unprivileged user. If you run this container as root
+	WARNING: it may be missing some functionality.
+	Building Singularity image...
+	Singularity container built: ./ubuntu-16.04.simg
+	Cleaning up...
+	Done. Container is at: ./ubuntu-16.04.simg
+	
+This example does the same as above, but renames the image.	
 
 .. code-block:: bash
 
@@ -305,31 +337,6 @@ Create Container and add content to it:
 
 Note, `image.create` uses an ext3 file system
 
-Build to your container by pulling an image from Docker:
-
-.. code-block:: bash
-
-	$ singularity pull docker://ubuntu:16.04
-	WARNING: pull for Docker Hub is not guaranteed to produce the
-	WARNING: same image on repeated pull. Use Singularity Registry
-	WARNING: (shub://) to pull exactly equivalent images.
-	Docker image path: index.docker.io/library/ubuntu:16.04
-	Cache folder set to /home/.../.singularity/docker
-	[5/5] |===================================| 100.0% 
-	Importing: base Singularity environment
-	Importing: /home/.../.singularity/docker/sha256:1be7f2b886e89a58e59c4e685fcc5905a26ddef3201f290b96f1eff7d778e122.tar.gz
-	Importing: /home/.../.singularity/docker/sha256:6fbc4a21b806838b63b774b338c6ad19d696a9e655f50b4e358cc4006c3baa79.tar.gz
-	Importing: /home/.../.singularity/docker/sha256:c71a6f8e13782fed125f2247931c3eb20cc0e6428a5d79edb546f1f1405f0e49.tar.gz
-	Importing: /home/.../.singularity/docker/sha256:4be3072e5a37392e32f632bb234c0b461ff5675ab7e362afad6359fbd36884af.tar.gz
-	Importing: /home/.../.singularity/docker/sha256:06c6d2f5970057aef3aef6da60f0fde280db1c077f0cd88ca33ec1a70a9c7b58.tar.gz
-	Importing: /home/.../.singularity/metadata/sha256:c6a9ef4b9995d615851d7786fbc2fe72f72321bee1a87d66919b881a0336525a.tar.gz
-	WARNING: Building container as an unprivileged user. If you run this container as root
-	WARNING: it may be missing some functionality.
-	Building Singularity image...
-	Singularity container built: ./ubuntu-16.04.simg
-	Cleaning up...
-	Done. Container is at: ./ubuntu-16.04.simg
-	
 Create a container using a custom Singularity file:
 
 .. code-block:: bash
@@ -340,10 +347,72 @@ In the above command:
 
 -	`--name` will create a container named  `ubuntu.simg`
 
-Create a writable container using the `--writable` flag:
+Pull a Container from Docker and make it writable using the `--writable` flag:
 
 .. code-block:: bash
 	
+	$ sudo singularity build --writable ubuntu.simg  docker://ubuntu
+	
+	Docker image path: index.docker.io/library/ubuntu:latest
+	Cache folder set to /root/.singularity/docker
+	Importing: base Singularity environment
+	Importing: /root/.singularity/docker/sha256:1be7f2b886e89a58e59c4e685fcc5905a26ddef3201f290b96f1eff7d778e122.tar.gz
+	Importing: /root/.singularity/docker/sha256:6fbc4a21b806838b63b774b338c6ad19d696a9e655f50b4e358cc4006c3baa79.tar.gz
+	Importing: /root/.singularity/docker/sha256:c71a6f8e13782fed125f2247931c3eb20cc0e6428a5d79edb546f1f1405f0e49.tar.gz
+	Importing: /root/.singularity/docker/sha256:4be3072e5a37392e32f632bb234c0b461ff5675ab7e362afad6359fbd36884af.tar.gz
+	Importing: /root/.singularity/docker/sha256:06c6d2f5970057aef3aef6da60f0fde280db1c077f0cd88ca33ec1a70a9c7b58.tar.gz
+	Importing: /root/.singularity/metadata/sha256:c6a9ef4b9995d615851d7786fbc2fe72f72321bee1a87d66919b881a0336525a.tar.gz
+	Creating empty Singularity writable container 120MB
+	Creating empty 150MiB image file: ubuntu.simg
+	Formatting image with ext3 file system
+	Image is done: ubuntu.simg
+	Building Singularity image...
+	Singularity container built: ubuntu.simg
+	Cleaning up...
+	
+	$ singularity shell ubuntu.simg 
+	
+	Singularity: Invoking an interactive shell within container...
+
+	Singularity ubuntu.simg:~> apt-get update                
+	
+	Reading package lists... Done
+	W: chmod 0700 of directory /var/lib/apt/lists/partial failed - SetupAPTPartialDirectory (1: Operation not permitted)
+	E: Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+	E: Unable to lock directory /var/lib/apt/lists/
+	Singularity ubuntu.simg:~> exit   
+	exit
+	
+	$ sudo singularity shell ubuntu.simg 
+	
+	Singularity: Invoking an interactive shell within container...
+
+	Singularity ubuntu.simg:~> apt-get update
+	
+	Hit:1 http://archive.ubuntu.com/ubuntu xenial InRelease
+	Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+	Get:3 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]           
+	Get:4 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+	Get:5 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [73.2 kB]
+	Get:6 http://archive.ubuntu.com/ubuntu xenial/universe Sources [9802 kB]          
+	Get:7 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [585 kB]                  
+	Get:8 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [405 kB]
+	Get:9 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [3486 B]
+	Get:10 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]
+	Get:11 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [176 kB]
+	Get:12 http://archive.ubuntu.com/ubuntu xenial-updates/universe Sources [241 kB]
+	Get:13 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [953 kB]
+	Get:14 http://archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [13.1 kB]
+	Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [762 kB]
+	Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [18.5 kB]
+	Get:17 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [5153 B]
+	Get:18 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [7168 B]
+	Fetched 23.2 MB in 4s (5569 kB/s)                    
+	Reading package lists... Done
+	
+	Singularity ubuntu.simg:~> apt-get install curl --fix-missing
+
+When I try to install software to the image without `sudo` it is denied, because root is the owner of the container. When I use `sudo` I can install software to the container. The software remain in the container after closing the container and restart. 
 
 .. Note::
 
@@ -394,7 +463,7 @@ Using CentOS-like container:
 
 Note: to use `yum` to build a container you should be operating on a RHEL system, or an Ubuntu system with `yum` installed. 
 
-The container registries
+The container registries which Singularity uses are listed above in Section 3.1.
 
 - Sections
 
@@ -470,6 +539,7 @@ In Singularity 2.4+ we can build a container which does multiple things, e.g. ea
 `%help` section can be as verbose as you want
 
 .. code-block:: bash
+
 	Bootstrap: docker
 	From: ubuntu
 	
@@ -592,7 +662,7 @@ You can inspect the build of your container using the `inspect` command
 
 As of Singularity v2.4 by default `build` produces immutable images in the 'squashfs' file format. This ensures reproducible and verifiable images.
 
-Creating a `--writable` image must be done using the `sudo` command, thus the owner of the container is `root`
+Creating a `--writable` image must use the `sudo` command, thus the owner of the container is `root`
 
 .. code-block:: bash
 
