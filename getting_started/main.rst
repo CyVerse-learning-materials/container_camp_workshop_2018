@@ -25,7 +25,7 @@ reproducible analysis pipelines, with emphasis on container lifecycle
 management from design to execution and scaling. 
 
 The workshop will cover key concepts about containers such as defining the 
-architecture of containers, building Docker images and pushing them to 
+architecture of containers, building images and pushing them to 
 public and private repositories as well as how to scale your 
 analysis from laptop to cloud and to HPC systems using containers. 
 

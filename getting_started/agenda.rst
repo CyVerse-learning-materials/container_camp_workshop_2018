@@ -16,7 +16,7 @@ Twitter hash tag: #cc2018
       - Notes/Links
     * - 03/07/18 (Wednesday)
       - 8:30-8:45
-      - General introduction to CyVerse (Parker Antin)
+      - General introduction to CyVerse (Nirav Merchant)
       -
     * - 03/07/18 (Wednesday)
       - 8:45-9:00
@@ -28,26 +28,30 @@ Twitter hash tag: #cc2018
       -
     * - 03/07/18 (Wednesday)
       - 10:00-10:30
-      - Coffee + snack break with networking
+      - Coffee and snack break with networking
       -
     * - 03/07/18 (Wednesday)
       - 10:30-12.00
       - Introduction to Docker (Kapeel Chougule)
       - `Docker basics/Introduction <../docker/dockerintro.html>`_
     * - 03/07/18 (Wednesday)
-      - 12:00-01:00
+      - 12:00-1:00
       - Lunch break on your own
       -
     * - 03/07/18 (Wednesday)
-      - 01:00-2:30
-      - Advanced Docker (Upendra)
+      - 1:00-2:30
+      - Advanced Docker (Upendra Devisetty)
       - `Advanced docker <../docker/dockeradvanced.html>`_
     * - 03/07/18 (Wednesday)
       - 2:30-3:00
+      - Intro to Singularity (Vanessa Sochat)
+      - Informal talk about Singularity **remotely**
+    * - 03/07/18 (Wednesday)
+      - 3:00-3:30
       - Coffee + snack break with networking
       -
     * - 03/07/18 (Wednesday)
-      - 03:00-06:00
+      - 3:30-6:00
       - BYOD
       -
     * - 03/08/18 (Thursday)
@@ -67,11 +71,11 @@ Twitter hash tag: #cc2018
       - Singularity basics (Tyson Swetnam)
       - `Singularity Introduction <../singularity/singularityintro.html>`_
     * - 03/08/18 (Thursday)
-      - 12:00-01:00
+      - 12:00-1:00
       - Lunch break on your own with networking
       -
     * - 03/08/18 (Thursday)
-      - 01:00-2:30
+      - 1:00-2:30
       - Advanced Singularity (John Fonner)
       - `Advanced Singularity <../singularity/singularityadvanced.html>`_
     * - 03/08/18 (Thursday)
@@ -79,7 +83,7 @@ Twitter hash tag: #cc2018
       - Coffee + snack break with networking
       -
     * - 03/08/18 (Thursday)
-      - 03:00-06:00
+      - 3:00-6:00
       - BYOD
       -
     * - 03/09/18 (Friday)
@@ -92,22 +96,22 @@ Twitter hash tag: #cc2018
       - `Introduction to Pegasus <../container_scaling/containerscaling_pegasus.html>`_
     * - 03/09/18 (Friday)
       - 10:00-10:30
-      - Coffee + snack break and networking
+      - Coffee + snack break with networking
       -
     * - 03/09/18 (Friday)
       - 10:30-12.00
       - Distributed computing with containers (Nick Hazekamp & Kyle Sweeney **remotely**) 
       - `Introduction to Container scaling <../container_scaling/containerscaling_dc.html>`_
     * - 03/09/18 (Friday)
-      - 12:00-01:00
+      - 12:00-1:00
       - Lunch break on your own with networking
       -
     * - 03/09/18 (Friday)
-      - 01:00-1:45
+      - 1:00-1:45
       - Bocontainers (Upendra Devisetty)
       - `Introduction to Biocontainers <../biocontainer/biocontainers.html>`_
     * - 03/09/18 (Friday)
-      - 01:45-2:30
+      - 1:45-2:30
       - Bocontainers (John Fonner)
       - `Biocontainers in HPC environment <../biocontainer/biocontainers_hpc.html>`_
     * - 03/09/18 (Friday)
@@ -115,6 +119,6 @@ Twitter hash tag: #cc2018
       - Coffee + snack break with networking
       -
     * - 03/09/18 (Friday)
-      - 03:00-06:00
+      - 3:00-6:00
       - BYOD and end of workshop
       -

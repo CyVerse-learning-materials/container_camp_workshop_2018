@@ -64,7 +64,7 @@ provide some options for functionalities we will cover.
       - - `Download PuTTY <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_
         - `Download mobaXterm <https://mobaxterm.mobatek.net>`_
     * - Cyberduck
-      - Cyberduck is a third-party tool for uploading/downloading data to CyVerse.
+      - Cyberduck is a third-party tool for uploading/downloading data to CyVerse Data Store.
         Currently, this tool is available for Windows/MacOS only. You will need
         to download Cyberduck and the connection profile. We will go through
         configuration and installation at the workshop.

@@ -1,15 +1,15 @@
 **Booting an Atmosphere computer instance for your use!**
 =========================================================
 
-What we're going to do here is walk through how to start up a running
-computer (an "instance") on the Atmosphere service.
+What we're going to do here is walk through of how to start up a running
+computer (an "instance") on the CyVerse Atmosphere Cloud service.
 
 Below, we've provided screenshots of the whole process. You can click
 on them to zoom in a bit. The important areas to fill in are highlighted.
 
 First, go to the `Atmosphere <https://atmo.cyverse.org/application/images>`_ application and then click `login`
 
-.. Note::
+.. important::
 
   You will need to have access to the Atmosphere workshop cloud. If you are not able to log-in for some reason, please let us know and we will fix it immediately.
 
@@ -26,7 +26,7 @@ and then enter the password (which is your CyVerse password).
 
 - We'll do this with Projects, which gives you a bit of a workspace in which to keep things that belong to "you".
 
-- Click on. the "Projects" tab along the top and then click "CREATE NEW PROJECT"
+- Click on the "Projects" tab on the top and then click "CREATE NEW PROJECT"
 
 |atmo_cp0|
 
@@ -36,11 +36,9 @@ and then enter the password (which is your CyVerse password).
 
 3. Select the newly created project
 
-- Click on your new project!
+- Click on your newly created project!
            
-- Within the project, select "new"
-
-- Now, select 'New' and then "Instance" from the dropdown menu to start up a new machine.
+- Now, click 'New' and then "Instance" from the dropdown menu to start up a new virtual machine.
 
 |atmo_launch0|
 
@@ -48,37 +46,41 @@ and then enter the password (which is your CyVerse password).
 
 |atmo_launch1|
 
-- Name it something simple such as "workshop tutorial" and select 'tiny1 (CPU: 1, Mem: 4GB, Disk: 30GB)'
+- Name it something simple such as "workshop tutorial" and select 'tiny1 (CPU: 1, Mem: 4GB, Disk: 30GB)'.
 
 - Leave rest of the fields as default.
 
 |atmo_launch|
 
-Wait for it to become active
+- Wait for it to become active
 
-It will now be booting up! This will take 2-10 minutes, depending.
+- It will now be booting up! This will take 2-10 minutes, depending.
 Just wait! Don't reload or anything.
 
 |atmo-6|
 
-Click on your new instance to get more information!
+- Click on your new instance to get more information!
 
-Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
+- Now, you can either click "Open Web Shell", *or*, if you know how to use ssh,
 you can ssh in with your CyVerse username on the IP address of the machine 
 
 |atmo-7|
 
 **Deleting your instance**
 
-To completely remove your instance, you can select the "delete" buttom from the instance details page. 
+- To completely remove your instance, you can select the "delete" buttom from the instance details page. 
 
-This will open up a dialogue window. Select the "Yes, delete this instance" button.
+- This will open up a dialogue window. Select the "Yes, delete this instance" button.
 
 |atmo-8|
 
-It may take Atmosphere a few minutes to process your request. The instance should disappear from the project when it has been successfully deleted. 
+- It may take Atmosphere a few minutes to process your request. The instance should disappear from the project when it has been successfully deleted. 
 
 |atmo-9|
+
+.. Note::
+
+  It is advisable to delete the machine if you are not planning to use it in future to save valuable resources. However if you want to use it in future, you can suspend it.
 
 .. |atmo-1| image:: ../img/atmo-1.png
   :width: 750
