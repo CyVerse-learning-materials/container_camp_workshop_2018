@@ -108,11 +108,11 @@ Twitter hash tag: #cc2018
       -
     * - 03/09/18 (Friday)
       - 1:00-1:45
-      - Bocontainers (Upendra Devisetty)
+      - Biocontainers (Upendra Devisetty)
       - `Introduction to Biocontainers <../biocontainer/biocontainers.html>`_
     * - 03/09/18 (Friday)
       - 1:45-2:30
-      - Bocontainers (John Fonner)
+      - Biocontainers (John Fonner)
       - `Biocontainers in HPC environment <../biocontainer/biocontainers_hpc.html>`_
     * - 03/09/18 (Friday)
       - 2:30-3:00
