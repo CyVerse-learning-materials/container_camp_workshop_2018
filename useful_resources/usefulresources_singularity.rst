@@ -9,6 +9,8 @@
 
 `NIH HPC <https://hpc.nih.gov/apps/singularity.html>`_ 
 
+`Dolmades - Windows Apps in Linux Docker-Singularity Containers <http://dolmades.org>`_ *Warning not tested*
+
 **Singularity Talks**
 ~~~~~~~~~~~~~~~~~~~~~
 

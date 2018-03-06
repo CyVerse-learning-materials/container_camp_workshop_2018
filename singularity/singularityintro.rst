@@ -478,6 +478,8 @@ Exercise 3: Creating the Singularity file (30 minutes)
 
 (Advanced) the `Singularity` file can be hosted on Github and will be auto-detected by Singularity-Hub when you set up your Container Collection.
 
+Building your own containers requires that you have `sudo` privileges - therefore you'll need to develop these on your local machine or on a VM that you can gain root access on.
+
 - The Header  
 
 The top of the file, selects the base OS for the container. `Bootstrap:` references the repository (e.g. `docker`, `debootstrap`, `sub`). `From:` selects the name of the owner/container.
@@ -707,7 +709,7 @@ You can inspect the build of your container using the `inspect` command
         "org.label-schema.build-size": "333MB"
     }
 
-5.4 Using the `--sandbox` and `--writable` commands
+5.5 Using the `--sandbox` and `--writable` commands
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As of Singularity v2.4 by default `build` produces immutable images in the 'squashfs' file format. This ensures reproducible and verifiable images.
@@ -747,8 +749,20 @@ When you use the `--sandbox` the container is written into a directory structure
 	@vm142-73:~/lolcow$ ls
 	bin  boot  dev  environment  etc  home  lib  lib64  media  mnt  opt  proc  run  sbin  singularity  srv  sys  tmp  usr  var
 
+5.6 Bind Paths
+~~~~~~~~~~~~~~
+
+When Singularity creates the new file system inside a container it ignores directories that are not part of the standard kernel, e.g. `/scratch`, `/xdisk`, `/global`, etc. These paths can be added back into the container by binding them when the container is run.
+
+.. code-block:: bash
+
+	$ singularity shell --bind /xdisk ubuntu14.simg
+	
+The system administrator can also define what is added to a container. This is important on campus HPC systems that often have a `/scratch` or `/xdisk` directory structure. By editing the `/etc/singularity/singularity.conf` a new path can be added to the system containers.
+
 .. |singularity| image:: ../img/singularity.png
+  :height: 200
+  :width: 200
 
 .. |singularityflow| image:: http://singularity.lbl.gov/assets/img/diagram/singularity-2.4-flow.png
-  :width: 300
-  :height: 300
+  :height: 600
