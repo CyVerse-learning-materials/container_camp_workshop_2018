@@ -96,7 +96,7 @@ Twitter hash tag: #cc2018
       -  
     * - 03/09/18 (Friday)
       - 8:30-9:30
-      - Day 2 review and putting it altogether
+      - Day 2 review and putting it all together
       - 
     * - 
       - 9:30-10:00
