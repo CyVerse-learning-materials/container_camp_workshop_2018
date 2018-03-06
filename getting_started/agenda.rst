@@ -14,10 +14,6 @@ Twitter hash tag: #cc2018
       - Time
       - Topic/Activity
       - Notes/Links
-    * - WEDNESDAY
-      -
-      -
-      -
     * - 03/07/18 (Wednesday)
       - 8:30-9:00
       - General introduction to CyVerse and Camp logistics (Nirav Merchant & Upendra Devisetty)
@@ -58,10 +54,6 @@ Twitter hash tag: #cc2018
       - 5:00-6:00
       - Catchup with instructors
       - 
-    * THURSDAY
-      -
-      -
-      -
     * - 03/08/18 (Thursday)
       - 8:30-9:00
       - Recap and planning day 2
@@ -102,10 +94,6 @@ Twitter hash tag: #cc2018
       - 5:00-6:00
       - Catchup with instructors
       -  
-    * FRIDAY
-      -
-      -
-      -
     * - 03/09/18 (Friday)
       - 8:30-9:30
       - Day 2 review and putting it altogether
