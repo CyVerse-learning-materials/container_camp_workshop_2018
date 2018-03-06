@@ -25,7 +25,7 @@ Twitter hash tag: #cc2018
     * - 03/07/18 (Wednesday)
       - 9:00-9:45
       - Coffee and snack break with networking
-      -
+      - served in A127-29 across the hall (pls no food/bev in A116)
     * - 03/07/18 (Wednesday)
       - 9:45-11:00
       - Introduction to Docker (Kapeel Chougule)
@@ -45,7 +45,7 @@ Twitter hash tag: #cc2018
     * - 03/07/18 (Wednesday)
       - 2:30-3:00
       - Coffee break (15 min) and afternoon session planning
-      -
+      - served in A127-29
     * - 03/07/18 (Wednesday)
       - 3:00-5:00
       - BYOD (Hands on Project)
@@ -69,7 +69,7 @@ Twitter hash tag: #cc2018
     * - 03/08/18 (Thursday)
       - 10:00-10:30
       - Coffee + snack break with networking
-      -
+      - served in A127-29
     * - 03/08/18 (Thursday)
       - 10:30-12.00
       - Singularity basics (Tyson Swetnam)
@@ -85,7 +85,7 @@ Twitter hash tag: #cc2018
     * - 03/08/18 (Thursday)
       - 2:30-3:00
       - Coffee + snack break with networking
-      -
+      - served in A127-29
     * - 03/08/18 (Thursday)
       - 3:00-5:00
       - BYOD (Hands on Project)
@@ -109,15 +109,15 @@ Twitter hash tag: #cc2018
     * - 03/09/18 (Friday)
       - 10:30-10:45
       - Coffee + snack break with networking
-      -
+      - served in A127-29
     * - 03/09/18 (Friday)
       - 10:45-11:30
       - Distributed computing with containers (Nick Hazekamp & Kyle Sweeney **remotely**) 
       - `Introduction to Container scaling <../container_scaling/containerscaling_dc.html>`_
     * - 03/09/18 (Friday)
       - 11:30-12:30
-      - Lunch break on your own with networking
-      - CyVerse hosted Food Truck
+      - Lunch break
+      - CyVerse-hosted Food Truck - stay tuned for instructions
     * - 03/09/18 (Friday)
       - 12:30-1:15
       - Distributed computing with containers (Nick Hazekamp & Kyle Sweeney **remotely**) 
@@ -129,7 +129,7 @@ Twitter hash tag: #cc2018
     * - 03/09/18 (Friday)
       - 2:30-3:00
       - Coffee + snack break with networking
-      -
+      - served in A127-29
     * - 03/09/18 (Friday)
       - 3:00-5:00
       - BYOD (Hands on Project) and end of workshop
