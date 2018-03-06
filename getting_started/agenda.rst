@@ -47,7 +47,7 @@ Twitter hash tag: #cc2018
       - Coffee break (15 min) and afternoon session planning
       -
     * - 03/07/18 (Wednesday)
-      - 3:30-5:00
+      - 3:00-5:00
       - BYOD (Hands on Project)
       -
     * - 03/07/18 (Wednesday)
@@ -77,7 +77,7 @@ Twitter hash tag: #cc2018
     * - 03/08/18 (Thursday)
       - 12:00-1:00
       - Lunch break on your own
-      - CyVerse hosted Food Truck 
+      -  
     * - 03/08/18 (Thursday)
       - 1:00-2:30
       - Advanced Singularity (John Fonner)
@@ -117,7 +117,7 @@ Twitter hash tag: #cc2018
     * - 03/09/18 (Friday)
       - 11:30-12:30
       - Lunch break on your own with networking
-      -
+      - CyVerse hosted Food Truck
     * - 03/09/18 (Friday)
       - 12:30-1:15
       - Distributed computing with containers (Nick Hazekamp & Kyle Sweeney **remotely**) 
