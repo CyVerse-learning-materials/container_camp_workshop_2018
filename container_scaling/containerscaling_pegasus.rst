@@ -1,6 +1,9 @@
 Pegasus Workflows with Application Containers
 ---------------------------------------------
 
+.. Note:: 
+	This section contains an overview of scientific workflows, Pegasus, and how containers fits into Pegasus workflows. We will not have time to thoroughly cover all aspects of Pegasus - for future reference please see the `user guide <https://pegasus.isi.edu/documentation/>`_ and `self guided tutorial <https://pegasus.isi.edu/documentation/tutorial.php>`_.
+
 1. Prerequisites
 ================
 
@@ -90,36 +93,182 @@ By default, the workflow is setup to run on the compute sites (i.e sites with ha
 
 	$ ./plan_dax.sh split.dax 
 	 
-	----------------------------------------------------------------------- 
-	File for submitting this DAG to HTCondor       : split-0.dag.condor.sub 
-	Log of DAGMan debugging messages               : split-0.dag.dagman.out 
-	Log of HTCondor library output                 : split-0.dag.lib.out 
-	Log of HTCondor library error messages         : split-0.dag.lib.err 
-	Log of the life of condor_dagman itself        : split-0.dag.dagman.log 
-	----------------------------------------------------------------------- 
-	Submitting to condor split-0.dag.condor.sub                                     
-	Submitting job(s).                                                                   
-	1 job(s) submitted to cluster 920589.                                                    
-	                                                                                                     
-	Your workflow has been started and is running in the base directory:                                 
-	                                                                                                          
-	  /split/submit/pegtrain50/pegasus/split/run0001                                    
-	                                                                                                                   
-	*** To monitor the workflow you can run ***                                                                        
-	                                                                                                                       
-	  pegasus-status -l /split/submit/pegtrain50/pegasus/split/run0001                               
-	 
-	*** To remove your workflow run *** 
-	 
-	  pegasus-remove /split/submit/pegtrain50/pegasus/split/run0001 
+	-----------------------------------------------------------------------
+	File for submitting this DAG to HTCondor       : split-0.dag.condor.sub
+	Log of DAGMan debugging messages               : split-0.dag.dagman.out
+	Log of HTCondor library output                 : split-0.dag.lib.out
+	Log of HTCondor library error messages         : split-0.dag.lib.err
+	Log of the life of condor_dagman itself        : split-0.dag.dagman.log
+	-----------------------------------------------------------------------
+	Submitting to condor split-0.dag.condor.sub
+	Submitting job(s).
+	1 job(s) submitted to cluster 920589.
+	
+	Your workflow has been started and is running in the base directory:
+	
+	  /split/submit/pegtrain50/pegasus/split/run0001
+	
+	*** To monitor the workflow you can run ***
+	
+	  pegasus-status -l /split/submit/pegtrain50/pegasus/split/run0001
+	
+	*** To remove your workflow run ***
+	
+	  pegasus-remove /split/submit/pegtrain50/pegasus/split/run0001
 	 
 
 This is what the split workflow looks like after Pegasus has finished planning the DAX:
 
 |pegasus_split_dag|
 
+You can monitor the workflow with the `pegasus-status` command provided in the output of the `plan_dax.sh` command:
+
+.. code-block:: bash
+	  
+	pegasus-status -l /split/submit/pegtrain50/pegasus/split/run0001
+
+More details on how to run basic workflow can be found in the `Pegasus Tutorial <https://pegasus.isi.edu/documentation/tutorial.php>`_
+
 4. Exercise 2: With Containers
 ==============================
+
+Now when we have a basic understanding of what a Pegasus workflow looks like, let's use containers to run some real science codes. This example is based on IPAC's `Montage <http://montage.ipac.caltech.edu/>`_ toolkit, which is used to process and create astronomical image mosaics of from telescope images datasets. The workflow has a few software dependencies: Montage obviously, but also Python modules like AstroPy. These could be installed on the cluster you want to run the workflow on, but using containers makes it even easier!
+
+Not only will we make the compute jobs run inside containers, but also the data find step needed to construct the workflow. IPAC provides services to list the images available for a given location in the sky (for example, see the documentation for `mArchiveList <http://montage.ipac.caltech.edu/docs/mArchiveList.html>`_). For this querying we will use the same container as the jobs will be using. To get started, clone the Montage workflow from GitHub, and run the data find step:
+
+.. code-block:: bash
+
+	$ cd ~
+	$ git clone https://github.com/pegasus-isi/montage-workflow-v2.git
+	$ cd montage-workflow-v2
+	$ singularity exec \
+	              --bind $PWD:/srv --pwd /srv \
+	              shub://pegasus-isi/montage-workflow-v2 \
+	              /srv/montage-workflow.py \
+	                  --tc-target container \
+	                  --center "275.196290 -16.171530" \
+	                  --degrees 0.2 \
+	                  --band 2mass:j:green \
+	                  --band 2mass:h:blue \
+	                  --band 2mass:k:red
+
+The three different `band` arguments specify different bands that we want to find images for, and map to `blue`, `green`, and `red` in to the final image. The output of the command should show a few images found for each band:
+
+.. code-block:: none
+
+	Progress |===================================| 100.0% 
+
+	Adding band 1 (2mass j -> green)
+	Running sub command: mArchiveList 2mass j "275.196290 -16.171530" 0.284 0.284 data/1-images.tbl
+	[struct stat="OK", module="mArchiveList", count=8]
+	Running sub command: cd data && mDAGTbls 1-images.tbl region-oversized.hdr 1-raw.tbl 1-projected.tbl 1-corrected.tbl
+	[struct stat="OK", count="8", total="8"]
+	Running sub command: cd data && mOverlaps 1-raw.tbl 1-diffs.tbl
+	[struct stat="OK", module="mOverlaps", count=13]
+
+	Adding band 2 (2mass h -> blue)
+	Running sub command: mArchiveList 2mass h "275.196290 -16.171530" 0.284 0.284 data/2-images.tbl
+	[struct stat="OK", module="mArchiveList", count=8]
+	Running sub command: cd data && mDAGTbls 2-images.tbl region-oversized.hdr 2-raw.tbl 2-projected.tbl 2-corrected.tbl
+	[struct stat="OK", count="8", total="8"]
+	Running sub command: cd data && mOverlaps 2-raw.tbl 2-diffs.tbl
+	[struct stat="OK", module="mOverlaps", count=13]
+
+	Adding band 3 (2mass k -> red)
+	Running sub command: mArchiveList 2mass k "275.196290 -16.171530" 0.284 0.284 data/3-images.tbl
+	[struct stat="OK", module="mArchiveList", count=8]
+	Running sub command: cd data && mDAGTbls 3-images.tbl region-oversized.hdr 3-raw.tbl 3-projected.tbl 3-corrected.tbl
+	[struct stat="OK", count="8", total="8"]
+	Running sub command: cd data && mOverlaps 3-raw.tbl 3-diffs.tbl
+	[struct stat="OK", module="mOverlaps", count=13]
+
+
+The `data/` directory contains the imformation about the input images, the generated workflow (`data/montage.dax`) and the transformation catalog (`data/tc.txt`) which tells Pegasus where software is available. A job in the `data/montage.dax` file might look like:
+
+.. code-block:: xml
+
+	<job id="ID0000001" name="mProject">
+	    <argument>-X <file name="2mass-atlas-990502s-j1420198.fits"/> <file name="p2mass-atlas-990502s-j1420198.fits"/> <file name="region-oversized.hdr"/></argument>
+	    <uses name="region-oversized.hdr" link="input"/>
+	    <uses name="2mass-atlas-990502s-j1420198.fits" link="input"/>
+	    <uses name="p2mass-atlas-990502s-j1420198.fits" link="output" transfer="false"/>
+	    <uses name="p2mass-atlas-990502s-j1420198_area.fits" link="output" transfer="false"/>
+	</job>
+
+
+`data/tc.txt` has the specification on how `mProject` can be executed:
+
+.. code-block:: none
+
+	tr mProject {
+	  site condor_pool {
+	    type "INSTALLED"
+	    container "montage"
+	    pfn "file:///opt/Montage/bin/mProject"
+	    profile pegasus "clusters.size" "3"
+	  }
+	}
+
+Note the `container "montage"` part - this is a reference to the top of the file which has:
+
+.. code-block:: none
+
+	cont montage {
+	   type "singularity"
+	   image "shub://pegasus-isi/montage-workflow-v2"
+	   profile env "MONTAGE_HOME" "/opt/Montage"
+	}
+
+Which is the same container we used for the data find step. Note that container images is just like any other piece of data to Pegasus. In this case, the image will be downloaded **once** from the Singularity Hub, and then shipped around to the jobs with the same mechanism as any other data in the workflow.
+
+There is currently a small issue by running the data find step inside a container - the paths for the files are based on paths in the container which are different from what Pegasus expects on the submit host. The following command adjusts those paths:
+
+.. code-block:: bash
+
+	$ perl -p -i -e "s;/srv/data;$PWD/data;g" data/rc.txt
+
+Now we are are ready to plan and submit the workflow:
+
+.. code-block:: bash
+
+	$ pegasus-plan \
+	        --dir work \
+	        --relative-dir `date +'%s'` \
+	        --dax data/montage.dax \
+	        --sites condor_pool \
+	        --output-site local \
+	        --submit
+
+The workflow will looks something like this:
+
+|pegasus_montage_dax|
+
+The first level reprojects the input images to a common projection. The images are then fitted together. A background correction is applied so that the the final image will be seamless. The last step is to take the 3 different color bands, and add them together into a final output image:
+
+|pegasus_montage_result|
+
+To see how Pegasus handled the container in this case, let's look at some plumming for one of the `mProject` job. The HTCondor submit file can be seen with:
+
+.. code-block:: bash
+
+	$ cat `find . -name mProject_ID0000002.sub`
+
+Look at the `transfer_input_files` attribute line, and specifically for the `montage.simg` file. It is transferred together with all the other inputs for the job:
+
+.. code-block:: none
+
+	transfer_input_files = region-oversized.hdr,2mass-atlas-990502s-j1350092.fits,montage.simg,/opt/training/pegasus-4.8.2dev/share/pegasus/sh/pegasus-lite-common.sh,/scitech/home/pegtrain99/montage-workflow-v2/work/1520295762/pegasus-worker-4.8.2dev-x86_64_rhel_7.tar.gz
+
+Looking at the corresponding `.sh` file we can see how Pegasus executed the container:
+
+.. code-block:: bash
+
+	$ cat `find . -name mProject_ID0000002.sh`
+	...
+	singularity exec --pwd /srv --scratch /var/tmp --scratch /tmp --home $PWD:/srv montage.simg ./mProject_ID0000002-cont.sh
+	...
+
+The `./mProject_ID0000002-cont.sh` is a script generated at runtime, containing the execution of the user codes.
 
 
 .. |pegasus_diamond| image:: ../img/pegasus_diamond.png
@@ -133,4 +282,13 @@ This is what the split workflow looks like after Pegasus has finished planning t
 .. |pegasus_split_dag| image:: ../img/pegasus_split_dag.png
   :width: 750
   :height: 700 
+
+.. |pegasus_montage_dax| image:: ../img/pegasus_montage_dax.png
+  :width: 750
+  :height: 700 
+
+.. |pegasus_montage_result| image:: ../img/pegasus_montage_result.png
+  :width: 750
+  :height: 700 
+
 
