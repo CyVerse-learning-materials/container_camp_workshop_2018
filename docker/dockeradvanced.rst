@@ -24,7 +24,7 @@ There are several things you can do with Docker registries:
 1.1 Public repositories 
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Some example of public registries include `Docker cloud <https://cloud.docker.com/>`_, `Docker hub <https://hub.docker.com/>`_ and `quay.io <https://quay.io/>`_)
+Some example of public registries include `Docker cloud <https://cloud.docker.com/>`_, `Docker hub <https://hub.docker.com/>`_ and `quay.io <https://quay.io/>`_.
 
 1.1.1 Log in with your Docker ID
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -33,9 +33,9 @@ Now that you've created and tested your image, you can push it to Docker cloud o
 
 .. Note::
 
-	If you don’t have a Docker account, sign up for one at `Docker cloud <https://cloud.docker.com/>`_, `Docker hub <https://hub.docker.com/>`_. Make note of your username. There are several advantages of registering to Dockerhub which we will see later on in the session
+	If you don’t have a Docker account, sign up for one at `Docker cloud <https://cloud.docker.com/>`_ or `Docker hub <https://hub.docker.com/>`_. Make note of your username. There are several advantages of registering to Dockerhub which we will see later on in the session
 
-First you have to login to your Docker hub account, to do that:
+First you have to login to your Docker hub account. To do that:
 
 .. code-block:: bash
 
@@ -49,28 +49,22 @@ Enter Username and Password when prompted.
 1.1.2 Tag the image
 ^^^^^^^^^^^^^^^^^^^
 
-The notation for associating a local image with a repository on a registry is `username/repository:tag`. The tag is optional, but recommended, since it is the mechanism that registries use to give Docker images a version. Give the repository and tag meaningful names for the context, such as `get-started:part2`. This will put the image in the `get-started` repository and tag it as `part2`.
+The notation for associating a local image with a repository on a registry is ``username/repository:tag``. The tag is optional, but recommended, since it is the mechanism that registries use to give Docker images a version. Give the repository and tag meaningful names for the context, such as ``get-started:part2``. This will put the image in the ``get-started`` repository and tag it as ``part2``.
 
 .. Note::
 
-	By default the docker image gets a `latest` tag if you don't provide one. Thought convenient, it is not recommended for reproducibility purposes.
+	By default the docker image gets a ``latest`` tag if you don't provide one. Thought convenient, it is not recommended for reproducibility purposes.
 
-Now, put it all together to tag the image. Run docker tag image with your username, repository, and tag names so that the image will upload to your desired destination. For our docker image since we already have our Dockerhub username we will just add tag which in this case is `1.0`
+Now, put it all together to tag the image. Run docker tag image with your username, repository, and tag names so that the image will upload to your desired destination. For our docker image since we already have our Dockerhub username we will just add tag which in this case is ``1.0``
 
 .. code-block:: bash
 
 	$ docker tag $YOUR_DOCKERHUB_USERNAME/myfirstapp $YOUR_DOCKERHUB_USERNAME/myfirstapp:1.0
 
-For example
-
-.. code-block:: bash
-
-	$ docker tag upendradevisetty/myfirstapp upendradevisetty/myfirstapp:1.0
-
 1.1.3 Publish the image
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Upload your tagged image to the Docker repository
+Upload your tagged image to the Dockerhub repository
 
 .. code-block:: bash
 
@@ -80,18 +74,20 @@ Once complete, the results of this upload are publicly available. If you log in 
 
 |docker_image|
 
+Congrats! You just made your first Docker image and shared it with the world!
+
 1.1.4 Pull and run the image from the remote repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's try to run the image from the remote repository on cloud by logging into CyVerse Atmosphere, `launching an instance <../atmosphere/boot.rst>`_
+Let's try to run the image from the remote repository on Cloud server by logging into CyVerse Atmosphere, `launching an instance <../atmosphere/boot.rst>`_
 
-First install Docker on Atmosphere using from here https://docs.docker.com/install/linux/docker-ce/ubuntu or alternatively you can use `ez` command which is a short-cut command for installing Docker on Atmosphere
+First install Docker on Atmosphere using from here ``https://docs.docker.com/install/linux/docker-ce/ubuntu`` or alternatively you can use ``ezd`` command which is a short-cut command for installing Docker on Atmosphere
 
 .. code-block:: bash
 
 	$ ezd
 
-Now run the following command to pull the docker image from Dockerhub
+Now run the following command to run the docker image from Dockerhub
 
 .. code-block:: bash
 
@@ -99,31 +95,31 @@ Now run the following command to pull the docker image from Dockerhub
 
 .. Note::
 
-	You don't have to run `docker pull` since if the image isn’t available locally on the machine, Docker will pull it from the repository.
+	You don't have to run ``docker pull`` since if the image isn’t available locally on the machine, Docker will pull it from the repository.
 
-Head over to http://<ipaddress>:8888 and your app should be live. 
+Head over to ``http://<ipaddress>:8888`` and your app should be live. 
 
 1.2 Private repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-In an earlier part, we had looked at the Docker Hub, which is a public registry that is hosted by Docker. While the Docker Hub plays an important role in giving public visibility to your Docker images and for you to utilize quality Docker images put up by others, there is a clear need to setup your own private registry too for your team/organization. For example, CyVerse has it own private registry which will be used to push the Docker images.
+In an earlier part, we had looked at the Docker Hub, which is a public registry that is hosted by Docker. While the Dockerhub plays an important role in giving public visibility to your Docker images and for you to utilize quality Docker images put up by others, there is a clear need to setup your own private registry too for your team/organization. For example, CyVerse has it own private registry which will be used to push the Docker images.
 
 1.2.1 Pull down the Registry Image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You might have guessed by now that the registry must be available as a Docker image from the Docker Hub and it should be as simple as pulling the image down and running that. You are correct!
 
-A Docker Hub search on the keyword ‘registry’ brings up the following image as the top result:
+A Dockerhub search on the keyword ``registry`` brings up the following image as the top result:
 
 |private_registry|
 
-Run a container from `registry` Dockerhub image
+Run a container from ``registry`` Dockerhub image
 
 .. code-block:: bash
 
 	$ docker run -d -p 5000:5000 --name registry registry:2
 
-Run `docker ps -l` to check the recent container from this Docker image
+Run ``docker ps -l`` to check the recent container from this Docker image
 
 .. code-block:: bash
 
@@ -171,21 +167,21 @@ You can also pull the image from the local repository similar to how you pull it
 2. Automated Docker image building from github
 ==============================================
 
-You can also build your images automatically from a build context stored in a repository. 
+An automated build is a Docker image build that is triggered by a code change in a GitHub or Bitbucket repository. By linking a remote code repository to a Dockerhub automated build repository, you can build a new Docker image every time a code change is pushed to your code repository.
 
-`A build context is a Dockerfile and any files at a specific location. For an automated build, the build context is a repository containing a Dockerfile.`
+A build context is a Dockerfile and any files at a specific location. For an automated build, the build context is a repository containing a Dockerfile.
 
 Automated Builds have several advantages:
 
 - Images built in this way are built exactly as specified.
 - The Dockerfile is available to anyone with access to your Docker Hub repository.
 - Your repository is kept up-to-date with code changes automatically.
-- Automated Builds are supported for both public and private repositories on both GitHub and Bitbucket. This document guides you through the process of working with automated builds.
+- Automated Builds are supported for both public and private repositories on both GitHub and Bitbucket.
 
 2.1 Prerequisites
 ~~~~~~~~~~~~~~~~~
 
-To use automated builds, you first must have an account on `Docker Hub <https://hub.docker.com>`_ and on the hosted repository provider (`GitHub <https://github.com/>`_ or `Bitbucket <https://bitbucket.org/>`_). 
+To use automated builds, you first must have an account on `Docker Hub <https://hub.docker.com>`_ and on the hosted repository provider (`GitHub <https://github.com/>`_ or `Bitbucket <https://bitbucket.org/>`_). While Dockerhub supports linking both GitHub and Bitbucket repositories, here we will use a GitHub repository. If you don't already have one, make sure you have a GitHub account. A basic account is free
 
 .. Note::
 
@@ -193,31 +189,29 @@ To use automated builds, you first must have an account on `Docker Hub <https://
 
 	- Building Windows containers is not supported.
 
-2.2 Link to a hosted repository service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Here are instructions for linking to a hosted repository service
+2.2 Link your Docker Hub account to GitHub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1.	Log into Docker Hub.
 
-2.	Navigate to Profile > Settings > Linked Accounts & Services.
+2.	Navigate to `Profile > Settings > Linked Accounts & Services <https://hub.docker.com/account/authorized-services/>`_.
 
-3.	Click the service you want to link.
-	The system prompts you to choose between Public and Private and Limited Access. The Public and Private connection type is required if you want to use the Automated Builds.
+3.	Click the ``Link GitHub``.
+	The system prompts you to choose between **Public and Private** and **Limited Access**. The **Public** and **Private** connection type is required if you want to use the Automated Builds.
 
-4.	Press Select under Public and Private connection type.
-	The system prompts you to enter your service credentials (Bitbucket or GitHub) to login.
+4.	Press ``Select`` under **Public and Private** connection type.
+	If you are not logged into GitHub, the system prompts you to enter GitHub credentials before prompting you to grant access. After you grant access to your code repository, the system returns you to Docker Hub and the link is complete.
 
 After you grant access to your code repository, the system returns you to Docker Hub and the link is complete. For example, github linked hosted repository looks like this:
 
 |auto_build-1|
 
-2.3 Create an automated build
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.3 Create a new automated build
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Automated build repositories rely on the integration with your code repository to build. 
+Automated build repositories rely on the integration with your github code repository to build. 
 
-Let's create an automatic build for our `flask-app` using the instructions below:
+Let's create an automatic build for our ``flask-app`` using the instructions below:
 
 1. Initialize git repository for the `flask-app` directory
 
@@ -271,15 +265,15 @@ Let's create an automatic build for our `flask-app` using the instructions below
 	 * [new branch]      master -> master
 	Branch master set up to track remote branch master from origin.
 
-4.	Select Create > Create Automated Build from Docker Hub.
+4.	Select ``Create`` > ``Create Automated Build`` from Docker Hub.
 
-	The system prompts you with a list of User/Organizations and code repositories.
+- The system prompts you with a list of User/Organizations and code repositories. 
 
-2.	For now select from the github User.
+- For now select your GitHub account from the User/Organizations list on the left. The list of repositories change.
 
-4.	Pick the project to build. In this case `flask-app`
+- Pick the project to build. In this case ``flask-app``. Type in "Conainer Camp flask-app"
 
-	The system displays the Create Automated Build dialog.
+- If you have a long list of repos, use the filter box above the list to restrict the list. After you select the project, the system displays the Create Automated Build dialog.
 
 |auto_build-2|
 
@@ -287,13 +281,13 @@ Let's create an automatic build for our `flask-app` using the instructions below
 
 	The dialog assumes some defaults which you can customize. By default, Docker builds images for each branch in your repository. It assumes the Dockerfile lives at the root of your source. When it builds an image, Docker tags it with the branch name.
 
-5.	Customize the automated build by pressing the Click here to customize this behavior link.
+5.	Customize the automated build by pressing the ``Click here to customize`` behavior link.
 
-|auto_build-3|
+|auto_build-2.1|
 
-Specify which code branches or tags to build from. You can add new configurations by clicking the + (plus sign). The dialog accepts regular expressions.
+Specify which code branches or tags to build from. You can add new configurations by clicking the ``+ (plus sign)``. The dialog accepts regular expressions.
 
-6.	Click Create.
+6.	Click ``Create``.
 
 .. important::
 
@@ -307,7 +301,55 @@ Specify which code branches or tags to build from. You can add new configuration
 
 	You can only trigger one build at a time and no more than one every five minutes. If you already have a build pending, or if you recently submitted a build request, Docker ignores new requests.
 
-|auto_build-4|
+It can take a few minutes for your automated build job to be created. When the system is finished, it places you in the detail page for your Automated Build repository.
+
+7. Manually Trigger a Build
+
+Before you trigger an automated build by pushing to your GitHub ``flask-app``, you'll trigger a manual build. Triggering a manual build ensures everything is working correctly.
+
+From your automated build page choose ``Build Settings``.
+
+|auto_build-5|
+
+.. Note::
+
+	Docker builds everything listed whenever a push is made to the code repository. If you specify a particular branch or tag, you can manually build that image by pressing the Trigger. If you use a regular expression syntax (regex) to define your build branch or tag, Docker does not give you the option to manually build.
+
+- Press the + (plus sign).
+
+- Choose Type > Branch.
+
+- You can build by a code branch or by an image tag. You can enter a specific value or use a regex to select multiple values. To see examples of regex, press the Show More link on the right of the page.
+
+- Enter the master for the name of the branch.
+
+- Leave the Dockerfile location as is.
+
+- Recall the file is in the root of your code repository.
+
+- Specify ``1.0`` for the Tag Name.
+
+- Press Save Changes.
+
+A Trigger button appears by your new build configuration. Press the trigger button.
+
+.. Note::
+
+	You can only trigger one build at a time and no more than one every five minutes. If you already have a build pending, or if you recently submitted a build request, Docker ignores new requests.
+
+|auto_build-6|
+
+8. Review the build results
+
+The Build Details page shows a log of your build systems:
+
+Navigate to the ``Build Details`` page.
+
+Wait until your image build is done.
+
+You may have to manually refresh the page and your build may take several minutes to complete.
+
+|auto_build-7|
 
 Exercise 1 (10 mins)
 ~~~~~~~~~~~~~~~~~~~~
@@ -329,18 +371,10 @@ It is possible to store data within the writable layer of a container, but there
 
 Docker offers three different ways to mount data into a container from the Docker host: **volumes**, **bind mounts**, or **tmpfs volumes**. When in doubt, volumes are almost always the right choice.
 
-**Volumes:** Created and managed by Docker. You can create a volume explicitly using the `docker volume create` command, or Docker can create a volume during container creation. When you create a volume, it is stored within a directory on the Docker host (`/var/lib/docker/` on Linux and check for the location on mac in here https://timonweb.com/posts/getting-path-and-accessing-persistent-volumes-in-docker-for-mac/). When you mount the volume into a container, this directory is what is mounted into the container. A given volume can be mounted into multiple containers simultaneously. When no running container is using a volume, the volume is still available to Docker and is not removed automatically. You can remove unused volumes using `docker volume prune`. 
-
-**Bind mounts:** When you use a bind mount, a file or directory on the host machine is mounted into a container. The file or directory is referenced by its full path on the host machine. The file or directory does not need to exist on the Docker host already. It is created on demand if it does not yet exist. Bind mounts are very performant, but they rely on the host machine’s filesystem having a specific directory structure available. If you are developing new Docker applications, consider using named volumes instead. You can’t use Docker CLI commands to directly manage bind mounts.
-
-.. Warning:: 
-
-	One side effect of using bind mounts, for better or for worse, is that you can change the host filesystem via processes running in a container, including creating, modifying, or deleting important system files or directories. This is a powerful ability which can have security implications, including impacting non-Docker processes on the host system.
-
-**tmpfs mounts:** A tmpfs mount is not persisted on disk, either on the Docker host or within a container. It can be used by a container during the lifetime of the container, to store non-persistent state or sensitive information. For instance, internally, swarm services use tmpfs mounts to mount secrets into a service’s containers.
-
 3.1 Volumes 
 ~~~~~~~~~~~
+
+**Volumes** are created and managed by Docker. You can create a volume explicitly using the ``docker volume create`` command, or Docker can create a volume during container creation. When you create a volume, it is stored within a directory on the Docker host (``/var/lib/docker/`` on Linux and check for the location on mac in here https://timonweb.com/posts/getting-path-and-accessing-persistent-volumes-in-docker-for-mac/). When you mount the volume into a container, this directory is what is mounted into the container. A given volume can be mounted into multiple containers simultaneously. When no running container is using a volume, the volume is still available to Docker and is not removed automatically. You can remove unused volumes using ``docker volume prune`` command. 
 
 |volumes|
 
@@ -359,26 +393,26 @@ Volumes are often a better choice than persisting data in a container’s writab
 3.1.1 Choose the -v or –mount flag for mounting volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Originally, the `-v` or `--volume` flag was used for standalone containers and the `--mount` flag was used for swarm services. However, starting with Docker 17.06, you can also use `--mount` with standalone containers. In general, `--mount` is more explicit and verbose. The biggest difference is that the `-v` syntax combines all the options together in one field, while the `--mount` syntax separates them. Here is a comparison of the syntax for each flag.
+Originally, the ``-v`` or ``--volume`` flag was used for standalone containers and the ``--mount`` flag was used for swarm services. However, starting with Docker 17.06, you can also use ``--mount`` with standalone containers. In general, ``--mount`` is more explicit and verbose. The biggest difference is that the ``-v`` syntax combines all the options together in one field, while the ``--mount`` syntax separates them. Here is a comparison of the syntax for each flag.
 
 .. Tip::
 
- 	New users should use the `--mount` syntax. Experienced users may be more familiar with the `-v` or `--volume` syntax, but are encouraged to use `--mount`, because research has shown it to be easier to use.
+ 	New users should use the ``--mount`` syntax. Experienced users may be more familiar with the ``-v`` or ``--volume`` syntax, but are encouraged to use ``--mount``, because research has shown it to be easier to use.
 
-`-v` or `--volume`: Consists of three fields, separated by colon characters (:). The fields must be in the correct order, and the meaning of each field is not immediately obvious.
+``-v`` or ``--volume``: Consists of three fields, separated by colon characters (:). The fields must be in the correct order, and the meaning of each field is not immediately obvious.
 - In the case of named volumes, the first field is the name of the volume, and is unique on a given host machine.
 - The second field is the path where the file or directory are mounted in the container.
-- The third field is optional, and is a comma-separated list of options, such as ro.
+- The third field is optional, and is a comma-separated list of options, such as ``ro``.
 
-`--mount`: Consists of multiple key-value pairs, separated by commas and each consisting of a `<key>=<value>` tuple. The `--mount` syntax is more verbose than `-v` or `--volume`, but the order of the keys is not significant, and the value of the flag is easier to understand.
-- The type of the mount, which can be bind, volume, or tmpfs.
-- The source of the mount. For named volumes, this is the name of the volume. For anonymous volumes, this field is omitted. May be specified as source or src.
+``--mount``: Consists of multiple key-value pairs, separated by commas and each consisting of a ``<key>=<value>`` tuple. The ``--mount`` syntax is more verbose than ``-v`` or ``--volume``, but the order of the keys is not significant, and the value of the flag is easier to understand.
+- The type of the mount, which can be **bind**, **volume**, or **tmpfs**.
+- The source of the mount. For named volumes, this is the name of the volume. For anonymous volumes, this field is omitted. May be specified as **source** or **src**.
 - The destination takes as its value the path where the file or directory is mounted in the container. May be specified as destination, dst, or target.
 - The readonly option, if present, causes the bind mount to be mounted into the container as read-only.
 
 .. Note::
 
-	The `--mount` and `-v` examples have the same end result.
+	The ``--mount`` and ``-v`` examples have the same end result.
 
 3.1.2. Create and manage volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -421,59 +455,70 @@ Remove a volume
 
 	$ docker volume rm my-vol
 
-3.1.3 Start a container with a volume
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Let'now start a container with a volume that does not yet exist (The Docker will create the volume on the fly). The following example mounts the volume `myvol2` into `/app/` in the container.
-
-.. Note::
-
-	The `-v` and `--mount` examples below produce the same result. You can’t run them both unless you remove the `devtest` container and the `myvol2` volume after running the first one.
-
-.. code-block:: bash
-
-	$ docker run -d --name devtest --mount source=myvol2,target=/app upendradevisetty/myfirstappauto:1.0
-
-Use `docker inspect devtest` to verify that the volume was created and mounted correctly. Look for the Mounts section:
-
-.. code-block:: bash
-
-	$ docker inspect devtest
-	"Mounts": [
-	    {
-	        "Type": "volume",
-	        "Name": "myvol2",
-	        "Source": "/var/lib/docker/volumes/myvol2/_data",
-	        "Destination": "/app",
-	        "Driver": "local",
-	        "Mode": "",
-	        "RW": true,
-	        "Propagation": ""
-	    }
-	],
-
-This shows that the mount is a volume, it shows the correct source and destination, and that the mount is read-write.
-
-Stop the container and remove the volume.
-
-.. code-block:: bash
-
-	$ docker stop devtest
-
-	$ docker rm devtest
-
-	$ docker volume rm myvol2
-
-3.1.4 Populate a volume using a container
+3.1.3 Populate a volume using a container
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you start a container which creates a new volume, as above, and the container has files or directories in the directory to be mounted (such as `/app/` above), the directory’s contents are copied into the volume. The container then mounts and uses the volume, and other containers which use the volume also have access to the pre-populated content.
-
-To illustrate this, this example starts an `nginx` container and populates the new volume `nginx-vol` with the contents of the container’s `/usr/share/nginx/html` directory, which is where Nginx stores its default HTML content.
+This example starts an ``nginx`` container and populates the new volume ``nginx-vol`` with the contents of the container’s ``/var/log/nginx`` directory, which is where Nginx stores its log files.
 
 .. code-block::
 
-	$ docker run -d -p 8890:80 --name=nginxtest --mount source=nginx-vol,target=/usr/share/nginx/html nginx:latest
+	$ docker run -d -p 8891:80 --name=nginxtest --mount source=nginx-vol,target=/var/log/nginx nginx:latest
+
+So, we now have a copy of Nginx running inside a Docker container on our machine, and our host machine's port 5000 maps directly to that copy of Nginx's port 80. Let's use curl to do a quick test request:
+
+.. code-block::
+
+	$ curl localhost:8891
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<title>Welcome to nginx!</title>
+	<style>
+	    body {
+	        width: 35em;
+	        margin: 0 auto;
+	        font-family: Tahoma, Verdana, Arial, sans-serif;
+	    }
+	</style>
+	</head>
+	<body>
+	<h1>Welcome to nginx!</h1>
+	<p>If you see this page, the nginx web server is successfully installed and
+	working. Further configuration is required.</p>
+
+	<p>For online documentation and support please refer to
+	<a href="http://nginx.org/">nginx.org</a>.<br/>
+	Commercial support is available at
+	<a href="http://nginx.com/">nginx.com</a>.</p>
+
+	<p><em>Thank you for using nginx.</em></p>
+	</body>
+	</html>
+
+You'll get a screenful of HTML back from Nginx showing that Nginx is up and running. But more interestingly, if you look in the ~/nginxlogs folder on the host machine and take a look at the access.log file you'll see a log message from Nginx showing our request:
+
+.. code-block::
+	
+	cat nginx-vol2/_data/access.log
+
+Use ``docker inspect nginx-vol`` to verify that the volume was created and mounted correctly. Look for the Mounts section:
+
+.. code-block::
+
+	"Mounts": [
+	            {
+	                "Type": "volume",
+	                "Name": "nginx-vol",
+	                "Source": "/var/lib/docker/volumes/nginx-vol/_data",
+	                "Destination": "/var/log/nginx",
+	                "Driver": "local",
+	                "Mode": "z",
+	                "RW": true,
+	                "Propagation": ""
+	            }
+	        ],
+
+This shows that the mount is a volume, it shows the correct source and destination, and that the mount is read-write.
 
 After running either of these examples, run the following commands to clean up the containers and volumes.
 
@@ -488,22 +533,24 @@ After running either of these examples, run the following commands to clean up t
 3.2 Bind mounts
 ~~~~~~~~~~~~~~~
 
+**Bind mounts:** When you use a bind mount, a file or directory on the host machine is mounted into a container. The file or directory is referenced by its full path on the host machine. The file or directory does not need to exist on the Docker host already. It is created on demand if it does not yet exist. Bind mounts are very performant, but they rely on the host machine’s filesystem having a specific directory structure available. If you are developing new Docker applications, consider using named volumes instead. You can’t use Docker CLI commands to directly manage bind mounts.
+
 |bind_mount|
 
-If you use `--mount` to bind-mount a file or directory that does not yet exist on the Docker host, Docker does not automatically create it for you, but generates an error.
+.. Warning:: 
+
+	One side effect of using bind mounts, for better or for worse, is that you can change the host filesystem via processes running in a container, including creating, modifying, or deleting important system files or directories. This is a powerful ability which can have security implications, including impacting non-Docker processes on the host system.
+
+	If you use `--mount` to bind-mount a file or directory that does not yet exist on the Docker host, Docker does not automatically create it for you, but generates an error.
 
 3.2.1 Start a container with a bind mount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Consider a case where you have a directory source and that when you build the source code, the artifacts are saved into another directory `source/target/`. You want the artifacts to be available to the container at `/app/`, and you want the container to get access to a new build each time you build the source on your development host. 
-
-Use the following command to bind-mount the target/ directory into your container at /app/. Run the command from within the source directory. The `$(pwd)` sub-command expands to the current working directory on Linux or macOS hosts.
 
 .. code-block:: bash
 
 	$ mkdir data
 
-	$ docker run -d -p 8891:80 --name devtest --mount type=bind,source="$(pwd)"/data,target=/app nginx:latest
+	$ docker run -d -p 8891:80 --name devtest --mount type=bind,source="$(pwd)"/data,target=/var/log/nginx nginx:latest
 
 Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the "Mounts" section
 
@@ -515,7 +562,7 @@ Use `docker inspect devtest` to verify that the bind mount was created correctly
 	            {
 	                "Type": "bind",
 	                "Source": "/Users/upendra_35/Documents/git.repos/flask-app/data",
-	                "Destination": "/app",
+	                "Destination": "/var/log/nginx",
 	                "Mode": "",
 	                "RW": true,
 	                "Propagation": "rprivate"
@@ -539,23 +586,22 @@ This example modifies the one above but mounts the directory as a read-only bind
 
 .. code-block:: bash
 
-	$ docker run -d -p 8891:80 --name devtest --mount type=bind,source="$(pwd)"/data,target=/app,readonly nginx:latest
+	$ docker run -d -p 8891:80 --name devtest --mount type=bind,source="$(pwd)"/data,target=/var/log/nginx,readonly nginx:latest
 
-Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the Mounts section:
+Use ``docker inspect devtest`` to verify that the bind mount was created correctly. Look for the Mounts section:
 
 .. code-block:: bash
 
-	$ docker inspect devtest
-
 	"Mounts": [
-	                {
-	                    "Type": "bind",
-	                    "Source": "/Users/upendra_35/Documents/git.repos/flask-app/data",
-	                    "Target": "/app",
-	                    "ReadOnly": true
-	                }
-	            ]
-
+            {
+                "Type": "bind",
+                "Source": "/Users/upendra_35/Documents/git.repos/flask-app/data",
+                "Destination": "/var/log/nginx",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
 Stop the container:
 
 .. code-block:: bash
@@ -565,14 +611,15 @@ Stop the container:
 3.3 tmpfs
 ~~~~~~~~~
 
+**tmpfs mounts:** A tmpfs mount is not persisted on disk, either on the Docker host or within a container. It can be used by a container during the lifetime of the container, to store non-persistent state or sensitive information. For instance, internally, swarm services use tmpfs mounts to mount secrets into a service’s containers.
+
 |tmpfs|
 
-Volumes and bind mounts are mounted into the container’s filesystem by default, and their contents are stored on the host machine.
-There may be cases where you do not want to store a container’s data on the host machine, but you also don’t want to write the data into the container’s writable layer, for performance or security reasons, or if the data relates to non-persistent application state. An example might be a temporary one-time password that the container’s application creates and uses as-needed. To give the container access to the data without writing it anywhere permanently, you can use a tmpfs mount, which is only stored in the host machine’s memory (or swap, if memory is low). When the container stops, the tmpfs mount is removed. If a container is committed, the tmpfs mount is not saved.
+**Volumes** and **bind mounts** are mounted into the container’s filesystem by default, and their contents are stored on the host machine. There may be cases where you do not want to store a container’s data on the host machine, but you also don’t want to write the data into the container’s writable layer, for performance or security reasons, or if the data relates to non-persistent application state. An example might be a temporary one-time password that the container’s application creates and uses as-needed. To give the container access to the data without writing it anywhere permanently, you can use a tmpfs mount, which is only stored in the host machine’s memory (or swap, if memory is low). When the container stops, the tmpfs mount is removed. If a container is committed, the tmpfs mount is not saved.
 
 .. code-block:: bash
 
-	$ docker run -d -p 8891:80 --name devtest --mount type=tmpfs,target=/app nginx:latest
+	$ docker run -d -p 8891:80 --name devtest --mount type=tmpfs,target=/var/log/nginx nginx:latest
 
 Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the Mounts section:
 
@@ -584,7 +631,7 @@ Use `docker inspect devtest` to verify that the bind mount was created correctly
 	            {
 	                "Type": "tmpfs",
 	                "Source": "",
-	                "Destination": "/app",
+	                "Destination": "/var/log/nginx",
 	                "Mode": "",
 	                "RW": true,
 	                "Propagation": ""
@@ -600,14 +647,14 @@ Stop the container:
 4. Docker Compose for multi container apps
 ==========================================
 
-Docker Compose is a “tool for defining and running your multi-container Docker applications”. 
+Docker Compose is a tool for defining and running your multi-container Docker applications. 
 
 Main advantages of Docker compose include:
 
-- Your applications can be defined in a YAML file where all the options that you used in `docker run` are now defined (Reproducibility).
-- Docker Compose allows you to manage your application as a single entity rather than dealing with individual containers (Simplicity).
+- Your applications can be defined in a YAML file where all the options that you used in ``docker run`` are now defined (Reproducibility).
+- It allows you to manage your application as a single entity rather than dealing with individual containers (Simplicity).
 
-Let's now convert create a simple web app with Docker Compose and Flask (which you already seen before) using Redis (we end up with a Flask container and a Redis container all on one host)
+Let's now create a simple web app with Docker Compose using Flask (which you already seen before) and Redis (we end up with a Flask container and a Redis container all on one host)
 
 1. You’ll need a directory for your project on your host machine:
 
@@ -641,7 +688,7 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 	    app.run(host="0.0.0.0", debug=True)
 
 
-4. Create a Dockerfile with the following code inside `compose_flask` directory:
+4. Create a Dockerfile with the following code inside ``compose_flask`` directory:
 
 .. code-block:: bash
 
@@ -651,7 +698,7 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 	RUN pip install -r requirements.txt
 	CMD python app.py
 
-5. Add the following code to a new file, docker-compose.yml, in your project directory:
+5. Add the following code to a new file, ``docker-compose.yml``, in your project directory:
 
 .. code-block:: bash
 
@@ -670,15 +717,15 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 	        restart: always
 	        image: redis
 
-.. Note:: 
+A brief explanation of ``docker-compose.yml`` is as below:
 
-	- `restart: always` means that it will restart whenever it fails
-	- We define two services, web and redis.
-	- The web service builds from the Dockerfile in the current directory.
-	- Forwards the container’s exposed port (5000) to port 8888 on the host.
-	- Mounts the project directory on the host to /code inside the container (allowing you to modify the code without having to rebuild the image).
-	- And links the web service to the Redis service.
-	- The redis service uses the latest Redis image from Docker Hub.
+- ``restart: always`` means that it will restart whenever it fails.
+- We define two services, **web** and **redis**.
+- The web service builds from the Dockerfile in the current directory.
+- Forwards the container’s exposed port (5000) to port 8888 on the host.
+- Mounts the project directory on the host to /code inside the container (allowing you to modify the code without having to rebuild the image).
+- And links the web service to the Redis service.
+- The redis service uses the latest Redis image from Docker Hub.
 
 .. Note::
 
@@ -690,7 +737,7 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 		sudo curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 		sudo chmod +x /usr/local/bin/docker-compose
 
-5. Build and Run with `docker-compose up -d` command
+5. Build and Run with ``docker-compose up -d`` command
 
 .. code-block:: bash
 
@@ -750,7 +797,7 @@ Let's now convert create a simple web app with Docker Compose and Flask (which y
 	Successfully built e911b8e8979f
 	Successfully tagged composeflask_web:latest
 
-And that’s it! You should be able to see the Flask application running on http://localhost:8888 or <ipaddress>:8888 if you are running on Atmosphere/Jetstream cloud
+And that’s it! You should be able to see the Flask application running on ``http://localhost:8888`` or ``<ipaddress>:8888``
 
 |docker-compose|
 
@@ -759,14 +806,9 @@ The code for the above compose example is available `here <https://github.com/up
 Exercise 2 (10 mins)
 ~~~~~~~~~~~~~~~~~~~~
 
-- Change the greeting in `app.py` and save it. For example, change the `This Compose/Flask demo has been viewed` message to `This Container Camp Workshop demo has been viewed`:
-
-.. code-block:: bash
-
-	This Container Camp Workshop demo has been viewed %s time(s).' % redis.get('hits')
-
+- Change the greeting in ``app.py`` and save it. For example, change the ``This Compose/Flask demo has been viewed`` message to ``This Container Camp Workshop demo has been viewed``
 - Refresh the `app` in your browser. What do you see now?
-- Create a automatic build for `compose-flask` project directory
+- Create a automatic build for ``compose-flask`` project directory
 - Share your Dockerhub link url on Slack
 
 5. Improving your data science workflow using Docker containers (Containerized Data Science)
@@ -774,17 +816,15 @@ Exercise 2 (10 mins)
 
 For a data scientist, running a container that is already equipped with the libraries and tools needed for a particular analysis eliminates the need to spend hours debugging packages across different environments or configuring custom environments.
 
-.. important ::
+But why Set Up a Data Science Environment in a Container?
 
-	Firstly why Set Up a Data Science Environment in a Container?
+- One reason is speed. We want data scientists using our platform to launch a Jupyter or RStudio session in minutes, not hours. We also want them to have that fast user experience while still working in a governed, central architecture (rather than on their local machines). 
 
-	- One reason is speed. We want data scientists using our platform to launch a Jupyter or RStudio session in minutes, not hours. We also want them to have that fast user experience while still working in a governed, central architecture (rather than on their local machines). 
+- Containerization benefits both data science and IT/technical operations teams. In the DataScience.com Platform, for instance, we allow IT to configure environments with different languages, libraries, and settings in an admin dashboard and make those images available in the dropdown menu when a data scientist launches a session. These environments can be selected for any run, session, scheduled job, or API. (Or you don’t have to configure anything at all. We provide plenty of standard environment templates to choose from.)
 
-	- Containerization benefits both data science and IT/technical operations teams. In the DataScience.com Platform, for instance, we allow IT to configure environments with different languages, libraries, and settings in an admin dashboard and make those images available in the dropdown menu when a data scientist launches a session. These environments can be selected for any run, session, scheduled job, or API. (Or you don’t have to configure anything at all. We provide plenty of standard environment templates to choose from.)
+- Ultimately, containers solve a lot of common problems associated with doing data science work at the enterprise level. They take the pressure off of IT to produce custom environments for every analysis, standardize how data scientists work, and ensure that old code doesn’t stop running because of environment changes. To start using containers and our library of curated images to do collaborative data science work, request a demo of our platform today.
 
-	- Ultimately, containers solve a lot of common problems associated with doing data science work at the enterprise level. They take the pressure off of IT to produce custom environments for every analysis, standardize how data scientists work, and ensure that old code doesn’t stop running because of environment changes. To start using containers and our library of curated images to do collaborative data science work, request a demo of our platform today.
-
-	- Configuring a data science environment can be a pain. Dealing with inconsistent package versions, having to dive through obscure error messages, and having to wait hours for packages to compile can be frustrating. This makes it hard to get started with data science in the first place, and is a completely arbitrary barrier to entry.
+- Configuring a data science environment can be a pain. Dealing with inconsistent package versions, having to dive through obscure error messages, and having to wait hours for packages to compile can be frustrating. This makes it hard to get started with data science in the first place, and is a completely arbitrary barrier to entry.
 
 Thanks to the rich ecosystem, there are already several readily available images for the common components in data science pipelines. Here are some Docker images to help you quickly spin up your own data science pipeline:
 
@@ -826,11 +866,13 @@ Docker allows us to run a ‘ready to go’ Jupyter data science stack in what�
 	      - 8888:8888
 	    container_name:   datascience-notebook-container
 
-The above code can be found in this `github <https://github.com/upendrak/jupyternotebook_docker>`_
+..Note::
 
-The `jupyter/datascience-notebook` can be found on dockerhub
+	The ``jupyter/datascience-notebook`` image can be found on dockerhub
 
 |jn_ss|
+
+The above code can be found in this `github <https://github.com/upendrak/jupyternotebook_docker>`_
 
 1.2 Run container using docker-compose file
 
@@ -893,17 +935,19 @@ Next, we will see a Docker image from Rocker which will allow us to run RStudio 
 
 .. Note:: 
 	
-	 `–rm` ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. 
+	 ``–rm`` ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. 
 
 The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter http://localhost:8787, or <ipaddress>:8787 on cloud 
 
 |rstudio_login2|
 
-Enter `rstudio` as username and password. Finally Rstudio shows up and you can run your R command from here
+Enter ``rstudio`` as username and password. Finally Rstudio shows up and you can run your R command from here
 
 |rstudio_login|
 
-3. Machine learning using Docker: In this simple example we’ll take a sample dataset of fruits metrics (like size, weight, texture) labeled apple and oranges. Then we can predict the fruit given a new set of fruit metrics using scikit-learn’s decision tree(one bad-ass module for all machine learning needs)
+3. Machine learning using Docker
+
+In this simple example we’ll take a sample dataset of fruits metrics (like size, weight, texture) labelled apples and oranges. Then we can predict the fruit given a new set of fruit metrics using scikit-learn’s decision tree
 
 1. Create a directory that consists of all the files
 
@@ -911,7 +955,7 @@ Enter `rstudio` as username and password. Finally Rstudio shows up and you can r
 
 	$ mkdir scikit_docker && cd scikit_docker
 
-2. Create `requirements.txt` file — Contains python modules and has nothing to do with Docker inside the folder - scikit_docker. Called inside Dockerfile
+2. Create ``requirements.txt`` file — Contains python modules and has nothing to do with Docker inside the folder - ``scikit_docker``.
 
 .. code-block:: bash
 
@@ -919,7 +963,7 @@ Enter `rstudio` as username and password. Finally Rstudio shows up and you can r
 	scipy
 	scikit-learn
 
-3. Create a file called “app.py” inside the folder — scikit_docker
+3. Create a file called ``app.py`` inside the folder — ``scikit_docker``
 
 .. code-block:: bash
 
@@ -945,7 +989,7 @@ Enter `rstudio` as username and password. Finally Rstudio shows up and you can r
 		fh_out.write("Prediction of DecisionTreeClassifier:")
 		fh_out.write(str(prediction_tree))
 
-4. Finally create a Dockerfile that contains all the instructions for building a Docker image inside the project directory
+4. Create a Dockerfile that contains all the instructions for building a Docker image inside the project directory
 
 .. code-block:: bash
 
@@ -968,6 +1012,17 @@ Enter `rstudio` as username and password. Finally Rstudio shows up and you can r
 
 	# Run app.py when the container launches
 	CMD ["python", "app.py"]
+
+5. Create a Docker compose YAML file
+
+.. code-block:: bash
+
+	version: '2'
+	services:
+	    datasci:
+	        build: .
+	        volumes:
+	            - .:/app
 
 5. Now Build and Run the Docker image using `docker-compose up` command to predict the fruit given a new set of fruit metrics
 
@@ -1018,7 +1073,7 @@ Enter `rstudio` as username and password. Finally Rstudio shows up and you can r
 	Attaching to scikitdocker_datasci_1
 	scikitdocker_datasci_1 exited with code 0
 
-Use `docker-compose rm` to remove the container after docker-compose finish running
+Use ``docker-compose rm`` to remove the container after docker-compose finish running
 
 .. code-block:: bash
 
@@ -1027,7 +1082,7 @@ Use `docker-compose rm` to remove the container after docker-compose finish runn
 	Are you sure? [yN] y
 	Removing scikitdocker_datasci_1 ... done
 
-You will find the ouput file in the `scikit_docker` folder with the following contents
+You will find the ouput file in the ``scikit_docker`` folder with the following contents
 
 .. code-block:: bash
 
@@ -1035,9 +1090,6 @@ You will find the ouput file in the `scikit_docker` folder with the following co
 	Prediction of DecisionTreeClassifier:['apple' 'orange' 'apple']
 
 You can find the above code in this `github repo <https://github.com/upendrak/scikit_tree_docker>`_ 
-
-Exercise 
-========
 
 .. |docker_image| image:: ../img/docker_image.png
   :width: 750
@@ -1051,7 +1103,7 @@ Exercise
   :width: 750
   :height: 700 
 
-.. |create_repo| image:: ../img/create_repo2.png
+.. |create_repo2| image:: ../img/create_repo2.png
   :width: 750
   :height: 700 
 
@@ -1063,11 +1115,27 @@ Exercise
   :width: 750
   :height: 700 
 
+.. |auto_build-2.1| image:: ../img/auto_build-2.1.png
+  :width: 750
+  :height: 700 
+
 .. |auto_build-3| image:: ../img/auto_build-3.png
   :width: 750
   :height: 700 
 
 .. |auto_build-4| image:: ../img/auto_build-4.png
+  :width: 750
+  :height: 700 
+
+.. |auto_build-5| image:: ../img/auto_build-5.png
+  :width: 750
+  :height: 700 
+
+.. |auto_build-6| image:: ../img/auto_build-6.png
+  :width: 750
+  :height: 700 
+
+.. |auto_build-7| image:: ../img/auto_build-7.png
   :width: 750
   :height: 700 
 

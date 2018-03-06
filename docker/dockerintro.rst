@@ -205,7 +205,7 @@ The image that you are going to use is a single-page website that was already cr
 
 .. Note:: 
 
-	The `-d` flag enables detached mode, which detaches the running container from the terminal/shell and returns your prompt after the container starts. 
+	The ``-d`` flag enables detached mode, which detaches the running container from the terminal/shell and returns your prompt after the container starts. 
 
 So, what happens when you run this command?
 
@@ -213,9 +213,9 @@ Since the image doesn't exist on your Docker host (laptop/computer), the Docker 
 
 Now that the server is running, do you see the website? What port is it running on? And more importantly, how do you access the container directly from our host machine?
 
-Actually, you probably won't be able to answer any of these questions yet! ☺ In this case, the client didn't tell the Docker Engine to publish any of the ports, so you need to re-run the `docker run` command to add this instruction.
+Actually, you probably won't be able to answer any of these questions yet! ☺ In this case, the client didn't tell the Docker Engine to publish any of the ports, so you need to re-run the ``docker run`` command to add this instruction.
 
-Let's re-run the command with some new flags to publish ports and pass your name to the container to customize the message displayed. We'll use the `-d` option again to run the container in detached mode.
+Let's re-run the command with some new flags to publish ports and pass your name to the container to customize the message displayed. We'll use the ``-d`` option again to run the container in detached mode.
 
 First, stop the container that you have just launched. In order to do this, we need the container ID.
 
@@ -257,11 +257,11 @@ Now you can see the ports by running the ``docker port`` command.
 
 	$ docker port static-site
 	443/tcp -> 0.0.0.0:32770
-	80/tcp -> 0.0.0.0:32771
+	80/tcp -> 0.0.0.0:32773
 
 If you are running Docker for Mac, Docker for Windows, or Docker on Linux, open a web browser and go to port 80 on your host. The exact address will depend on how you're running Docker 
 
-- Laptop or Native linux: ``http://localhost:[YOUR_PORT_FOR 80/tcp]``. On my system this is ``http://localhost:32771``.
+- Laptop or Native linux: ``http://localhost:[YOUR_PORT_FOR 80/tcp]``. On my system this is ``http://localhost:32773``.
 
 |static_site_docker|
 
@@ -524,7 +524,7 @@ A **Dockerfile** is a text file that contains a list of commands that the Docker
 
 We want to create a Docker image with this web app. As mentioned above, all user images are based on a base image. Since our application is written in Python, we will build our own Python image based on ``Alpine``. We'll do that using a Dockerfile.
 
-Create a file called Dockerfile in the ``flask`` directory, and add content to it as described below. Since you are currently in ``templates`` directory, you need to go up one directory before you can create your Dockerfile 
+Create a file called Dockerfile in the ``flask`` directory, and add content to it as described below. Since you are currently in ``templates`` directory, you need to go up one directory up before you can create your Dockerfile 
 
 .. code-block:: bash
 
