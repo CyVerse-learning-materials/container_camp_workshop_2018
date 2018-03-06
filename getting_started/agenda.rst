@@ -102,7 +102,7 @@ Twitter hash tag: #cc2018
       - 9:30-10:00
       - 500,000 containers a day? OSG Singularity Infrastructure (Mats Rynge)
       - `Introduction to OSG Singularity Infrastructure <../container_scaling/containerscaling_osg.html>`_
-    * - 0
+    * - 
       - 10.00-10:30
       - Pegasus Workflows with Application Containers (Mats Rynge)
       - `Introduction to Pegasus <../container_scaling/containerscaling_pegasus.html>`_
