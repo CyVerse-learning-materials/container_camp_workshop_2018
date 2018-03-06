@@ -126,7 +126,7 @@ Twitter hash tag: #cc2018
       - 1:15-2:30
       - Biocontainers (Upendra Devisetty & John Fonner)
       - `Biocontainers <../biocontainer/biocontainers.html>`_
-     * - 03/09/18 (Friday)
+    * - 03/09/18 (Friday)
       - 2:30-3:00
       - Coffee + snack break with networking
       -
