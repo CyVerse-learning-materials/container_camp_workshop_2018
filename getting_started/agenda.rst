@@ -23,7 +23,7 @@ Twitter hash tag: #cc2018
       - General overview of container technology landscape (Nirav Merchant)
       -
     * - 03/07/18 (Wednesday)
-      - 9:00-9:45
+      - 9:30-9:45
       - Coffee and snack break with networking
       - served in A127-29 across the hall (pls no food/bev in A116)
     * - 03/07/18 (Wednesday)
