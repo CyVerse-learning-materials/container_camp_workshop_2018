@@ -10,7 +10,9 @@ There are no specific skills needed for this tutorial beyond a basic comfort wit
 
 .. Note:: 
       
-      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences. Gregory Kurtzer, creator of Singularity has provided two good talks online: `Introduction to Singularity <https://wilsonweb.fnal.gov/slides/hpc-containers-singularity-introductory.pdf>`_, and `Advanced Singularity <https://www.intel.com/content/dam/www/public/us/en/documents/presentation/hpc-containers-singularity-advanced.pdf>`_. Vanessa Sochat, lead developer of Singularity Hub, also has given a great talk on `Singularity <https://docs.google.com/presentation/d/14-iKKUpGJC_1qpVFVUyUaitc8xFSw9Rp3v_UE9IGgjM/pub?start=false&loop=false&delayms=3000&slide=id.g1c1cec989b_0_154>`_ which you can see online. 
+      *Important*: Docker and Singularity are `friends <http://singularity.lbl.gov/docs-docker>`_ but they have distinct differences. 
+      
+     `Singularity Related Resources <https://cyverse-container-camp-workshop-2018.readthedocs-hosted.com/en/latest/useful_resources/usefulresources_singularity.html>`_
       
       **Docker**:
       
@@ -96,6 +98,54 @@ Singularity should now be installed on your laptop or VM, or loaded on the HPC, 
    
     $ singularity run vsoch-hello-world-master.simg
     RaawwWWWWWRRRR!!
+
+View the Singularity help:
+
+.. code-block:: bash
+
+	$ singularity --help
+	
+	USAGE: singularity [global options...] <command> [command options...] ...
+
+	GLOBAL OPTIONS:
+	    -d|--debug    Print debugging information
+	    -h|--help     Display usage summary
+	    -s|--silent   Only print errors
+	    -q|--quiet    Suppress all normal output
+	       --version  Show application version
+	    -v|--verbose  Increase verbosity +1
+	    -x|--sh-debug Print shell wrapper debugging information
+
+	GENERAL COMMANDS:
+	    help       Show additional help for a command or container                  
+	    selftest   Run some self tests for singularity install                      
+
+	CONTAINER USAGE COMMANDS:
+	    exec       Execute a command within container                               
+	    run        Launch a runscript within container                              
+	    shell      Run a Bourne shell within container                              
+	    test       Launch a testscript within container                             
+
+	CONTAINER MANAGEMENT COMMANDS:
+	    apps       List available apps within a container                           
+	    bootstrap  *Deprecated* use build instead                                   
+	    build      Build a new Singularity container                                
+	    check      Perform container lint checks                                    
+	    inspect    Display container's metadata                                     
+	    mount      Mount a Singularity container image                              
+	    pull       Pull a Singularity/Docker container to $PWD                      
+
+	COMMAND GROUPS:
+	    image      Container image command group                                    
+	    instance   Persistent instance command group                                
+
+
+	CONTAINER USAGE OPTIONS:
+	    see singularity help <command>
+
+	For any additional help or support visit the Singularity
+	website: http://singularity.lbl.gov/
+
 
 3. Downloading Singularity containers
 =====================================

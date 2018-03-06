@@ -30,4 +30,4 @@ Award Numbers DBI-0735191 and DBI-1265383.
 
 Please cite CyVerse appropriately when you make use of our resources,
 `CyVerse citation
-policy <http://www.cyverse.org/acknowledge-cite-cyverse>`__
+policy <http://www.cyverse.org/acknowledge-and-cite-cyverse>`__

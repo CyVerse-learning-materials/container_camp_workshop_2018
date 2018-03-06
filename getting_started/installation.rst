@@ -26,7 +26,7 @@ Please complete the minimum Setup Instructions to prepare for the Container Camp
     * - Dockerhub Account
       - Please ensure that you have a Dockerhub account if you don't have one already
       - Register for your Dockerhub account at `https://hub.docker.com/ <https://hub.docker.com/>`_.
-    * - Qauy.io Account
+    * - Quay.io Account
       - This is completely optional but recommended and can use github to log-in to quay.io account
       - Register for your Quay.io account at `https://quay.io/ <https://quay.io/>`_.    
     * - XSEDE Account
@@ -63,6 +63,7 @@ provide some options for functionalities we will cover.
         IT administrators, and anybody is looking to manage system remotely
       - - `Download PuTTY <https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html>`_
         - `Download mobaXterm <https://mobaxterm.mobatek.net>`_
+        - `Update Windows 10 to use Linux Bash <https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/>`_ 
     * - Cyberduck
       - Cyberduck is a third-party tool for uploading/downloading data to CyVerse Data Store.
         Currently, this tool is available for Windows/MacOS only. You will need
