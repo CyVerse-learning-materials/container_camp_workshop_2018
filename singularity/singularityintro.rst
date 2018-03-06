@@ -748,7 +748,8 @@ When you use the `--sandbox` the container is written into a directory structure
 	bin  boot  dev  environment  etc  home  lib  lib64  media  mnt  opt  proc  run  sbin  singularity  srv  sys  tmp  usr  var
 
 .. |singularity| image:: ../img/singularity.png
+  :height: 200
+  :height: 200
 
 .. |singularityflow| image:: http://singularity.lbl.gov/assets/img/diagram/singularity-2.4-flow.png
-  :width: 300
-  :height: 300
+  :height: 600
