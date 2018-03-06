@@ -18,39 +18,39 @@ Twitter hash tag: #cc2018
       - 8:30-9:00
       - General introduction to CyVerse and Camp logistics (Nirav Merchant & Upendra Devisetty)
       -
-    * - 03/07/18 (Wednesday)
+    * - 
       - 9:00-9:30
       - General overview of container technology landscape (Nirav Merchant)
       -
-    * - 03/07/18 (Wednesday)
+    * - 
       - 9:30-9:45
       - Coffee and snack break with networking
       - served in A127-29 across the hall (pls no food/bev in A116)
-    * - 03/07/18 (Wednesday)
+    * - 
       - 9:45-11:00
       - Introduction to Docker (Kapeel Chougule)
       - `Docker basics/Introduction <../docker/dockerintro.html>`_
-    * - 03/07/18 (Wednesday)
+    * - 
       - 11:00-12.00
       - Singularity (Vanessa Sochat)
       - Remote talk
-    * - 03/07/18 (Wednesday)
+    * -
       - 12:00-1:00
       - Lunch break on your own
       -
-    * - 03/07/18 (Wednesday)
+    * - 
       - 1:00-2:30
       - Advanced Docker (Upendra Devisetty)
       - `Advanced docker <../docker/dockeradvanced.html>`_
-    * - 03/07/18 (Wednesday)
+    * - 
       - 2:30-3:00
       - Coffee break (15 min) and afternoon session planning
       - served in A127-29
-    * - 03/07/18 (Wednesday)
+    * - 
       - 3:00-5:00
       - BYOD (Hands on Project)
       -
-    * - 03/07/18 (Wednesday)
+    * - 
       - 5:00-6:00
       - Catchup with instructors
       - 
