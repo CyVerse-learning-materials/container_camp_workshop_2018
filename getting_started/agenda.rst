@@ -14,6 +14,10 @@ Twitter hash tag: #cc2018
       - Time
       - Topic/Activity
       - Notes/Links
+    * - Wednesday
+      -
+      -
+      -
     * - 03/07/18 (Wednesday)
       - 8:30-9:00
       - General introduction to CyVerse and Camp logistics (Nirav Merchant & Upendra Devisetty)
