@@ -749,7 +749,7 @@ When you use the `--sandbox` the container is written into a directory structure
 
 .. |singularity| image:: ../img/singularity.png
   :height: 200
-  :height: 200
+  :width: 200
 
 .. |singularityflow| image:: http://singularity.lbl.gov/assets/img/diagram/singularity-2.4-flow.png
   :height: 600
