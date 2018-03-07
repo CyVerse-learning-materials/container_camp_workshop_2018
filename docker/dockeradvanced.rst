@@ -658,7 +658,11 @@ Main advantages of Docker compose include:
 - Your applications can be defined in a YAML file where all the options that you used in ``docker run`` are now defined (Reproducibility).
 - It allows you to manage your application as a single entity rather than dealing with individual containers (Simplicity).
 
-Let's now create a simple web app with Docker Compose using Flask (which you already seen before) and Redis (we end up with a Flask container and a Redis container all on one host)
+Let's now create a simple web app with Docker Compose using Flask (which you already seen before) and Redis. We will end up with a Flask container and a Redis container all on one host.
+
+.. Note::
+
+	The code for the above compose example is available `here <https://github.com/upendrak/compose_flask>`_
 
 1. You’ll need a directory for your project on your host machine:
 
@@ -728,17 +732,20 @@ A brief explanation of ``docker-compose.yml`` is as below:
 - The web service builds from the Dockerfile in the current directory.
 - Forwards the container’s exposed port (5000) to port 8888 on the host.
 - Mounts the project directory on the host to /code inside the container (allowing you to modify the code without having to rebuild the image).
-- And links the web service to the Redis service.
+- ``depends_on`` links the web service to the Redis service.
 - The redis service uses the latest Redis image from Docker Hub.
 
 .. Note::
 
 	Docker for Mac and Docker Toolbox already include Compose along with other Docker apps, so Mac users do not need to install Compose separately.
-	Docker for Windows and Docker Toolbox already include Compose along with other Docker apps, so most Windows users do not need to install Compose separately
+	Docker for Windows and Docker Toolbox already include Compose along with other Docker apps, so most Windows users do not need to install Compose separately.
+
 	For Linux users 
+
 	.. code-block:: bash
 
 		sudo curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
 		sudo chmod +x /usr/local/bin/docker-compose
 
 5. Build and Run with ``docker-compose up -d`` command
@@ -805,8 +812,6 @@ And that’s it! You should be able to see the Flask application running on ``ht
 
 |docker-compose|
 
-The code for the above compose example is available `here <https://github.com/upendrak/compose_flask>`_
-
 Exercise 2 (10 mins)
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -847,6 +852,10 @@ Thanks to the rich ecosystem, there are already several readily available images
 
 Motivation: Say you want to play around with some cool data science libraries in Python or R but what you don’t want to do is spend hours on installing Python or R, working out what libraries you need, installing each and every one and then messing around with the tedium of getting things to work just right on your version of Linux/Windows/OSX/OS9 — well this is where Docker comes to the rescue! With Docker we can get a Jupyter ‘Data Science’ notebook stack up and running in no time at all. Let’s get started! We will see few examples of thse in the following sections...
 
+.. Note::
+
+	The above code can be found in this `github <https://github.com/upendrak/jupyternotebook_docker>`_
+
 1. Launch a Jupyter notebook conatiner
 
 Docker allows us to run a ‘ready to go’ Jupyter data science stack in what’s known as a container:
@@ -870,13 +879,11 @@ Docker allows us to run a ‘ready to go’ Jupyter data science stack in what�
 	      - 8888:8888
 	    container_name:   datascience-notebook-container
 
-..Note::
+.. Note::
 
 	The ``jupyter/datascience-notebook`` image can be found on dockerhub
 
 |jn_ss|
-
-The above code can be found in this `github <https://github.com/upendrak/jupyternotebook_docker>`_
 
 1.2 Run container using docker-compose file
 
@@ -909,6 +916,10 @@ The last line is a URL that we need to copy and paste into our browser to access
 
 	http://localhost:8888/?token=dfb50de6c1da091fd62336ac52cdb88de5fe339eb0faf478
 
+.. warning::
+
+	Do not copy and paste the above URL in your browser as this URL is specific to my environment.
+
 Once you’ve done that you should be greeted by your very own containerised Jupyter service!
 
 |jn_login|
@@ -922,8 +933,6 @@ Now you can write your python code. Here is an example
 |jn_login3|
 
 |jn_login3.5|
-
-|jn_login4|
 
 To shut down the container once you’re done working, simply hit Ctrl-C in the terminal/command prompt. Your work will all be saved on your actual machine in the path we set in our Docker compose file. And there you have it — a quick and easy way to start using Jupyter notebooks with the magic of Docker.
 
@@ -952,6 +961,8 @@ Enter ``rstudio`` as username and password. Finally Rstudio shows up and you can
 3. Machine learning using Docker
 
 In this simple example we’ll take a sample dataset of fruits metrics (like size, weight, texture) labelled apples and oranges. Then we can predict the fruit given a new set of fruit metrics using scikit-learn’s decision tree
+
+You can find the above code in this `github repo <https://github.com/upendrak/scikit_tree_docker>`_ 
 
 1. Create a directory that consists of all the files
 
@@ -1092,8 +1103,6 @@ You will find the ouput file in the ``scikit_docker`` folder with the following 
 
 	$ cat output.txt 
 	Prediction of DecisionTreeClassifier:['apple' 'orange' 'apple']
-
-You can find the above code in this `github repo <https://github.com/upendrak/scikit_tree_docker>`_ 
 
 .. |docker_image| image:: ../img/docker_image.png
   :width: 750
