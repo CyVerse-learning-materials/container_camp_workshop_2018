@@ -29,7 +29,8 @@ Twitter hash tag: #cc2018
     * - 
       - 9:45-11:00
       - Introduction to Docker (Kapeel Chougule)
-      - `Docker basics/Introduction <../docker/dockerintro.html>`_
+      - - `Docker intro slides <https://docs.google.com/presentation/d/1OqEiVZRq9ibmVk8A0YyeXoNBXfm5JQAXWhow-P6_Iho/edit?usp=sharing>`_
+        - `Docker intro demo <../docker/dockerintro.html>`_
     * - 
       - 11:00-12.00
       - Singularity (Vanessa Sochat)
