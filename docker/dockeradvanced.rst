@@ -271,7 +271,7 @@ Let's create an automatic build for our ``flask-app`` using the instructions bel
 
 - For now select your GitHub account from the User/Organizations list on the left. The list of repositories change.
 
-- Pick the project to build. In this case ``flask-app``. Type in "Conainer Camp flask-app"
+- Pick the project to build. In this case ``flask-app``. Type in "Conainer Camp flask-app" in the Short Description box.
 
 - If you have a long list of repos, use the filter box above the list to restrict the list. After you select the project, the system displays the Create Automated Build dialog.
 
@@ -285,43 +285,9 @@ Let's create an automatic build for our ``flask-app`` using the instructions bel
 
 |auto_build-2.1|
 
-Specify which code branches or tags to build from. You can add new configurations by clicking the ``+ (plus sign)``. The dialog accepts regular expressions.
+Specify which code branches or tags to build from. You can build by a code branch or by an image tag. You can enter a specific value or use a regex to select multiple values. To see examples of regex, press the Show More link on the right of the page.
 
-6.	Click ``Create``.
-
-.. important::
-
-	The first time you create a new automated build, Docker Hub builds your image. In a few minutes, you should see your new build on the image dashboard. The Build Details page shows a log of your build systems:
-
-	During the build process, Docker copies the contents of your Dockerfile to Docker Hub. The Docker community (for public repositories) or approved team members/orgs (for private repositories) can then view the Dockerfile on your repository page.
-
-	The build process looks for a README.md in the same directory as your Dockerfile. If you have a README.md file in your repository, it is used in the repository as the full description. If you change the full description after a build, it’s overwritten the next time the Automated Build runs. To make changes, modify the README.md in your Git repository.
-
-.. Note:: 
-
-	You can only trigger one build at a time and no more than one every five minutes. If you already have a build pending, or if you recently submitted a build request, Docker ignores new requests.
-
-It can take a few minutes for your automated build job to be created. When the system is finished, it places you in the detail page for your Automated Build repository.
-
-7. Manually Trigger a Build
-
-Before you trigger an automated build by pushing to your GitHub ``flask-app``, you'll trigger a manual build. Triggering a manual build ensures everything is working correctly.
-
-From your automated build page choose ``Build Settings``.
-
-|auto_build-5|
-
-.. Note::
-
-	Docker builds everything listed whenever a push is made to the code repository. If you specify a particular branch or tag, you can manually build that image by pressing the Trigger. If you use a regular expression syntax (regex) to define your build branch or tag, Docker does not give you the option to manually build.
-
-- Press the + (plus sign).
-
-- Choose Type > Branch.
-
-- You can build by a code branch or by an image tag. You can enter a specific value or use a regex to select multiple values. To see examples of regex, press the Show More link on the right of the page.
-
-- Enter the master for the name of the branch.
+- Enter the ``master`` (default) for the name of the branch.
 
 - Leave the Dockerfile location as is.
 
@@ -329,13 +295,33 @@ From your automated build page choose ``Build Settings``.
 
 - Specify ``1.0`` for the Tag Name.
 
-- Press Save Changes.
+6.	Click ``Create``.
 
-A Trigger button appears by your new build configuration. Press the trigger button.
+.. important::
+
+	During the build process, Docker copies the contents of your Dockerfile to Docker Hub. The Docker community (for public repositories) or approved team members/orgs (for private repositories) can then view the Dockerfile on your repository page.
+
+	The build process looks for a README.md in the same directory as your Dockerfile. If you have a README.md file in your repository, it is used in the repository as the full description. If you change the full description after a build, it’s overwritten the next time the Automated Build runs. To make changes, modify the README.md in your Git repository.
+
+.. warning:: 
+
+	You can only trigger one build at a time and no more than one every five minutes. If you already have a build pending, or if you recently submitted a build request, Docker ignores new requests.
+
+It can take a few minutes for your automated build job to be created. When the system is finished, it places you in the detail page for your Automated Build repository.
+
+7. Manually Trigger a Build
+
+Before you trigger an automated build by pushing to your GitHub ``flask-app`` repo, you'll trigger a manual build. Triggering a manual build ensures everything is working correctly.
+
+From your automated build page choose ``Build Settings``
+
+|auto_build-5|
+
+Press ``Trigger`` button and finally click ``Save Changes``.
 
 .. Note::
 
-	You can only trigger one build at a time and no more than one every five minutes. If you already have a build pending, or if you recently submitted a build request, Docker ignores new requests.
+	Docker builds everything listed whenever a push is made to the code repository. If you specify a particular branch or tag, you can manually build that image by pressing the Trigger. If you use a regular expression syntax (regex) to define your build branch or tag, Docker does not give you the option to manually build.
 
 |auto_build-6|
 
@@ -351,8 +337,8 @@ You may have to manually refresh the page and your build may take several minute
 
 |auto_build-7|
 
-Exercise 1 (10 mins)
-~~~~~~~~~~~~~~~~~~~~
+Exercise 1 (5-10 mins): Updating and automated building
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Add some more cat pics to the `app.py` file
 - Add, Commit and Push it to your github repo
@@ -388,7 +374,7 @@ Volumes are often a better choice than persisting data in a container’s writab
 
 .. Note::
 
-	If your container generates non-persistent state data, consider using a tmpfs mount to avoid storing the data anywhere permanently, and to increase the container’s performance by avoiding writing into the container’s writable layer.
+	If your container generates non-persistent state data, consider using a ``tmpfs`` mount to avoid storing the data anywhere permanently, and to increase the container’s performance by avoiding writing into the container’s writable layer.
 
 3.1.1 Choose the -v or –mount flag for mounting volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -407,7 +393,7 @@ Originally, the ``-v`` or ``--volume`` flag was used for standalone containers a
 ``--mount``: Consists of multiple key-value pairs, separated by commas and each consisting of a ``<key>=<value>`` tuple. The ``--mount`` syntax is more verbose than ``-v`` or ``--volume``, but the order of the keys is not significant, and the value of the flag is easier to understand.
 - The type of the mount, which can be **bind**, **volume**, or **tmpfs**.
 - The source of the mount. For named volumes, this is the name of the volume. For anonymous volumes, this field is omitted. May be specified as **source** or **src**.
-- The destination takes as its value the path where the file or directory is mounted in the container. May be specified as destination, dst, or target.
+- The destination takes as its value the path where the file or directory is mounted in the container. May be specified as **destination**, **dst**, or **target**.
 - The readonly option, if present, causes the bind mount to be mounted into the container as read-only.
 
 .. Note::
@@ -460,13 +446,13 @@ Remove a volume
 
 This example starts an ``nginx`` container and populates the new volume ``nginx-vol`` with the contents of the container’s ``/var/log/nginx`` directory, which is where Nginx stores its log files.
 
-.. code-block::
+.. code-block:: bash
 
 	$ docker run -d -p 8891:80 --name=nginxtest --mount source=nginx-vol,target=/var/log/nginx nginx:latest
 
 So, we now have a copy of Nginx running inside a Docker container on our machine, and our host machine's port 5000 maps directly to that copy of Nginx's port 80. Let's use curl to do a quick test request:
 
-.. code-block::
+.. code-block:: bash
 
 	$ curl localhost:8891
 	<!DOCTYPE html>
@@ -495,15 +481,15 @@ So, we now have a copy of Nginx running inside a Docker container on our machine
 	</body>
 	</html>
 
-You'll get a screenful of HTML back from Nginx showing that Nginx is up and running. But more interestingly, if you look in the ~/nginxlogs folder on the host machine and take a look at the access.log file you'll see a log message from Nginx showing our request:
+You'll get a screenful of HTML back from Nginx showing that Nginx is up and running. But more interestingly, if you look in the ``nginx-vol`` volume on the host machine and take a look at the ``access.log`` file you'll see a log message from Nginx showing our request.
 
-.. code-block::
+.. code-block:: bash
 	
-	cat nginx-vol2/_data/access.log
+	cat nginx-vol/_data/access.log
 
 Use ``docker inspect nginx-vol`` to verify that the volume was created and mounted correctly. Look for the Mounts section:
 
-.. code-block::
+.. code-block:: bash
 
 	"Mounts": [
 	            {
@@ -533,7 +519,11 @@ After running either of these examples, run the following commands to clean up t
 3.2 Bind mounts
 ~~~~~~~~~~~~~~~
 
-**Bind mounts:** When you use a bind mount, a file or directory on the host machine is mounted into a container. The file or directory is referenced by its full path on the host machine. The file or directory does not need to exist on the Docker host already. It is created on demand if it does not yet exist. Bind mounts are very performant, but they rely on the host machine’s filesystem having a specific directory structure available. If you are developing new Docker applications, consider using named volumes instead. You can’t use Docker CLI commands to directly manage bind mounts.
+**Bind mounts:** When you use a bind mount, a file or directory on the host machine is mounted into a container. 
+
+.. tip::
+
+	If you are developing new Docker applications, consider using named **volumes** instead. You can’t use Docker CLI commands to directly manage bind mounts.
 
 |bind_mount|
 
@@ -541,7 +531,7 @@ After running either of these examples, run the following commands to clean up t
 
 	One side effect of using bind mounts, for better or for worse, is that you can change the host filesystem via processes running in a container, including creating, modifying, or deleting important system files or directories. This is a powerful ability which can have security implications, including impacting non-Docker processes on the host system.
 
-	If you use `--mount` to bind-mount a file or directory that does not yet exist on the Docker host, Docker does not automatically create it for you, but generates an error.
+	If you use ``--mount`` to bind-mount a file or directory that does not yet exist on the Docker host, Docker does not automatically create it for you, but generates an error.
 
 3.2.1 Start a container with a bind mount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -582,7 +572,7 @@ Stop the container:
 
 For some development applications, the container needs to write into the bind mount, so changes are propagated back to the Docker host. At other times, the container only needs read access.
 
-This example modifies the one above but mounts the directory as a read-only bind mount, by adding `ro` to the (empty by default) list of options, after the mount point within the container. Where multiple options are present, separate them by commas.
+This example modifies the one above but mounts the directory as a read-only bind mount, by adding ``ro`` to the (empty by default) list of options, after the mount point within the container. Where multiple options are present, separate them by commas.
 
 .. code-block:: bash
 
@@ -607,6 +597,12 @@ Stop the container:
 .. code-block:: bash
 
 	$ docker rm -f devtest
+
+Remove the volume:
+
+.. code-block:: bash
+
+	$ docker volume rm devtest
 
 3.3 tmpfs
 ~~~~~~~~~
@@ -638,16 +634,24 @@ Use `docker inspect devtest` to verify that the bind mount was created correctly
 	            }
 	        ],
 
+You can see from the above output that the ``Source`` filed is empty which indicates that the contents are not avaible on Docker host or host file system. 
+
 Stop the container:
 
 .. code-block:: bash
 
 	$ docker rm -f devtest
 
+Remove the volume:
+
+.. code-block:: bash
+
+	$ docker volume rm devtest
+
 4. Docker Compose for multi container apps
 ==========================================
 
-Docker Compose is a tool for defining and running your multi-container Docker applications. 
+**Docker Compose** is a tool for defining and running your multi-container Docker applications. 
 
 Main advantages of Docker compose include:
 

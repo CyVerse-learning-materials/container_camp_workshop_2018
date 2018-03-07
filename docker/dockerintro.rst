@@ -25,7 +25,7 @@ The getting started guide on Docker has detailed instructions for setting up Doc
 
 .. Note::
 
-	Depending on how you've installed docker on your system, you might see a `permission denied` error after running the above command. If you're on Linux, you may need to prefix your docker commands with sudo. Alternatively to run docker command without sudo, you need to add your user (who has root privileges) to docker group. 
+	Depending on how you've installed Docker on your system, you might see a ``permission denied`` error after running the above command. If you're on Linux, you may need to prefix your Docker commands with sudo. Alternatively to run docker command without sudo, you need to add your user (who has root privileges) to docker group. 
 	For this run: 
 
 	Create the docker group::
@@ -75,13 +75,13 @@ When run without ``--version`` you should see a whole bunch of lines showing the
 3. Running Docker containers from prebuilt images
 =================================================
 
-Now that you have everything setup, it's time to get our hands dirty. In this section, you are going to run an `Alpine Linux <http://www.alpinelinux.org/>`_ (a lightweight linux distribution) container on your system and get a taste of the ``docker run`` command.
+Now that you have everything setup, it's time to get our hands dirty. In this section, you are going to run a container from `Alpine Linux <http://www.alpinelinux.org/>`_ (a lightweight linux distribution) image on your system and get a taste of the ``docker run`` command.
 
 But wait, what exactly is a container and image?
 
 **Containers** - Running instances of Docker images — containers run the actual applications. A container includes an application and all of its dependencies. It shares the kernel with other containers, and runs as an isolated process in user space on the host OS. 
 
-**Images** - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run ``docker inspect hello-world``. In the demo above, you could have used the ``docker pull`` command to download the hello-world image. However when you executed the command ``docker run hello-world``, it also did a ``docker pull`` behind the scenes to download the ``hello-world`` image with ``latest`` tag (we will learn more about tags little later).
+**Images** - The file system and configuration of our application which are used to create containers. To find out more about a Docker image, run ``docker inspect hello-world``. In the demo above, you could have used the ``docker pull`` command to download the ``hello-world`` image. However when you executed the command ``docker run hello-world``, it also did a ``docker pull`` behind the scenes to download the ``hello-world`` image with ``latest`` tag (we will learn more about tags little later).
 
 Now that we know what a container and image is, let's run the following command in our terminal:
 
@@ -191,13 +191,13 @@ Great! so you have now looked at ``docker run``, played with a Docker containers
 4.1 Deploying static website
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Let's start by taking baby-steps. First, we'll use Docker to run a static website in a container. The website is based on an existing image and in the next section we will see how to build a new image and run a website in that container. We'll pull a Docker image from Docker Store, run the container, and see how easy it is to set up a web server.
+Let's start by taking baby-steps. First, we'll use Docker to run a static website in a container. The website is based on an existing image and in the next section we will see how to build a new image and run a website in that container. We'll pull a Docker image from Dockerhub, run the container, and see how easy it is to set up a web server.
 
 .. Note::
 	
 	Code for this section is in this repo in the `static-site directory <https://github.com/docker/labs/tree/master/beginner/static-site>`_
 
-The image that you are going to use is a single-page website that was already created for this demo and is available on the Docker Store as `dockersamples/static-site <https://store.docker.com/community/images/dockersamples/static-site>`_. You can pull and run the image directly in one go using ``docker run`` as follows.
+The image that you are going to use is a single-page website that was already created for this demo and is available on the Dockerhub as `dockersamples/static-site <https:/hub.docker.com/community/images/dockersamples/static-site>`_. You can pull and run the image directly in one go using ``docker run`` as follows.
 
 .. code-block:: bash
 
@@ -247,9 +247,9 @@ Now, let's launch a container in detached mode as shown below:
 
 In the above command:
 
--	`-d` will create a container with the process detached from our terminal
--	`-P` will publish all the exposed container ports to random ports on the Docker host
--	`--name` allows you to specify a container name
+-	``-d`` will create a container with the process detached from our terminal
+-	``-P`` will publish all the exposed container ports to random ports on the Docker host
+-	``--name`` allows you to specify a container name
 
 Now you can see the ports by running the ``docker port`` command.
 
@@ -265,13 +265,13 @@ If you are running Docker for Mac, Docker for Windows, or Docker on Linux, open 
 
 |static_site_docker|
 
-- Cloud server: If you are running the same set of commands on Atmosphere/Jetstream or on any other cloud, you can open ``ipaddress:[YOUR_PORT_FOR 80/tcp]``. On my system this is ``http://128.196.142.26:32769/``. We will see more about deploying Docker containers on Atmosphere/Jetstream Cloud in the Advanced Docker session.
+- Cloud server: If you are running the same set of commands on Atmosphere/Jetstream or on any other cloud service, you can open ``ipaddress:[YOUR_PORT_FOR 80/tcp]``. On my Atmosphere instance this is ``http://128.196.142.26:32769/``. We will see more about deploying Docker containers on Atmosphere/Jetstream Cloud in the Advanced Docker session.
 
 |static_site_docker1|
 
 .. Note::
 
-	`-P` will publish all the exposed container ports to random ports on the Docker host. However if you want to assign a fixed port then you can use ``-p`` option. The format is ``-p <host port>:<container port>``. For example::
+	``-P` `will publish all the exposed container ports to random ports on the Docker host. However if you want to assign a fixed port then you can use ``-p`` option. The format is ``-p <host port>:<container port>``. For example::
 
 .. code-block:: bash
 
@@ -383,7 +383,7 @@ An important distinction with regard to images is between base images and child 
 
 	**Official images** are Docker sanctioned images. Docker, Inc. sponsors a dedicated team that is responsible for reviewing and publishing all Official Repositories content. This team works in collaboration with upstream software maintainers, security experts, and the broader Docker community. These are not prefixed by an organization or user name. In the list of images above, the python, node, alpine and nginx images are official (base) images. To find out more about them, check out the Official Images Documentation.
 
-	**User images** are images created and shared by users like you. They build on base images and add additional functionality. Typically these are formatted as user/image-name. The user value in the image name is your Docker Store user or organization name.
+	**User images** are images created and shared by users like you. They build on base images and add additional functionality. Typically these are formatted as ``user/image-name``. The user value in the image name is your Dockerhub user or organization name.
 
 4.2.2 Meet our Flask app
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -687,6 +687,7 @@ Exercise (5-10 mins): Deploy a custom Docker image
 - Download the sample code from https://github.com/Azure-Samples/docker-django-webapp-linux.git
 - Build the image using the Dockerfile in that repo using ``docker build`` command
 - Run an instance from that image
+- Verify the web app and container are functioning correctly
 - Share your (non-localhost) url on Slack
 
 5. Dockerfile commands summary
@@ -694,13 +695,13 @@ Exercise (5-10 mins): Deploy a custom Docker image
 
 Here's a quick summary of the few basic commands we used in our Dockerfile.
 
-- FROM starts the Dockerfile. It is a requirement that the Dockerfile must start with the FROM command. Images are created in layers, which means you can use another image as the base image for your own. The FROM command defines your base layer. As arguments, it takes the name of the image. Optionally, you can add the Docker Cloud username of the maintainer and image version, in the format username/imagename:version.
+- **FROM** starts the Dockerfile. It is a requirement that the Dockerfile must start with the FROM command. Images are created in layers, which means you can use another image as the base image for your own. The FROM command defines your base layer. As arguments, it takes the name of the image. Optionally, you can add the Dockerhub username of the maintainer and image version, in the format username/imagename:version.
 
-- RUN is used to build up the Image you're creating. For each RUN command, Docker will run the command then create a new layer of the image. This way you can roll back your image to previous states easily. The syntax for a RUN instruction is to place the full text of the shell command after the RUN (e.g., RUN mkdir /user/local/foo). This will automatically run in a /bin/sh shell. You can define a different shell like this: RUN /bin/bash -c 'mkdir /user/local/foo'
+- **RUN** is used to build up the Image you're creating. For each RUN command, Docker will run the command then create a new layer of the image. This way you can roll back your image to previous states easily. The syntax for a RUN instruction is to place the full text of the shell command after the RUN (e.g., RUN mkdir /user/local/foo). This will automatically run in a /bin/sh shell. You can define a different shell like this: RUN /bin/bash -c 'mkdir /user/local/foo'
 
-- COPY copies local files into the container.
+- **COPY** copies local files into the container.
 
-- CMD defines the commands that will run on the Image at start-up. Unlike a RUN, this does not create a new layer for the Image, but simply runs the command. There can only be one CMD per a Dockerfile/Image. If you need to run multiple commands, the best way to do that is to have the CMD run a script. CMD requires that you tell it where to run the command, unlike RUN. So example CMD commands would be:
+- **CMD** defines the commands that will run on the Image at start-up. Unlike a RUN, this does not create a new layer for the Image, but simply runs the command. There can only be one CMD per a Dockerfile/Image. If you need to run multiple commands, the best way to do that is to have the CMD run a script. CMD requires that you tell it where to run the command, unlike RUN. So example CMD commands would be:
 
 .. code-block:: bash
 
@@ -712,7 +713,7 @@ Here's a quick summary of the few basic commands we used in our Dockerfile.
 
 .. Note::
 
-	The EXPOSE command does not actually make any ports accessible to the host! Instead, this requires publishing ports by means of the -p flag when using $ docker run.
+	The EXPOSE command does not actually make any ports accessible to the host! Instead, this requires publishing ports by means of the ``-p`` flag when using ``docker run``.
 
 - PUSH pushes your image to Docker Cloud, or alternately to a private registry
 
