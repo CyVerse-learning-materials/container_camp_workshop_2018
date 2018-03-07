@@ -104,11 +104,13 @@ We will use this for notetaking - https://goo.gl/6Bd9tX
     * - 
       - 9:30-10:00
       - 500,000 containers a day? OSG Singularity Infrastructure (Mats Rynge)
-      - `Introduction to OSG Singularity Infrastructure <../container_scaling/containerscaling_osg.html>`_
+      - - `Slides <https://docs.google.com/presentation/d/1DOfnSYAWl7lqtowbb-T5xpUtnkfRBDg9_6wo_Y7hviI/edit?usp=sharing>`_
+        - `Exercises <../container_scaling/containerscaling_osg.html>`_
     * - 
       - 10.00-10:30
       - Pegasus Workflows with Application Containers (Mats Rynge)
-      - `Introduction to Pegasus <../container_scaling/containerscaling_pegasus.html>`_
+      - - `Slides <https://docs.google.com/presentation/d/1SmmFizUvDmq5p4uNmqBrSsVWMOu89vAuUD-oDGLf4D4/edit?usp=sharing>`_
+        - `Exercises <../container_scaling/containerscaling_pegasus.html>`_
     * - 
       - 10:30-10:45
       - Coffee + snack break with networking
