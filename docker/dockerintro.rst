@@ -273,14 +273,15 @@ If you are running Docker for Mac, Docker for Windows, or Docker on Linux, open 
 
 	`-P` will publish all the exposed container ports to random ports on the Docker host. However if you want to assign a fixed port then you can use ``-p`` option. The format is ``-p <host port>:<container port>``. For example::
 
-		$ docker run --name static-site2 -d -p 8088:80 dockersamples/static-site
-		8ed06daa0d8d8e0b0367bc3c035d2d729e6523c2a41818ebe92589c027d68c9e
+.. code-block:: bash
+
+	$ docker run --name static-site2 -d -p 8088:80 dockersamples/static-site
 
 If you are running Docker for Mac, Docker for Windows, or Docker on Linux, you can open ``http://localhost:[YOUR_PORT_FOR 80/tcp]``. For our example this is ``http://localhost:8088``.
 
 If you are running Docker on Atmosphere/Jetstream or on any other cloud, you can open ``ipaddress:[YOUR_PORT_FOR 80/tcp]``. For our example this is ``http://128.196.142.26:8088/``
 
-If you see “Hello Docker” then you’re done!
+If you see “Hello Docker!” then you’re done!
 
 Let's stop and remove the containers since you won't be using them anymore.
 
@@ -301,13 +302,6 @@ Run ``docker ps`` to make sure the containers are gone.
 
 	$ docker ps
 	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
-
-Exercise 1 (10 mins)
-~~~~~~~~~~~~~~~~~~~~
-
-- Build a static website 
-- Run it on your machine
-- Share your (non-localhost) url on slack
 
 4.2 Deploying dynamic website
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -392,7 +386,7 @@ An important distinction with regard to images is between base images and child 
 	**User images** are images created and shared by users like you. They build on base images and add additional functionality. Typically these are formatted as user/image-name. The user value in the image name is your Docker Store user or organization name.
 
 4.2.2 Meet our Flask app
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that you have a better understanding of images, it's time to create an image that sandboxes a small `Flask <http://flask.pocoo.org/>`_ application. Flask is a lightweight Python web framework. We'll do this by first pulling together the components for a random cat picture generator built with Python Flask, then dockerizing it by writing a Dockerfile and finally we'll build the image and run it. 
 
@@ -687,11 +681,12 @@ Head over to ``http://localhost:8888`` and your app should be live.
 
 Hit the Refresh button in the web browser to see a few more cat images.
 
-Exercise 2 (10 mins)
-~~~~~~~~~~~~~~~~~~~~
+Exercise (5-10 mins): Deploy a custom Docker image
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Build your own website with Dockerfile
-- Run an instance
+- Download the sample code from https://github.com/Azure-Samples/docker-django-webapp-linux.git
+- Build the image using the Dockerfile in that repo using ``docker build`` command
+- Run an instance from that image
 - Share your (non-localhost) url on Slack
 
 5. Dockerfile commands summary
