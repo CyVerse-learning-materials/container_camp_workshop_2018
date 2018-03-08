@@ -64,7 +64,7 @@ We will use this for notetaking - https://goo.gl/6Bd9tX
     * - 
       - 9:00-9:30
       - General overview of Singularity (John Fonner)
-      -
+      - `Singularity Overview PDF <../singularity/overview.pdf>`_
     * - 
       - 9:30-10.00
       - Singularity setup (Tyson Swetnam)
