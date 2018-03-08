@@ -76,7 +76,9 @@ We will use this for notetaking - https://goo.gl/6Bd9tX
     * - 
       - 10:30-12.00
       - Singularity basics (Tyson Swetnam)
-      - `Introduction to Singularity <../singularity/singularityintro.html>`_,  `Gitpitch slides <https://gitpitch.com/tyson-swetnam/cc-camp#/>`_
+      - - `Gitpitch slides <https://gitpitch.com/tyson-swetnam/cc-camp#/>`_
+        - `University of Arizona High Performance Computing <https://docs.hpc.arizona.edu/>`_
+        - `Introduction to Singularity <../singularity/singularityintro.html>`_
      
     * - 
       - 12:00-1:00
