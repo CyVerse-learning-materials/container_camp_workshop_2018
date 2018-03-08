@@ -749,7 +749,15 @@ When you use the `--sandbox` the container is written into a directory structure
 	@vm142-73:~/lolcow$ ls
 	bin  boot  dev  environment  etc  home  lib  lib64  media  mnt  opt  proc  run  sbin  singularity  srv  sys  tmp  usr  var
 
-5.6 Bind Paths
+5.6 Test
+~~~~~~~~
+
+Singularity can test the build of your container.
+
+You can bypass the test by using `--no-test`.
+
+
+5.7 Bind Paths
 ~~~~~~~~~~~~~~
 
 When Singularity creates the new file system inside a container it ignores directories that are not part of the standard kernel, e.g. `/scratch`, `/xdisk`, `/global`, etc. These paths can be added back into the container by binding them when the container is run.
@@ -759,6 +767,28 @@ When Singularity creates the new file system inside a container it ignores direc
 	$ singularity shell --bind /xdisk ubuntu14.simg
 	
 The system administrator can also define what is added to a container. This is important on campus HPC systems that often have a `/scratch` or `/xdisk` directory structure. By editing the `/etc/singularity/singularity.conf` a new path can be added to the system containers.
+
+5.8 Overlay
+~~~~~~~~~~~
+
+You can make changes to an immutable container which only persist for the duration of the container being run.
+
+First, download a container.
+
+Next, create a new image in the ext3 format.
+
+.. code-block:: bash
+
+	$ singularity image.create blank_slate.simg
+
+Now, overlay your blank image file name with the container you just downloaded.
+
+.. code-block:: bash
+	
+	$ sudo singularity shell --overlay blank_slate.simg ubuntu14.simg
+
+*note: using the `sudo` command to make the container writable*
+
 
 .. |singularity| image:: ../img/singularity.png
   :height: 200
