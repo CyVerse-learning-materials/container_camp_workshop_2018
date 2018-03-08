@@ -158,7 +158,34 @@ For TensorFlow, you can directly pull their latest GPU image and utilize it as f
 
     You probably noticed that we check out the models repository into your $HOME directory. This is because your $HOME and $WORK directories are only available inside the container if the root folders /home and /work exist inside the container. In the case of tensorflow-latest-gpu.img, the /work directory does not exist, so any files there are inaccessible to the container.
 
-You may be thinking “what about overlayfs??”. Stampede2 supports it, but the Linux kernel on the other systems does not support overlayfs, so it had to be disabled in our singularity install.  This may change as new Singularity versions are released.
+You may be thinking “what about overlayFS??”. Stampede2 supports it, but the Linux kernel on the other systems does not support overlayFS, so it had to be disabled in our Singularity install.  This may change as new Singularity versions are released.
+
+Hands-On Exercise
+~~~~~~~~~~~~~~~~~
+
+Build a Singularity container that implements a simple Tensorflow image classifier.
+
+The image classifier script is available "out of the box" here:
+`https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/imagenet/classify_image.py <https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/imagenet/classify_image.py>`_
+
+Tensorflow has working Docker containers on DockerHub that you can use to support all the dependencies.  For example, the first line of your Dockerfile might look like:
+
+.. code-block:: bash
+
+  FROM tensorflow/tensorflow:1.5.0-py3
+
+When running the image classifier, the non-containerized version would be invoked with something like:
+
+.. code-block:: bash
+
+  python /classify_image.py --model_dir /model --image_file cat.png
+
+You can use a Singularity file or a Dockerfile to help you.  For reference, you can lookback at the "Singularity Intro" section on building Singularity images, yesterday's material on building Dockerfiles, or the respective manual pages:
+
+- `http://singularity.lbl.gov/docs-build-container <http://singularity.lbl.gov/docs-build-container>`_
+- `https://docs.docker.com/engine/reference/builder/ <https://docs.docker.com/engine/reference/builder/>`_
+
+
 
 
 
