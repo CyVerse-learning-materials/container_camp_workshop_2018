@@ -76,7 +76,8 @@ We will use this for notetaking - https://goo.gl/6Bd9tX
     * - 
       - 10:30-12.00
       - Singularity basics (Tyson Swetnam)
-      - `Singularity Introduction <../singularity/singularityintro.html>`_
+      - `Introduction to Singularity <../singularity/singularityintro.html>`_
+      - `Gitpitch slides <https://gitpitch.com/tyson-swetnam/cc-camp#/>`_
     * - 
       - 12:00-1:00
       - Lunch break on your own
