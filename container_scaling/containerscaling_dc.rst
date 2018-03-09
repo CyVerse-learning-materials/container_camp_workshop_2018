@@ -347,7 +347,7 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow hello_world.mf --docker=mfe --docker-tar=$HOME/mfe.tar
+    $ makeflow hello_world.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
  
 Singularity:
 
@@ -409,7 +409,7 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow blast_test.mf --docker=mfe --docker-tar=$HOME/mfe.tar
+    $ makeflow blast_test.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
  
 Singularity:
 
@@ -463,7 +463,7 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow bwa.mf --docker=mfe --docker-tar=$HOME/mfe.tar
+    $ makeflow bwa.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
  
 Singularity:
 
@@ -494,7 +494,7 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow shakespeare.makeflow --docker=mfe --docker-tar=$HOME/mfe.tar
+    $ makeflow shakespeare.makeflow --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
  
 Singularity:
 
