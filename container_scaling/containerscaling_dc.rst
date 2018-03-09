@@ -6,6 +6,11 @@
 
 'ssh' will be used to connect to a remote job submit host. Please ensure you have a ssh client installed. The instructors will supply a slip of paper with username, password and hostname during the session.
 
+This tutorial will also be linked to from our tutorial webpage: http://ccl.cse.nd.edu/software/tutorials/cyversecc18/
+Our website is located at: http://ccl.cse.nd.edu/
+
+You can get the slides from this talk there as well as additional material for our tools.
+
 2. Cooperative Computing Lab
 ============================
 
@@ -87,11 +92,17 @@ provided ansible script:
 
 After adding this log out and back in. 
 
+.. code-block:: bash
+
+    $ exit
+
+Now re-open the in web-shell.
 Once you are logged back in, we are going to pull the docker image we will use today:
 
 .. code-block:: bash
 
-    $ docker pull docker://nekelluna/ccl_makeflow_examples
+    $ docker pull nekelluna/ccl_makeflow_examples
+    $ docker save -o mfe.tar nekelluna/ccl_makeflow_examples
     $ singularity pull docker://nekelluna/ccl_makeflow_examples
 
 
@@ -308,9 +319,7 @@ To test with Docker:
 
 .. code-block:: bash
 
-    $ docker pull nekelluna/ccl_makeflow_examples
-    $ docker save -o mfe.tar nekelluna/ccl_makeflow_examples
-    $ python hello_world_creator.py --docker mfe.tar
+    $ python hello_world_creator.py --docker nekelluna/ccl_makeflow_examples
 
 
 .. _singularity:
@@ -318,8 +327,7 @@ To test with Singularity
 
 .. code-block:: bash
 
-    $ singularity pull docker://nekelluna/ccl_makeflow_examples
-    $ python hello_world_creator.py --singularity ./ccl_makeflow_examples.img
+    $ python hello_world_creator.py --singularity $HOME/ccl_makeflow_examples.simg
 
 After running these, look at ``hello_world.mf`` and see how the above run has been
 wrapped by the container command. Now we are just going to run this locally:
@@ -344,13 +352,13 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow hello_world.mf --docker=mfe --docker-tar=mfe.tar
+    $ makeflow hello_world.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
  
 Singularity:
 
 .. code-block:: bash
 
-    $ makeflow hello_world.mf --singularity=./ccl_makeflow_examples.img 
+    $ makeflow hello_world.mf --singularity=$HOME/ccl_makeflow_examples.simg 
  
 
 We have three additional examples that will work with the above provided container.
@@ -406,13 +414,13 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow blast_test.mf --docker=mfe --docker-tar=mfe.tar
+    $ makeflow blast_test.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
  
 Singularity:
 
 .. code-block:: bash
 
-    $ makeflow blast_test.mf --singularity=./ccl_makeflow_examples.img 
+    $ makeflow blast_test.mf --singularity=$HOME/ccl_makeflow_examples.simg 
  
 
 5.2. BWA in a Container
@@ -460,13 +468,13 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow bwa.mf --docker=mfe --docker-tar=mfe.tar
+    $ makeflow bwa.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
  
 Singularity:
 
 .. code-block:: bash
 
-    $ makeflow bwa.mf --singularity=./ccl_makeflow_examples.img 
+    $ makeflow bwa.mf --singularity=$HOME/ccl_makeflow_examples.simg 
 
 
 5.3. Text Analysis in a Container
@@ -491,11 +499,11 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow shakespeare.makeflow --docker=mfe --docker-tar=mfe.tar
+    $ makeflow shakespeare.makeflow --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
  
 Singularity:
 
 .. code-block:: bash
 
-    $ makeflow shakespeare.makeflow --singularity=./ccl_makeflow_examples.img 
+    $ makeflow shakespeare.makeflow --singularity=$HOME/ccl_makeflow_examples.simg 
 
