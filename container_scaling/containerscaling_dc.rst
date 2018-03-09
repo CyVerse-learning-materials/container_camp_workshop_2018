@@ -301,7 +301,7 @@ We are going to look at what the hello-containers folder:
 Inside of the ``hello-containers`` folder, there is a python script, ``hello_world_creator.py``, 
 that will create a simple hello world example which uses a container:
 
-.. _docker_setup:
+.. _docker:
 To test with Docker:
 
 .. code-block:: bash
@@ -311,7 +311,7 @@ To test with Docker:
     $ python hello_world_creator.py --docker mfe.tar
 
 
-.. _singularity_setup:
+.. _singularity:
 To test with Singularity
 
 .. code-block:: bash
@@ -357,9 +357,7 @@ We have three additional examples that will work with the above provided contain
 
 - BWA_
 
-- `Text Analysis`__
-
-__ shakespeare_
+- Text-Analysis_
 
 Each of these examples may have a small amount of setup to pull/compile the software needed. 
 
@@ -401,10 +399,8 @@ Based on the generated data, we will now write a makeflow:
 
     $ ./makeflow_blast -d nt -i test.fasta -p blastn --num_seq 5 --makeflow blast_test.mf
 
-Assuming you have already pulled the images needed for either singularity__ 
-__ singularity_setup_ 
-or docker__ we will run them similarly to how it was done above:
-__ docker_setup_
+Assuming you have already pulled the images needed for either singularity_ 
+or docker_ we will run them similarly to how it was done above:
 
 Docker: 
 
@@ -432,7 +428,7 @@ Singularity:
 
 
 
-.. _shakespeare:
+.. _Text-Analysis
 
 5.3. Text Analysis in a Container
 =================================
