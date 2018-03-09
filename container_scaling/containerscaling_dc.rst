@@ -75,7 +75,7 @@ Jetstream instances.
 
 .. code-block:: bash
 
-    $ sudo apt-get install zlib1g-dev libncurses5-dev
+    $ sudo apt-get install zlib1g-dev libncurses5-dev g++
 
 Additionally, we are going to add our current user to the docker group:
 
