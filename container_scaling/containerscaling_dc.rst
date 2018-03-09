@@ -355,12 +355,14 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow hello_world.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
+    $ ln -s $HOME/mfe.tar mfe.tar
+    $ makeflow hello_world.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=mfe.tar
  
 Singularity:
 
 .. code-block:: bash
 
+    $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
     $ makeflow hello_world.mf --singularity=$HOME/ccl_makeflow_examples.simg 
  
 
@@ -417,12 +419,14 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow blast_test.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
+    $ ln -s $HOME/mfe.tar mfe.tar
+    $ makeflow blast_test.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=mfe.tar
  
 Singularity:
 
 .. code-block:: bash
 
+    $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
     $ makeflow blast_test.mf --singularity=$HOME/ccl_makeflow_examples.simg 
  
 
@@ -471,12 +475,14 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow bwa.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
+    $ ln -s $HOME/mfe.tar mfe.tar
+    $ makeflow bwa.mf --docker=nekelluna/ccl_makeflow_examples --docker-tar=mfe.tar
  
 Singularity:
 
 .. code-block:: bash
 
+    $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
     $ makeflow bwa.mf --singularity=$HOME/ccl_makeflow_examples.simg 
 
 
@@ -502,11 +508,13 @@ Docker:
 
 .. code-block:: bash
 
-    $ makeflow shakespeare.makeflow --docker=nekelluna/ccl_makeflow_examples --docker-tar=$HOME/mfe.tar
+    $ ln -s $HOME/mfe.tar mfe.tar
+    $ makeflow shakespeare.makeflow --docker=nekelluna/ccl_makeflow_examples --docker-tar=mfe.tar
  
 Singularity:
 
 .. code-block:: bash
 
+    $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
     $ makeflow shakespeare.makeflow --singularity=$HOME/ccl_makeflow_examples.simg 
 
