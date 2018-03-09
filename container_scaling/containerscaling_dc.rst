@@ -20,15 +20,15 @@ The CCL designs software that enables our collaborators to easily harness large 
 
 The software suite we write and maintain is the CCTools software package.
 
-- **Makeflow**. User created workflows can easily be run in different environments without alteration. Pegasus currently runs workflows on top of Condor, Grid infrastrucutures such as Open Science Grid and TeraGrid, Amazon EC2, Nimbus, and many campus clusters. The same workflow can run on a single system or across a heterogeneous set of resources.
+- **`Makeflow<http://ccl.cse.nd.edu/software/makeflow/>`_**. A portable workflow manager.
 
-- **Work Queue**. The Pegasus mapper can reorder, group, and prioritize tasks in order to increase the overall workflow performance.
+- **`Work Queue**. A lightweight distributed execution system.
 
-- **Chirp**. Pegasus can easily scale both the size of the workflow, and the resources that the workflow is distributed over. Pegasus runs workflows ranging from just a few computational tasks up to millions of tasks. The number of resources involved in executing a workflow can scale as needed without any impediments to performance.
+- **`Parrot**. A personal user-level virtual file system.
 
-- **Parrot**. By default, all jobs in Pegasus are launched via the kickstart process that captures runtime provenance of the job and helps in debugging. The provenance data is collected in a database, and the data can be summarised with tools such as pegasus-statistics, pegasus-plots, or directly with SQL queries.
+- **`Chirp**. A user-level distributed filesystem.
 
-- **Specialized Software**. Pegasus handles replica selection, data transfers and output registrations in data catalogs. These tasks are added to a workflow as auxilliary jobs by the Pegasus planner.
+- **`Specialized Software**. A selection of applications tailored to specific compuation tasks.
 
 2. Makeflow
 ===========
@@ -53,8 +53,24 @@ Work Queue has been used to write applications that scale from a handful of work
 3. Makeflow Tutorial
 ====================
 
-This tutorial goes through the installation process of CCTools, the creation and running of a makeflow, and how to use Makeflow in conjunction with Work Queue to leverage different execution resources for your execution. More information can be found at&nbsp;<a href="http://ccl.cse.nd.edu/">http://ccl.cse.nd.edu/</a>. For specific information on Makeflow execution see&nbsp;<a href="http://ccl.cse.nd.edu/software/manuals/makeflow.html">http://ccl.cse.nd.edu/software/manuals/makeflow.html</a> and Work Queue see&nbsp;<a href="http://ccl.cse.nd.edu/software/manuals/workqueue.html">http://ccl.cse.nd.edu/software/manuals/workqueue.html</a>.</div>
-<h2>Download and Installation
+This tutorial goes through the installation process of CCTools, 
+the creation and running of a Makeflow, and 
+how to use Makeflow in conjunction with Work Queue to leverage different execution resources for your execution. 
+More information can be found a `http://ccl.cse.nd.edu/<http://ccl.cse.nd.edu/>`_. For specific information on 
+Makeflow execution see `http://ccl.cse.nd.edu/software/manuals/makeflow.html<http://ccl.cse.nd.edu/software/manuals/makeflow.html>`_ and 
+Work Queue see `http://ccl.cse.nd.edu/software/manuals/workqueue.html<http://ccl.cse.nd.edu/software/manuals/workqueue.html>`_.
+
+3.1. Running on Atmosphere/Jetstream
+====================================
+
+To start out we are going to launch an instance:
+
+
+
+
+
+3.2. Download and Installation
+==============================
 
 If you have access to the Notre Dame Center for Research Computing, first log into the CRC head node <tt>crcfe01.crc.nd.edu</tt> by using <tt>ssh</tt>, PuTTY, or a similar tool. If you do not have access, please build the code on your own machine. Once you have a shell, download and install the CCTools software in your home directory in one of two ways:
 <p>
@@ -63,9 +79,9 @@ To build our latest release:
 
 .. code-block:: bash
 
-    $ wget http://ccl.cse.nd.edu/software/files/cctools-6.0.7-source.tar.gz
-    $ tar zxpvf cctools-6.0.7-source.tar.gz
-    $ cd cctools-6.0.7-source
+    $ wget http://ccl.cse.nd.edu/software/files/cctools-6.2.6-source.tar.gz
+    $ tar zxpvf cctools-6.2.6-source.tar.gz
+    $ cd cctools-6.2.6-source
     $ ./configure --prefix $HOME/cctools --tcp-low-port 9000 --tcp-high-port 9500
     $ make
     $ make install
@@ -92,6 +108,10 @@ Now double check that you can run the various commands, like this:
     $ work_queue_worker -v
     $ work_queue_status
 
+3.3. Getting Makeflow-Examples
+==============================
+
+
 3. Makeflow Example
 ===================
 
@@ -108,7 +128,7 @@ Download this program, which performs a highly sophisticated simulation of black
 
 .. code-block:: bash
 
-    $ wget http://ccl.cse.nd.edu/software/tutorials/ndtut16/simulation.py
+    $ wget http://ccl.cse.nd.edu/software/tutorials/cyversecc18/simulation.py
 
 Try running it once, just to see what it does:
 
