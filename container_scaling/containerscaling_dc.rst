@@ -353,15 +353,13 @@ Singularity:
 
 We have three additional examples that will work with the above provided container.
 
-- BLAST_
+- `5.1. BLAST in a Container`_
 
 - BWA_
 
 - Text-Analysis_
 
 Each of these examples may have a small amount of setup to pull/compile the software needed. 
-
-.. _BLAST:
 
 5.1. BLAST in a Container
 =========================
