@@ -20,7 +20,9 @@ The CCL designs software that enables our collaborators to easily harness large 
 
 The software suite we write and maintain is the CCTools software package.
 
-- **`Makeflow<http://ccl.cse.nd.edu/software/makeflow/>`_**. A portable workflow manager.
+- **Makeflow_**. A portable workflow manager.
+
+.. _Makeflow: http://ccl.cse.nd.edu/software/makeflow/
 
 - **`Work Queue**. A lightweight distributed execution system.
 
