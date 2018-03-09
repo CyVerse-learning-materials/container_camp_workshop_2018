@@ -355,9 +355,9 @@ We have three additional examples that will work with the above provided contain
 
 - `5.1. BLAST in a Container`_
 
-- BWA_
+- `5.2. BWA in a Container`_
 
-- Text-Analysis_
+- `5.3. Text Analysis in a Container`_
 
 Each of these examples may have a small amount of setup to pull/compile the software needed. 
 
@@ -413,23 +413,69 @@ Singularity:
     $ makeflow blast_test.mf --singularity=./ccl_makeflow_examples.img 
  
 
-
-.. _BWA:
-
-5.1. BWA in a Container
+5.2. BWA in a Container
 =======================
+
+BWA is similar to BLAST in that it is a bioinformatics tool that aligns a query dataset 
+with a reference dataset. BWA does not operate on highly structured reference data like
+BLAST, but uses a fasta or fastq data file for both the query and reference.
 
 .. code-block:: bash 
 
     $ cd $HOME/makeflow-examples
     $ cd bwa
 
+We will download and compile the software:
 
+.. code-block:: bash
 
-.. _Text-Analysis
+    $ git clone https://github.com/lh3/bwa bwa-src
+    $ cd bwa-src
+    $ make
+    $ cp bwa ..
+    $ cd ..
+
+Create the data we will use for the analysis:
+
+.. code-block:: bash
+
+    $ ./fastq_generate.pl 10000 1000 > ref.fastq
+    $ ./fastq_generate.pl 1000 100 ref.fastq > query.fastq
+
+The first line creates the reference dataset and the second will create a query dataset based on a portion
+of the provided reference dataset. This allows us to guarantee there will be some overlap and data analysis at
+each step for this example.
+
+Now we will create the makeflow based on the input dataset:
+
+.. code-block:: bash
+
+    $ ./make_bwa_workflow --ref ref.fastq --query query.fastq --num_seq 100 > bwa.mf
+
+Again assuming that the docker and singularity images have been pulled down, run the makeflow:
+
+Docker: 
+
+.. code-block:: bash
+
+    $ makeflow bwa.mf --docker=mfe --docker-tar=mfe.tar
+ 
+Singularity:
+
+.. code-block:: bash
+
+    $ makeflow bwa.mf --singularity=./ccl_makeflow_examples.img 
+
 
 5.3. Text Analysis in a Container
 =================================
+
+The test analysis example that we are providing is a simple makelfow that analyzes a set
+of Shakespeare's plays. This workflow gives an example of using Makeflow to parallelize 
+a text search through a collection of William Shakespeare's plays. 
+Makeflow will download the plays, package up the version of Perl at the location Makeflow is running, 
+and run a text analysis Perl script in parallel to figure out which character had the most dialogue 
+out of the plays selected. 
 
 .. code-block:: bash 
 
@@ -437,4 +483,17 @@ Singularity:
     $ cd shakespeare
 
 
+This workflow relys on Perl and CCTools being installed, so there is no further setup needed.
+
+Docker:
+
+.. code-block:: bash
+
+    $ makeflow shakespeare.makeflow --docker=mfe --docker-tar=mfe.tar
+ 
+Singularity:
+
+.. code-block:: bash
+
+    $ makeflow shakespeare.makeflow --singularity=./ccl_makeflow_examples.img 
 
