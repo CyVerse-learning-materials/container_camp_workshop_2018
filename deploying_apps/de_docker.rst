@@ -3,8 +3,18 @@
 
 The CyVerse Discovery Environment (DE) provides a simple yet powerful web portal for managing data, analyses, and workflows. The DE uses containers (via Docker and Singularity through Agave) to support customizable, non-interactive, reproducible workflows using data stored in the CyVerse Data Store, based on iRODS. Agave is a "Science-as-a-Service" API platform for high-performance computing (HPC), high-throughput computing (HTC) and big-data resources.
 
-Deploying Docker containers as apps in DE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Deploying Docker images as apps in DE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instruction guide: This paper will guide you to bring your dockerized tools into CyVerse DE. 
+
+https://f1000research.com/articles/5-1442/v3
+
+|f1000|
+
+.. Note::
+
+	Significant changes have been made as to how you can bring your tools into DE and so we are working on a separate paper that will show all those changes. Meanwhile you can follow the below tutorial for integrating your tools.
 
 Here are the basic steps for deploying Docker images as apps in DE. For this tutorial I am going to show an example of Tensor image classifier docker image that I dockerized and pushed to dockerhub.
 
@@ -24,21 +34,32 @@ Here are the basic steps for deploying Docker images as apps in DE. For this tut
 
 .. _Build and test your Docker images:
 
-1. Build and test your Docker images
+**1. Build and test your Docker images**
 
-The first step is to dockerize your tool or software of interest. Detailed steps of how to dockerize your tool and test your dockerized images can be found in sections `intro to docker <../docker/dockerintro.html>`_ and `advanced docker <../docker/dockeradvanced.html>. 
+The first step is to dockerize your tool or software of interest. Detailed steps of how to dockerize your tool and test your dockerized images can be found in sections `intro to docker <../docker/dockerintro.html>`_ and `advanced docker <../docker/dockeradvanced.html>`_. 
+
+For this tutorial I will use the ``tensorflow image classifier`` docker image that I built using this `code <https://github.com/upendrak/tensorflow_image_classifier>`_
+
+Testing 
+
+.. code-block:: bash
+
+	docker run -v $(pwd):/data -w /data tensorflow_up:1.0 sample_data/cat.png
+
 
 .. _Push your Docker image to public repositories:
 
-1. Push your Docker image to public repositories
+**2. Push your Docker image to public repositories**
 
 Once the Docker image works then you can push those images to some public repository such as `dockerhub <http://hub.docker.com>`_ or `quay.io <http://quay.io>`_
 
 .. _Add Docker images as tool in DE:
 
-2. Add Docker images as tool in DE
+Here is the docker image for the tensorflow image classifier on docker hub - https://hub.docker.com/r/upendradevisetty/tensorflow_image_classifier/
 
-All tools now run inside a Docker containers and are installed as Docker images in the DE. Once the software is dockerized and available as Docker images on dockerhub then you can add those docker images as a tool in DE.
+**3. Add Docker images as tool in DE**
+
+All tools now run installed as Docker images in the DE. Once the software is dockerized and available as Docker images on dockerhub then you can add those docker images as a tool in DE.
 
 .. warning::
 
@@ -50,7 +71,7 @@ All tools now run inside a Docker containers and are installed as Docker images 
 	- In the search tools field, enter the first few letters of the tool name and then click enter.
 	- If the tool is available then you can skip to skip to step 3 for creating a UI for that tool.
 
-If the tool is not available in DE then you do the following:
+If the tool is not available in DE then do the following:
 
 - Click open the ``Tools`` tab in ``Manage Tools`` window and then click ``Add tools`` button
 
@@ -70,7 +91,7 @@ If the tool is not available in DE then you do the following:
 
 .. _Create a UI for the tool in DE:
 
-3. Create a UI for the tool in DE
+**4. Create a UI for the tool in DE**
 
 Once the Dockerized tool is added, you can create the app UI for the tool. The ``Create App`` window consists of four distinct sections:
 
@@ -91,12 +112,16 @@ Here is an example of the ``Tensorflow image classifier - 1.0`` app UI in DE
 
 .. _Test the app using appropriate test data:
 
-4. Test the app using appropriate test data
+**5. Test the app using appropriate test data**
 
 After creating the new app according to your design, test your app in the your Apps under development folder in the DE using appropriate test data to make sure it works properly.
 
 - If your app works the way you expect it to you can share your app or make the app public
 - If your app doesn't work, then you may need to make changes to the app UI or you need to make changes to your Docker image. If you make changes to the Docker image, then you don't need to create a new app UI again as the Docker image updates will be propagated automatically.
+
+.. |f1000| image:: ../img/f1000.png
+  :width: 750
+  :height: 700
 
 .. |img_building_1| image:: ../img/img_building_1.png
   :width: 750
