@@ -31,11 +31,11 @@ Users can request a container by opening an issue in the `containers repository 
 
 |biocontainer-3|
 
-The issue should contains the name of the software, the url of the code or binary to be package and information about the software. When the containers is deploy and fully functional, the issue will be close by the developer or the contributor to BioContainers.
+The issue should contains the name of the software, the url of the code or binary to be package and information about the software. When the containers is deployed and fully functional, the issue will be closed by the developer or the contributor to BioContainers.
 
 1.1.1 - Use a BioContainer
 
-When a container is deploy and the developer close the issue in GitHub the user received a notification that the container is ready. 
+When a container is deployed and the developer closes the issue in GitHub the user received a notification that the container is ready. 
 
 |biocontainer-4|
 
@@ -54,7 +54,7 @@ The user can then use `docker pull` or `docker run` for the corresponding contai
 
 1.2 - Create a Dockerfile for Biocontainer
 
-If you are familiar with Docker (which you are by now!), then instead of requesting a biocontainer, you can create a Dockerfile and then submit for biocontainer
+If you are familiar with Docker (which you are by now!), then instead of requesting a biocontainer, you can create a Dockerfile and then submit the Dockerfile for biocontainer
 
 - BioContainers dockerfile template
 
