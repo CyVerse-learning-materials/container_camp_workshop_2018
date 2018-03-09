@@ -7,6 +7,7 @@
 'ssh' will be used to connect to a remote job submit host. Please ensure you have a ssh client installed. The instructors will supply a slip of paper with username, password and hostname during the session.
 
 This tutorial will also be linked to from our tutorial webpage: http://ccl.cse.nd.edu/software/tutorials/cyversecc18/
+
 Our website is located at: http://ccl.cse.nd.edu/
 
 You can get the slides from this talk there as well as additional material for our tools.
@@ -106,11 +107,13 @@ Once you are logged back in, we are going to pull the docker image we will use t
     $ singularity pull docker://nekelluna/ccl_makeflow_examples
 
 
+Note: If you would like to test this out with Work Queue on another machine, now is a great time
+to launch and do these setup steps on each machine. ``Hint hint`` you should do this.
+
 3.2. Download and Installation
 ==============================
 
 If you have access to the Notre Dame Center for Research Computing, first log into the CRC head node ``crcfe01.crc.nd.edu`` by using ``ssh``, PuTTY, or a similar tool. If you do not have access, please build the code on your own machine. Once you have a shell, download and install the CCTools software in your home directory in one of two ways:
-<p>
 
 To build our latest release:
 
