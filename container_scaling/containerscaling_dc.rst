@@ -113,7 +113,7 @@ to launch and do these setup steps on each machine. ``Hint hint`` you should do 
 3.2. Download and Installation
 ==============================
 
-If you have access to the Notre Dame Center for Research Computing, first log into the CRC head node ``crcfe01.crc.nd.edu`` by using ``ssh``, PuTTY, or a similar tool. If you do not have access, please build the code on your own machine. Once you have a shell, download and install the CCTools software in your home directory in one of two ways:
+Once you have a shell, download and install the CCTools software in your home directory in one of two ways:
 
 To build our latest release:
 
