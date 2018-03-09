@@ -330,7 +330,8 @@ To test with Singularity
 
 .. code-block:: bash
 
-    $ python hello_world_creator.py --singularity $HOME/ccl_makeflow_examples.simg
+    $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
+    $ python hello_world_creator.py --singularity ccl_makeflow_examples.simg
 
 After running these, look at ``hello_world.mf`` and see how the above run has been
 wrapped by the container command. Now we are just going to run this locally:
@@ -363,7 +364,7 @@ Singularity:
 .. code-block:: bash
 
     $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
-    $ makeflow hello_world.mf --singularity=$HOME/ccl_makeflow_examples.simg 
+    $ makeflow hello_world.mf --singularity=ccl_makeflow_examples.simg 
  
 
 We have three additional examples that will work with the above provided container.
@@ -427,7 +428,7 @@ Singularity:
 .. code-block:: bash
 
     $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
-    $ makeflow blast_test.mf --singularity=$HOME/ccl_makeflow_examples.simg 
+    $ makeflow blast_test.mf --singularity=ccl_makeflow_examples.simg 
  
 
 5.2. BWA in a Container
@@ -483,7 +484,7 @@ Singularity:
 .. code-block:: bash
 
     $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
-    $ makeflow bwa.mf --singularity=$HOME/ccl_makeflow_examples.simg 
+    $ makeflow bwa.mf --singularity=ccl_makeflow_examples.simg 
 
 
 5.3. Text Analysis in a Container
@@ -516,5 +517,5 @@ Singularity:
 .. code-block:: bash
 
     $ ln -s $HOME/ccl_makeflow_examples.simg ccl_makeflow_examples.simg
-    $ makeflow shakespeare.makeflow --singularity=$HOME/ccl_makeflow_examples.simg 
+    $ makeflow shakespeare.makeflow --singularity=ccl_makeflow_examples.simg 
 
