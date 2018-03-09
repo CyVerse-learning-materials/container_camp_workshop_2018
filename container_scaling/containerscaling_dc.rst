@@ -314,7 +314,7 @@ To test with Docker:
 
 .. code-block:: bash
 
-    $ python hello_world_creator.py --docker mfe.tar
+    $ python hello_world_creator.py --docker nekelluna/ccl_makeflow_examples
 
 
 .. _singularity:
