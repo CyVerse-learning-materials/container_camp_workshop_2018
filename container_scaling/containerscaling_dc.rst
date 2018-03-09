@@ -6,6 +6,11 @@
 
 'ssh' will be used to connect to a remote job submit host. Please ensure you have a ssh client installed. The instructors will supply a slip of paper with username, password and hostname during the session.
 
+This tutorial will also be linked to from our tutorial webpage: http://ccl.cse.nd.edu/software/tutorials/cyversecc18/
+Our website is located at: http://ccl.cse.nd.edu/
+
+You can get the slides from this talk there as well as additional material for our tools.
+
 2. Cooperative Computing Lab
 ============================
 
@@ -322,7 +327,7 @@ To test with Singularity
 
 .. code-block:: bash
 
-    $ python hello_world_creator.py --singularity $HOME/ccl_makeflow_examples.img
+    $ python hello_world_creator.py --singularity $HOME/ccl_makeflow_examples.simg
 
 After running these, look at ``hello_world.mf`` and see how the above run has been
 wrapped by the container command. Now we are just going to run this locally:
@@ -353,7 +358,7 @@ Singularity:
 
 .. code-block:: bash
 
-    $ makeflow hello_world.mf --singularity=$HOME/ccl_makeflow_examples.img 
+    $ makeflow hello_world.mf --singularity=$HOME/ccl_makeflow_examples.simg 
  
 
 We have three additional examples that will work with the above provided container.
@@ -415,7 +420,7 @@ Singularity:
 
 .. code-block:: bash
 
-    $ makeflow blast_test.mf --singularity=$HOME/ccl_makeflow_examples.img 
+    $ makeflow blast_test.mf --singularity=$HOME/ccl_makeflow_examples.simg 
  
 
 5.2. BWA in a Container
@@ -469,7 +474,7 @@ Singularity:
 
 .. code-block:: bash
 
-    $ makeflow bwa.mf --singularity=$HOME/ccl_makeflow_examples.img 
+    $ makeflow bwa.mf --singularity=$HOME/ccl_makeflow_examples.simg 
 
 
 5.3. Text Analysis in a Container
@@ -500,5 +505,5 @@ Singularity:
 
 .. code-block:: bash
 
-    $ makeflow shakespeare.makeflow --singularity=$HOME/ccl_makeflow_examples.img 
+    $ makeflow shakespeare.makeflow --singularity=$HOME/ccl_makeflow_examples.simg 
 
