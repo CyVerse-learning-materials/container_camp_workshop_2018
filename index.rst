@@ -41,6 +41,12 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
+   :caption: Deploying
+
+   deploying_apps/de_docker
+
+.. toctree::
+   :maxdepth: 1
    :caption: Container Scaling
 
    container_scaling/containerscaling_osg
