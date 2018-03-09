@@ -133,7 +133,8 @@ We will use this for notetaking - https://goo.gl/6Bd9tX
     * - 
       - 1:15-2:30
       - Biocontainers (Upendra Devisetty & John Fonner)
-      - `Biocontainers <../biocontainer/biocontainers.html>`_
+      - - `Bicontainers slides <https://drive.google.com/file/d/1p3OOlwRIXXo6tlPmK2edRYuVSSE9CPOB/view?usp=sharing>`_
+        - `Biocontainers handson <../biocontainer/biocontainers.html>`_
     * - 
       - 2:30-3:00
       - Coffee + snack break with networking
