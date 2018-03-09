@@ -61,6 +61,8 @@ To start out we are going to launch an instance:
 We are going to be using an Ubuntu instance with Docker already installed:
 `Ubuntu 16.04 Devel and Docker v.1.13 <https://use.jetstream-cloud.org/application/images/107>`_
 
+Please note you should use images of at least **Medium** size.
+
 Once the instance is up, we are going to add a few packages to allow for easy installation.
 Most of these packages are already installed on batch submission sites, but possibly not in all
 Jetstream instances.
