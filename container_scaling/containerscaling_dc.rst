@@ -23,6 +23,7 @@ The software suite we write and maintain is the CCTools software package.
 - **Makeflow_**. A portable workflow manager.
 
 .. _Makeflow: http://ccl.cse.nd.edu/software/makeflow/
+__ Makeflow_
 
 - **`Work Queue**. A lightweight distributed execution system.
 
