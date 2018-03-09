@@ -75,12 +75,21 @@ Additionally, we are going to add our current user to the docker group:
 
     $ sudo usermod -aG docker ${USER}
 
+We are also going to install 
+Singularity if you have not done so yet. This should be done using the
+provided ansible script:
+
+.. code-block:: bash
+
+    $ ezs
+
 After adding this log out and back in. 
 
 Once you are logged back in, we are going to pull the docker image we will use today:
 
 .. code-block:: bash
 
+    $ docker pull docker://nekelluna/ccl_makeflow_examples
     $ singularity pull docker://nekelluna/ccl_makeflow_examples
 
 
@@ -245,19 +254,104 @@ so try the same thing again, but using a project name:
 .. code-block:: bash
 
     $ makeflow -c example.makeflow
-    $ makeflow -T wq example.makeflow **-N project-$USER**
+    $ makeflow -T wq example.makeflow -N project-$USER
     listening for workers on port XXXX
     ...
 
 Now open up another shell and run your worker with a project name:
+
 .. code-block:: bash
 
-    $ work_queue_worker **-N project-$USER**
+    $ work_queue_worker -N project-$USER
 
 5. Using Containers with Makeflow
 =================================
 
-We have three different examples that we work with the above provided container.
+We are going to start using Containers in the Makeflow by showing the different configurations
+that we talked about in the slides. There is a simple, 1 rule, makeflow that we will use to show
+these:
+
+.. code-block:: make
+
+    hello.out:
+        echo "hello, world!" > hello.out
+
+The first configuration we discussed would be to run both the Makeflow and the Worker inside
+of container to allow for a consistent environment. 
+
+We will not do this here, as that is extremely similar to running in Atmosphere/Jetstream to begin with.
+This is great way to test out different software configurations when determining what is needed for a workflow
+and how different software will interact.
+
+The second configuration is to run each task inside of separate containers. This configuration is useful
+for specializing the configuration each task uses and not assuming the execution site has any software
+requirements aside from docker or singularity.
+
+Assuming we are wrapping each task in a container, there are two ways to do this in Makeflow. The first is
+to manually add the container to your command. This allows for precise control of how the task is executed
+and in which container this occurs. We will show this now:
+
+We are going to look at what the hello-containers folder:
+
+.. code-block:: bash 
+
+    $ cd $HOME/makeflow-examples
+    $ cd hello-containers
+
+Inside of the ``hello-containers`` folder, there is a python script, ``hello_world_creator.py``, 
+that will create a simple hello world example which uses a container:
+
+.. _docker_setup:
+To test with Docker:
+
+.. code-block:: bash
+
+    $ docker pull nekelluna/ccl_makeflow_examples
+    $ docker save -o mfe.tar nekelluna/ccl_makeflow_examples
+    $ python hello_world_creator.py --docker mfe.tar
+
+
+.. _singularity_setup:
+To test with Singularity
+
+.. code-block:: bash
+
+    $ singularity pull docker://nekelluna/ccl_makeflow_examples
+    $ python hello_world_creator.py --singularity ./ccl_makeflow_examples.img
+
+After running these, look at ``hello_world.mf`` and see how the above run has been
+wrapped by the container command. Now we are just going to run this locally:
+
+.. code-block:: bash
+
+    $ makeflow hello_world.mf -T local
+
+Now, instead of wrapping each task by hand, we are going to assume that each task will use
+the same container. For this we will use Makeflow's built in support for containers. 
+We will assume that the above steps for either docker or singularity have been done:
+
+.. code-block:: bash 
+
+    $ cd $HOME/makeflow-examples
+    $ cd hello-world
+
+We are going to start from the existing ``hello-world`` example. To run Makeflow with
+either docker or singularity we specify the container in the arguments:
+
+Docker: 
+
+.. code-block:: bash
+
+    $ makeflow hello_world.mf --docker=mfe --docker-tar=mfe.tar
+ 
+Singularity:
+
+.. code-block:: bash
+
+    $ makeflow hello_world.mf --singularity=./ccl_makeflow_examples.img 
+ 
+
+We have three additional examples that will work with the above provided container.
 
 - BLAST_
 
@@ -267,21 +361,86 @@ We have three different examples that we work with the above provided container.
 
 __ shakespeare_
 
+Each of these examples may have a small amount of setup to pull/compile the software needed. 
 
 .. _BLAST:
 
 5.1. BLAST in a Container
 =========================
 
+BLAST is a common bioinformatic application used for determining alignment of a query dataset with
+a known reference set. BLAST compares each line independently of each other, allowing for clear 
+parallelism opportunities.
+
+.. code-block:: bash 
+
+    $ cd $HOME/makeflow-examples
+    $ cd blast
+
+We use an older BLAST executable for this example, as this creation script has not been changed. These commands
+pull down the executable and a reference database.
+
+.. code-block:: bash
+
+    $ wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/legacy.NOTSUPPORTED/2.2.26/blast-2.2.26-x64-linux.tar.gz
+    $ tar xvzf blast-2.2.26-x64-linux.tar.gz
+    $ cp blast-2.2.26/bin/blastall .
+    $ wget ftp://ftp.ncbi.nlm.nih.gov/blast/db/nt.44.tar.gz
+    $ mkdir nt
+    $ tar -C nt -xvzf nt.44.tar.gz
+
+We are now going to generate a random data set to align with the reference:
+
+.. code-block:: bash
+
+    $ ./fasta_generator 200 1000 > test.fasta
+
+Based on the generated data, we will now write a makeflow:
+
+.. code-block:: bash
+
+    $ ./makeflow_blast -d nt -i test.fasta -p blastn --num_seq 5 --makeflow blast_test.mf
+
+Assuming you have already pulled the images needed for either singularity__ 
+__ singularity_setup_ 
+or docker__ we will run them similarly to how it was done above:
+__ docker_setup_
+
+Docker: 
+
+.. code-block:: bash
+
+    $ makeflow blast_test.mf --docker=mfe --docker-tar=mfe.tar
+ 
+Singularity:
+
+.. code-block:: bash
+
+    $ makeflow blast_test.mf --singularity=./ccl_makeflow_examples.img 
+ 
+
+
 .. _BWA:
 
 5.1. BWA in a Container
 =======================
+
+.. code-block:: bash 
+
+    $ cd $HOME/makeflow-examples
+    $ cd bwa
+
 
 
 .. _shakespeare:
 
 5.3. Text Analysis in a Container
 =================================
+
+.. code-block:: bash 
+
+    $ cd $HOME/makeflow-examples
+    $ cd shakespeare
+
 
 
