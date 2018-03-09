@@ -20,18 +20,15 @@ The CCL designs software that enables our collaborators to easily harness large 
 
 The software suite we write and maintain is the CCTools software package.
 
-- **Makeflow_**. A portable workflow manager.
+- **`Makeflow <http://ccl.cse.nd.edu/software/makeflow/>`_**. A portable workflow manager.
 
-.. _Makeflow: http://ccl.cse.nd.edu/software/makeflow/
-__ Makeflow_
+- **Work Queue**. A lightweight distributed execution system.
 
-- **`Work Queue**. A lightweight distributed execution system.
+- **Parrot**. A personal user-level virtual file system.
 
-- **`Parrot**. A personal user-level virtual file system.
+- **Chirp**. A user-level distributed filesystem.
 
-- **`Chirp**. A user-level distributed filesystem.
-
-- **`Specialized Software**. A selection of applications tailored to specific compuation tasks.
+- **Specialized Software**. A selection of applications tailored to specific compuation tasks.
 
 2. Makeflow
 ===========
