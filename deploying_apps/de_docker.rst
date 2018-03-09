@@ -44,7 +44,7 @@ Testing
 
 .. code-block:: bash
 
-	docker run -v $(pwd):/data -w /data tensorflow_up:1.0 sample_data/cat.png
+	docker run -v $(pwd):/data -w /data tensorflow_up:1.0 sample_data/16401288243_36112bd52f_m.jpg
 
 
 .. _Push your Docker image to public repositories:
