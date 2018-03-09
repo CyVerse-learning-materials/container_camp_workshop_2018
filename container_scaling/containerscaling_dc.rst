@@ -4,14 +4,7 @@
 1. Prerequisites
 ================
 
-ssh will be used to connect to a remote job submit host. Please ensure you have a ssh client installed. The instructors will supply a slip of paper with username, password and hostname during the session.
-
-2. What are Scientific Workflows?
-=================================
-
-Scientific workflows allow users to easily express multi-step computational tasks, for example retrieve data from an instrument or a database, reformat the data, and run an analysis. A scientific workflow describes the dependencies between the tasks and in most cases the workflow is described as a directed acyclic graph (DAG), where the nodes are tasks and the edges denote the task dependencies. A defining property for a scientific workflow is that it manages data flow. The tasks in a scientific workflow can be everything  from short serial tasks to very large parallel tasks (MPI for example) surrounded by a large number of small, serial tasks used for pre- and post-processing.
-
-|makeflow_dag|
+'ssh' will be used to connect to a remote job submit host. Please ensure you have a ssh client installed. The instructors will supply a slip of paper with username, password and hostname during the session.
 
 2. Cooperative Computing Lab
 ============================
@@ -20,13 +13,13 @@ The CCL designs software that enables our collaborators to easily harness large 
 
 The software suite we write and maintain is the CCTools software package.
 
-- **`Makeflow <http://ccl.cse.nd.edu/software/makeflow/>`_**. A portable workflow manager.
+- **Makeflow**. A portable workflow manager. `Link <http://ccl.cse.nd.edu/software/makeflow/>`_
 
-- **Work Queue**. A lightweight distributed execution system.
+- **Work Queue**. A lightweight distributed execution system. `Link <http://ccl.cse.nd.edu/software/workqueue/>`_
 
-- **Parrot**. A personal user-level virtual file system.
+- **Parrot**. A personal user-level virtual file system. `Link <http://ccl.cse.nd.edu/software/parrot/>`_
 
-- **Chirp**. A user-level distributed filesystem.
+- **Chirp**. A user-level distributed filesystem. `Link <http://ccl.cse.nd.edu/software/chirp/>`_
 
 - **Specialized Software**. A selection of applications tailored to specific compuation tasks.
 
@@ -56,23 +49,45 @@ Work Queue has been used to write applications that scale from a handful of work
 This tutorial goes through the installation process of CCTools, 
 the creation and running of a Makeflow, and 
 how to use Makeflow in conjunction with Work Queue to leverage different execution resources for your execution. 
-More information can be found a `http://ccl.cse.nd.edu/<http://ccl.cse.nd.edu/>`_. For specific information on 
-Makeflow execution see `http://ccl.cse.nd.edu/software/manuals/makeflow.html<http://ccl.cse.nd.edu/software/manuals/makeflow.html>`_ and 
-Work Queue see `http://ccl.cse.nd.edu/software/manuals/workqueue.html<http://ccl.cse.nd.edu/software/manuals/workqueue.html>`_.
+More information can be found a `http://ccl.cse.nd.edu/ <http://ccl.cse.nd.edu/>`_. For specific information on 
+Makeflow execution see `http://ccl.cse.nd.edu/software/manuals/makeflow.html <http://ccl.cse.nd.edu/software/manuals/makeflow.html>`_ and 
+Work Queue see `http://ccl.cse.nd.edu/software/manuals/workqueue.html <http://ccl.cse.nd.edu/software/manuals/workqueue.html>`_.
 
 3.1. Running on Atmosphere/Jetstream
 ====================================
 
 To start out we are going to launch an instance:
 
+We are going to be using an Ubuntu instance with Docker already installed:
+`Ubuntu 16.04 Devel and Docker v.1.13 <https://use.jetstream-cloud.org/application/images/107>`_
 
+Once the instance is up, we are going to add a few packages to allow for easy installation.
+Most of these packages are already installed on batch submission sites, but possibly not in all
+Jetstream instances.
 
+.. code-block:: bash
+
+    $ sudo apt-get install zlib1g-dev libncurses5-dev
+
+Additionally, we are going to add our current user to the docker group:
+
+.. code-block:: bash
+
+    $ sudo usermod -aG docker ${USER}
+
+After adding this log out and back in. 
+
+Once you are logged back in, we are going to pull the docker image we will use today:
+
+.. code-block:: bash
+
+    $ singularity pull docker://nekelluna/ccl_makeflow_examples
 
 
 3.2. Download and Installation
 ==============================
 
-If you have access to the Notre Dame Center for Research Computing, first log into the CRC head node <tt>crcfe01.crc.nd.edu</tt> by using <tt>ssh</tt>, PuTTY, or a similar tool. If you do not have access, please build the code on your own machine. Once you have a shell, download and install the CCTools software in your home directory in one of two ways:
+If you have access to the Notre Dame Center for Research Computing, first log into the CRC head node ``crcfe01.crc.nd.edu`` by using ``ssh``, PuTTY, or a similar tool. If you do not have access, please build the code on your own machine. Once you have a shell, download and install the CCTools software in your home directory in one of two ways:
 <p>
 
 To build our latest release:
@@ -111,16 +126,36 @@ Now double check that you can run the various commands, like this:
 3.3. Getting Makeflow-Examples
 ==============================
 
+As a good reference point for workflow design and examples we are going to use our
+`Makeflow Examples`__ repository.
 
-3. Makeflow Example
-===================
+.. _Makeflow-Examples: https://github.com/cooperative-computing-lab/makeflow-examples
 
-Let's begin by using Makeflow to run a handful of simulation codes.
-First, make and enter a clean directory to work in:
+__ Makeflow-Examples_
+
+.. code-block:: bash 
+
+    $ git clone https://github.com/cooperative-computing-lab/makeflow-examples.git
+      -- or --
+    $ wget https://github.com/cooperative-computing-lab/makeflow-examples/archive/master.zip
+
+If you used wget to pull down the zip file remember to unzip and enter this directory:
 
 .. code-block:: bash
 
-    $ cd $HOME
+    $ unzip master.zip
+    $ mv master makeflow-examples
+    $ cd makeflow-examples
+
+4.1. Makeflow Example
+=====================
+
+Let's begin by using Makeflow to run a handful of simulation codes.
+First, make and enter a clean directory to work in inside of ``makeflow-examples``:
+
+.. code-block:: bash
+
+    $ cd $HOME/makeflow-examples
     $ mkdir tutorial
     $ cd tutorial
 
@@ -138,7 +173,7 @@ Try running it once, just to see what it does:
     $ ./simulation.py 5
 
 Now, let's use Makeflow to run several simulations.
-Create a file called <tt>example.makeflow</tt> and paste the following
+Create a file called ``example.makeflow`` and paste the following
 text into it:
 
 .. code-block:: text
@@ -185,8 +220,8 @@ Here are some other options for built-in batch systems:
     $ makeflow -T torque example.makeflow
     $ makeflow -T sge example.makeflow
 
-3. Running Makeflow with Work Queue
-===================================
+4.2. Running Makeflow with Work Queue
+=====================================
 
 You will notice that a workflow can run very slowly if you submit each job individually. To get around this limitation, we provide the Work Queue system. This allows Makeflow to function as a master process that quickly dispatches work to remote worker processes. 
 
@@ -194,14 +229,14 @@ You will notice that a workflow can run very slowly if you submit each job indiv
 
     $ makeflow -c example.makeflow
     $ makeflow -T wq example.makeflow -p 0
-    listening for workers on port <font color=white>XXXX</font>.
+    listening for workers on port XXXX.
     ...
 
 Now open up another shell and run a single worker process:
 
 .. code-block:: bash
 
-    $ work_queue_worker crcfe01.crc.nd.edu <font color=white>XXXX</font>
+    $ work_queue_worker crcfe01.crc.nd.edu XXXX
 
 Go back to your first shell and observe that the makeflow has finished.
 Of course, remembering port numbers all the time gets old fast,
@@ -210,15 +245,43 @@ so try the same thing again, but using a project name:
 .. code-block:: bash
 
     $ makeflow -c example.makeflow
-    $ makeflow -T wq example.makeflow <font color=white>-N project-$USER</font>
+    $ makeflow -T wq example.makeflow **-N project-$USER**
     listening for workers on port XXXX
     ...
 
 Now open up another shell and run your worker with a project name:
 .. code-block:: bash
 
-    $ work_queue_worker <font color=white>-N project-$USER</font>
+    $ work_queue_worker **-N project-$USER**
 
-4. Work Queue Exercise
-======================
+5. Using Containers with Makeflow
+=================================
+
+We have three different examples that we work with the above provided container.
+
+- BLAST_
+
+- BWA_
+
+- `Text Analysis`__
+
+__ shakespeare_
+
+
+.. _BLAST:
+
+5.1. BLAST in a Container
+=========================
+
+.. _BWA:
+
+5.1. BWA in a Container
+=======================
+
+
+.. _shakespeare:
+
+5.3. Text Analysis in a Container
+=================================
+
 
