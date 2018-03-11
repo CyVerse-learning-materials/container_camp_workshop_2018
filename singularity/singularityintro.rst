@@ -242,7 +242,9 @@ Build to your container by pulling an image from Docker:
 	Cleaning up...
 	Done. Container is at: ./ubuntu-16.04.simg
 	
-This example does the same as above, but renames the image.	
+Note, there are some Warning messages concerning the build from Docker.
+
+The example below does the same as above, but renames the image.	
 
 .. code-block:: bash
 
@@ -257,7 +259,11 @@ This example does the same as above, but renames the image.
 	Singularity container built: ./ubuntu_docker.simg
 	Cleaning up...
 	Done. Container is at: ./ubuntu_docker.simg
-	
+
+When we run this particular Docker container without any runtime arguments, it does not return any notifications, and the Bash prompt does not change the prompt.
+
+.. code-block:: bash
+
 	$ singularity run ubuntu_docker.simg 
 	$ cat /etc/*release
 	DISTRIB_ID=Ubuntu
@@ -276,7 +282,7 @@ This example does the same as above, but renames the image.
 	VERSION_CODENAME=xenial
 	UBUNTU_CODENAME=xenial
 
-Whoa, we're inside the container!?!
+Whoa, we're inside a container!?!
 
 This is the OS on the VM I tested this on:
 
@@ -325,6 +331,8 @@ Here we are back in the container:
 	VERSION_CODENAME=xenial
 	UBUNTU_CODENAME=xenial
 	Singularity ubuntu_docker.simg:~> 
+
+When invoking a container, make sure it executes and exits, or notifies you it is running. 
 
 Keeping track of downloaded images may be necessary if space is a concern. 
 
