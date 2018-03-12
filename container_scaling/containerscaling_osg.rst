@@ -162,7 +162,7 @@ Check on the job with `condor_q` or `condor_q -nobatch`:
 .. code-block:: bash
 	
 	$ condor_q
-	$ codnor_q -nobatch
+	$ connor_q -nobatch
 
 Once the job is complete, examine the created `job.*.output` file:
 
