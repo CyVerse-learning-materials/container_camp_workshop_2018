@@ -1,7 +1,7 @@
 **Singularity related resources**
 ---------------------------------
 
-`Singularity Homepage <http://singularity.lbl.gov/>`_
+`Singularity Homepage <https://www.sylabs.io/guides/2.6/user-guide/index.html#>`_
 
 `Singularity Hub <https://www.singularity-hub.org/>`_ 
 
