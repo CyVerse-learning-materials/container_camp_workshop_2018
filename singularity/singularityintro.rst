@@ -32,7 +32,7 @@ Singularity uses a 'flow' whereby you can (1) create and modify images on your d
 2. Singularity Installation
 ===========================
 
-Singularity homepage: `http://singularity.lbl.gov/ <http://singularity.lbl.gov/>`_
+Singularity homepage: `https://www.sylabs.io/docs/ <https://www.sylabs.io/docs/>`_
 
 While Singularity is more likely to be used on a remote system, e.g. HPC or cloud, you may want to develop your own containers first on a local machine or dev system. 
 
@@ -42,16 +42,16 @@ Exercise 1 (15-20 mins)
 2.1 Setting up your Laptop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To Install Singularity on your laptop or desktop PC follow the instructions from Singularity: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <http://singularity.lbl.gov/install-windows>`_, `Linux <http://singularity.lbl.gov/install-linux>`_)
+To Install Singularity on your laptop or desktop PC follow the instructions from Singularity: (`Mac <http://singularity.lbl.gov/install-mac>`_, `Windows <https://www.sylabs.io/guides/2.6/user-guide/installation.html#install-on-windows>`_, `Linux <https://www.sylabs.io/guides/2.6/user-guide/installation.html#install-on-linux>`_)
 
-  * running a VM is required on Mac OS X, Singularityware `VagrantBox <https://app.vagrantup.com/singularityware/boxes/singularity-2.4/versions/2.4>`_
+  * running a VM is required on Mac OS X, Singularityware `VagrantBox <https://www.sylabs.io/guides/2.6/user-guide/installation.html#install-on-mac>`_
   
 2.2 HPC
 ~~~~~~~
 
 Load the Singularity module on a HPC
 
-If you are interested in working on HPC, you may need to contact your systems administrator and request they install `Singularity  <http://singularity.lbl.gov/install-request>`_. 
+If you are interested in working on HPC, you may need to contact your systems administrator and request they install `Singularity  <https://www.sylabs.io/guides/2.6/user-guide/installation.html#requesting-an-installation>`_. 
 
 Most HPC systems are running Environment Modules with the simple command `module`. You can check to see what is available:
 
