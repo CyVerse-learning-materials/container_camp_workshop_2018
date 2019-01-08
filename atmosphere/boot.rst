@@ -83,41 +83,41 @@ you can ssh in with your CyVerse username on the IP address of the machine
   It is advisable to delete the machine if you are not planning to use it in future to save valuable resources. However if you want to use it in future, you can suspend it.
 
 .. |atmo-1| image:: ../img/atmo-1.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo_cp0| image:: ../img/atmo_cp0.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo_cp| image:: ../img/atmo_cp.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo_launch0| image:: ../img/atmo_launch0.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo_launch1| image:: ../img/atmo_launch1.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo_launch| image:: ../img/atmo_launch.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo-6| image:: ../img/atmo-6.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo-7| image:: ../img/atmo-7.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo-8| image:: ../img/atmo-8.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |atmo-9| image:: ../img/atmo-9.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400

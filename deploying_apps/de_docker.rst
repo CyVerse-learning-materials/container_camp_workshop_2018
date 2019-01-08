@@ -120,17 +120,17 @@ After creating the new app according to your design, test your app in the your A
 - If your app doesn't work, then you may need to make changes to the app UI or you need to make changes to your Docker image. If you make changes to the Docker image, then you don't need to create a new app UI again as the Docker image updates will be propagated automatically.
 
 .. |f1000| image:: ../img/f1000.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |img_building_1| image:: ../img/img_building_1.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |img_building_4| image:: ../img/img_building_4.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
 
 .. |img_building_3| image:: ../img/img_building_3.png
-  :width: 750
-  :height: 700
+  :width: 700
+  :height: 400
