@@ -116,6 +116,24 @@ Here is an example of the ``Tensorflow image classifier - 1.0`` app UI in DE
 
 After creating the new app according to your design, test your app in the your Apps under development folder in the DE using appropriate test data to make sure it works properly.
 
+For testing, we'll use the the same image that we have used earlier.
+
+|img_building_9|
+
+1. First open the ``Tensorflow image classifier - 1.0`` app in the app window
+
+|img_building_5|
+
+2. Next browse the test file in the app and click launch analysis
+
+|img_building_6|
+
+3. After the analysis is completed, open the folder and check to see if the image classifier correctly predicts
+
+|img_building_8|
+
+Congrats!!! It works. The image classifier correctly predicts that image is a daisy..
+
 - If your app works the way you expect it to you can share your app or make the app public
 - If your app doesn't work, then you may need to make changes to the app UI or you need to make changes to your Docker image. If you make changes to the Docker image, then you don't need to create a new app UI again as the Docker image updates will be propagated automatically.
 
@@ -134,3 +152,19 @@ After creating the new app according to your design, test your app in the your A
 .. |img_building_3| image:: ../img/img_building_3.png
   :width: 700
   :height: 400
+
+.. |img_building_5| image:: ../img/img_building_5.png
+  :width: 700
+  :height: 400
+
+.. |img_building_6| image:: ../img/img_building_6.png
+  :width: 700
+  :height: 400
+
+.. |img_building_8| image:: ../img/img_building_8.png
+  :width: 700
+  :height: 400
+
+.. |img_building_9| image:: ../img/img_building_9.png
+  :width: 300
+  :height: 200
